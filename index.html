@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBEMS NEET-PG CBT Mock Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Global NBEMS Header -->
+  <header class="nbems-global-header">
+    <div class="header-banner">
+      <div class="logo-title-group">
+        <div class="emblem-placeholder">NBEMS</div>
+        <div class="header-titles">
+          <h3>आयुर्विज्ञान में राष्ट्रीय परीक्षा बोर्ड</h3>
+          <h4>National Board of Examinations in Medical Sciences</h4>
+          <p>(An Autonomous Body under Ministry of Health and Family Welfare, Government of India)</p>
+        </div>
+      </div>
+      <div class="header-cert-logos">
+        <span class="cert-badge">ISO 9001:2015</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= VIEW 1: LOGIN SCREEN ================= -->
+  <section id="view-login" class="screen-view">
+    <div class="login-sub-bar">
+      <div class="sys-info">
+        <span class="lbl">System Name :</span>
+        <h2 class="sys-id">C001</h2>
+        <p class="sub-notice">Kindly contact the invigilator if there are any discrepancies in the Name and Photograph displayed on the screen or if the photograph is not yours</p>
+      </div>
+      <div class="cand-id-box">
+        <div>
+          <span class="lbl">Candidate Name :</span>
+          <h3 class="cand-name-yellow">John Smith</h3>
+          <span class="sub-lbl">Subject : <strong>NEET-PG Mock Test</strong></span>
+        </div>
+        <div class="avatar-icon"></div>
+      </div>
+    </div>
+
+    <div class="login-center-wrapper">
+      <div class="login-card">
+        <div class="login-card-header">Login</div>
+        <div class="login-card-body">
+          <div class="input-row">
+            <span class="input-icon user-icon">👤</span>
+            <input type="text" value="11111" readonly>
+            <span class="keyboard-icon">⌨</span>
+          </div>
+          <div class="input-row">
+            <span class="input-icon lock-icon">🔒</span>
+            <input type="password" value="•••••" readonly>
+            <span class="keyboard-icon">⌨</span>
+          </div>
+          <button id="btn-login" class="btn-primary-blue full-w">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 2: GENERAL INSTRUCTIONS ================= -->
+  <section id="view-instructions-1" class="screen-view" style="display: none;">
+    <div class="instruction-header-bar">Instructions</div>
+    <div class="instruction-main-layout">
+      <div class="instruction-body">
+        <h3 class="center-text underline">Please Read the Instructions Carefully</h3>
+        <p class="note-box">
+          <strong>Note:</strong> This demo test is for familiarising applicants with the interface of the NEET-PG Computer-Based Examination.
+        </p>
+        <h4 class="section-heading">General Instructions:</h4>
+        <ol class="inst-list">
+          <li>The total duration of the examination and sections are strictly time-bound.</li>
+          <li>The clock will be set at the server. The countdown timer at the top-right corner will display the remaining time available for the active section.</li>
+          <li>The Question paper is divided into <strong>5 time-bound sections</strong>. Candidates will not be allowed to proceed to the next section or review previous sections until the allotted time finishes.</li>
+          <li>The Question Palette displayed on the right side of the screen shows the status of each question using the following symbols:
+            <ul class="palette-legend-list">
+              <li><span class="legend-shape shape-not-visited">1</span> You have not visited the question yet.</li>
+              <li><span class="legend-shape shape-not-answered">2</span> You have not answered the question.</li>
+              <li><span class="legend-shape shape-answered">3</span> You have answered the question.</li>
+              <li><span class="legend-shape shape-review">4</span> You have NOT answered the question, but have marked the question for review.</li>
+              <li><span class="legend-shape shape-review-ans">5</span> The question is answered and marked for review (will also be evaluated).</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <aside class="right-profile-rail">
+        <div class="avatar-large"></div>
+        <span class="cand-name-rail">John Smith</span>
+      </aside>
+    </div>
+    <div class="bottom-action-rail right-align">
+      <button id="btn-inst-next" class="btn-default">Next &gt;</button>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 3: SUBJECT INSTRUCTIONS & DECLARATION ================= -->
+  <section id="view-instructions-2" class="screen-view" style="display: none;">
+    <div class="instruction-header-bar">Other Important Instructions</div>
+    <div class="instruction-main-layout">
+      <div class="instruction-body">
+        <h3 class="center-text">Subject Specific Instructions</h3>
+        <table class="nbems-spec-table">
+          <tr><td>Name of the Exam</td><td>NEET-PG Mock Examination</td></tr>
+          <tr><td>Total number of questions</td><td id="table-total-q">20</td></tr>
+          <tr><td>Number of time-bound sections</td><td>5</td></tr>
+          <tr><td>Marks awarded for Correct response</td><td>+4</td></tr>
+          <tr><td>Marks deducted for Incorrect response</td><td>-1</td></tr>
+          <tr><td>Marks awarded for Unattempted questions</td><td>0</td></tr>
+        </table>
+
+        <div class="declaration-block">
+          <label class="checkbox-label">
+            <input type="checkbox" id="decl-check">
+            <span>I have read and understood all instructions. I declare that I am appearing in accordance with examination rules.</span>
+          </label>
+        </div>
+      </div>
+      <aside class="right-profile-rail">
+        <div class="avatar-large"></div>
+        <span class="cand-name-rail">John Smith</span>
+      </aside>
+    </div>
+    <div class="bottom-action-rail between-align">
+      <button id="btn-inst-prev" class="btn-default">&lt; Previous</button>
+      <button id="btn-ready-begin" class="btn-primary-blue" disabled>I am ready to begin</button>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 4: MAIN CBT EXAM SCREEN ================= -->
+  <section id="view-exam" class="screen-view" style="display: none;">
+    <!-- Mock link banner -->
+    <div class="exam-sub-top-bar">
+      <span>Static Mock Link for NEET-PG</span>
+      <div class="top-nav-tools">
+        <span>♿ Accessibility</span>
+        <span>🔍 Screen Magnifier</span>
+        <span>ℹ️ Instructions</span>
+      </div>
+    </div>
+
+    <!-- Section navigation and timer strip -->
+    <div class="cbt-section-nav-strip">
+      <div class="sec-nav-left">
+        <span class="nav-arrow">&lt;</span>
+        <div id="cbt-sec-tab-list" class="tab-list"></div>
+        <span class="nav-arrow">&gt;</span>
+      </div>
+      <div class="sec-nav-right">
+        <span class="time-label">Time Left :</span>
+        <strong id="exam-timer" class="time-clock">00:00</strong>
+      </div>
+    </div>
+
+    <!-- Section breadcrumb -->
+    <div class="sec-active-breadcrumb">
+      <span class="nav-arrow">&lt;</span>
+      <button class="active-sec-pill" id="active-sec-tag">Section A ℹ</button>
+      <span class="nav-arrow">&gt;</span>
+    </div>
+
+    <!-- Exam workspace -->
+    <div class="cbt-workspace">
+      <!-- Left: Question Vignette -->
+      <div class="cbt-question-pane watermark-bg">
+        <div class="q-meta-strip">
+          <strong id="q-type-label">Question Type: MCQ</strong>
+          <span class="q-marking">Marks for correct answer: <span class="green-text">4</span> | Negative Marks: <span class="red-text">1</span></span>
+        </div>
+
+        <div class="q-content-box">
+          <h4 id="q-number-title" class="q-num-title">Question No. 1</h4>
+          <p id="q-statement" class="q-statement"></p>
+          <div id="q-image-container" class="q-image-container"></div>
+          <div id="q-options-container" class="q-options-list"></div>
+        </div>
+      </div>
+
+      <!-- Right: Candidate Rail & Palette -->
+      <aside class="cbt-side-palette">
+        <div class="palette-user-header">
+          <div class="avatar-sm"></div>
+          <strong class="user-name">John Smith</strong>
+        </div>
+
+        <div class="legend-compact-table">
+          <div class="leg-row">
+            <div class="leg-cell"><span class="shape-answered count-badge" id="count-ans">0</span> Answered</div>
+            <div class="leg-cell"><span class="shape-not-answered count-badge" id="count-notans">0</span> Not Answered</div>
+          </div>
+          <div class="leg-row">
+            <div class="leg-cell"><span class="shape-not-visited count-badge" id="count-notvis">0</span> Not Visited</div>
+            <div class="leg-cell"><span class="shape-review count-badge" id="count-rev">0</span> Marked for Review</div>
+          </div>
+          <div class="leg-row full">
+            <div class="leg-cell"><span class="shape-review-ans count-badge" id="count-revans">0</span> Answered & Marked for Review (evaluated)</div>
+          </div>
+        </div>
+
+        <div class="palette-sec-title" id="pal-sec-name">Section A</div>
+        <div class="palette-grid-container">
+          <div class="choose-q-label">Choose a Question</div>
+          <div class="cbt-palette-grid" id="palette-button-grid"></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bottom Actions Toolbar -->
+    <footer class="cbt-bottom-bar">
+      <div class="bar-left">
+        <button id="btn-mark-review" class="btn-cbt-default">Mark for Review & Next</button>
+        <button id="btn-clear-response" class="btn-cbt-default">Clear Response</button>
+      </div>
+      <div class="bar-right">
+        <button id="btn-prev-q" class="btn-cbt-default" style="display:none;">Previous</button>
+        <button id="btn-save-next" class="btn-cbt-blue">Save & Next</button>
+        <button id="btn-submit-exam" class="btn-cbt-submit">Submit</button>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= VIEW 5: SECTION SUMMARY TABLE ================= -->
+  <section id="view-summary" class="screen-view" style="display: none;">
+    <div class="summary-top-header">Exam Summary</div>
+    <div class="summary-content" id="summary-tables-host"></div>
+    <div class="bottom-action-rail center-align">
+      <button id="btn-summary-next" class="btn-default">Next</button>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 6: EXIT CONFIRMATION ================= -->
+  <section id="view-exit" class="screen-view" style="display: none;">
+    <div class="exit-modal-card">
+      <h3>Dear Candidate, You have now successfully completed the Exam.</h3>
+      <p>Please click on the below button to exit and view score analytics.</p>
+      <button id="btn-exit-exam" class="btn-primary-blue">Exit Exam</button>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 7: PERFORMANCE SCORECARD ================= -->
+  <section id="view-analytics" class="screen-view" style="display: none;">
+    <div class="analytics-container">
+      <h2>NEET PG Mock Result & Performance Analysis</h2>
+      <div class="score-summary-grid">
+        <div class="score-metric-card">
+          <span class="metric-val" id="res-total-score">0 / 720</span>
+          <span class="metric-lbl">Total Score</span>
+        </div>
+        <div class="score-metric-card">
+          <span class="metric-val" id="res-accuracy">0%</span>
+          <span class="metric-lbl">Accuracy</span>
+        </div>
+        <div class="score-metric-card">
+          <span class="metric-val" id="res-correct">0</span>
+          <span class="metric-lbl">Correct (+4)</span>
+        </div>
+        <div class="score-metric-card">
+          <span class="metric-val" id="res-wrong">0</span>
+          <span class="metric-lbl">Incorrect (-1)</span>
+        </div>
+        <div class="score-metric-card">
+          <span class="metric-val" id="res-unattempted">0</span>
+          <span class="metric-lbl">Unattempted</span>
+        </div>
+      </div>
+      <div id="analytics-question-review"></div>
+    </div>
+  </section>
+
+  <footer class="nbems-global-footer">Version : 17.07.00</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
