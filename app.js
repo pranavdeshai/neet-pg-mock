@@ -317,19 +317,50 @@ function renderAnalytics() {
       }
 
       const statusClass = !hasAns ? 'unattempted' : isCorrect ? 'correct' : 'wrong';
-      const userChoiceText = hasAns 
-        ? `${String.fromCharCode(65 + resp.selectedOption)}. ${q.options[resp.selectedOption]}` 
-        : 'Unattempted';
-      const correctChoiceText = `${String.fromCharCode(65 + q.correctAnswer)}. ${q.options[q.correctAnswer]}`;
+      const statusLabel = !hasAns ? '<span class="status-tag tag-skipped">Unattempted (0 Marks)</span>' 
+                        : isCorrect ? '<span class="status-tag tag-correct">+4 Marks</span>' 
+                        : '<span class="status-tag tag-wrong">-1 Mark</span>';
+
+      // Build options list with highlights
+      let optionsHtml = '<div class="review-options-list">';
+      q.options.forEach((optText, optIdx) => {
+        const isOptCorrect = optIdx === q.correctAnswer;
+        const isUserChoice = hasAns && resp.selectedOption === optIdx;
+
+        let optClass = 'review-opt';
+        let tagsHtml = '';
+
+        if (isOptCorrect && isUserChoice) {
+          optClass += ' opt-correct';
+          tagsHtml = '<span class="opt-badge badge-tag-user-correct">✓ Your Choice & Correct</span>';
+        } else if (isOptCorrect) {
+          optClass += ' opt-correct';
+          tagsHtml = '<span class="opt-badge badge-tag-correct">✓ Correct Answer</span>';
+        } else if (isUserChoice) {
+          optClass += ' opt-wrong-user';
+          tagsHtml = '<span class="opt-badge badge-tag-user-wrong">✗ Your Choice</span>';
+        }
+
+        optionsHtml += `
+          <div class="${optClass}">
+            <span><strong>${String.fromCharCode(65 + optIdx)}.</strong> ${optText}</span>
+            <div class="opt-tags">${tagsHtml}</div>
+          </div>
+        `;
+      });
+      optionsHtml += '</div>';
+
+      // Clinical image if present
+      const imgHtml = q.image ? `<div class="review-img-box"><img src="${q.image}" alt="Vignette Image"></div>` : '';
 
       reviewHost.innerHTML += `
         <div class="review-item ${statusClass}">
-          <strong>${q.question}</strong>
-          <div style="margin: 8px 0; font-size: 0.88rem;">
-            <span>Your Choice: <strong>${userChoiceText}</strong></span>
-            <span style="margin: 0 10px; color: #94a3b8;">|</span>
-            <span>Correct Answer: <strong>${correctChoiceText}</strong></span>
+          <div class="review-header-strip">
+            <strong>${q.question}</strong>
+            ${statusLabel}
           </div>
+          ${imgHtml}
+          ${optionsHtml}
           <div class="review-exp"><strong>Explanation:</strong> ${q.explanation || 'No explanation available.'}</div>
         </div>
       `;
@@ -342,4 +373,5 @@ function renderAnalytics() {
   document.getElementById('res-correct').innerText = correct;
   document.getElementById('res-wrong').innerText = wrong;
   document.getElementById('res-unattempted').innerText = unattempted;
+}
 }
