@@ -3,79 +3,2375 @@
     {
       "id": "sec_a",
       "name": "Section A",
-      "durationMinutes": 4,
+      "durationMinutes": 42,
       "questions": [
         {
           "id": "secA_q1",
-          "question": "A 35-year-old patient presents with itchy plaques over elbows and knees. The most likely diagnosis is:",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Psoriasis_on_arm.jpg/640px-Psoriasis_on_arm.jpg",
+          "question": "Which of the following structures passes through the foramen magnum within the subarachnoid space?",
+          "image": "",
           "options": [
-            "Psoriasis vulgaris",
-            "Tinea corporis",
-            "Lichen planus",
-            "Eczema"
+            "Vertebral arteries",
+            "Accessory nerve spinal root",
+            "Apical ligament of dens",
+            "Membrana tectoria"
           ],
           "correctAnswer": 0,
-          "explanation": "Well-demarcated erythematous plaques with silvery-white scales over extensor surfaces (elbows and knees) is the classic presentation of plaque psoriasis (Psoriasis vulgaris)."
+          "explanation": "The vertebral arteries, anterior and posterior spinal arteries, and the spinal root of the accessory nerve pass through the foramen magnum within the subarachnoid space. The apical ligament and membrana tectoria pass through the anterior part of the foramen outside the dura mater."
         },
         {
           "id": "secA_q2",
-          "question": "A 50-year-old man presents with acute abdomen and guarding. The X-ray finding suggests:",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pneumoperitoneum_-_upright_chest_X-ray.jpg/640px-Pneumoperitoneum_-_upright_chest_X-ray.jpg",
+          "question": "Injury to the lower trunk of the brachial plexus (C8-T1) classically results in which of the following clinical deformities?",
+          "image": "",
           "options": [
-            "Hollow viscus perforation",
-            "Cholecystitis",
-            "Acute pancreatitis",
-            "Intestinal obstruction"
+            "Erb's palsy (Policeman's tip hand)",
+            "Klumpke's paralysis (True claw hand)",
+            "Wrist drop",
+            "Winged scapula"
           ],
-          "correctAnswer": 0,
-          "explanation": "Free air under the right dome of the diaphragm (pneumoperitoneum) on an erect chest radiograph confirms a perforated hollow viscus requiring urgent surgical exploration."
+          "correctAnswer": 1,
+          "explanation": "Klumpke's paralysis results from injury to the C8-T1 nerve roots, leading to paralysis of all intrinsic muscles of the hand and producing a true claw hand deformity."
         },
         {
           "id": "secA_q3",
-          "question": "Which of the following is considered the drug of choice for anaphylactic shock in adults?",
+          "question": "During surgery in the submandibular triangle, the lingual nerve is noted to have an intimate anatomical relationship with the submandibular duct. What is this relationship?",
           "image": "",
           "options": [
-            "Intravenous Hydrocortisone",
-            "Intramuscular Epinephrine (1:1000)",
-            "Intravenous Diphenhydramine",
-            "Nebulized Salbutamol"
+            "The nerve loops lateral, inferior, and then medial to the duct",
+            "The nerve passes strictly superior to the duct without crossing",
+            "The duct loops lateral and superior to the nerve",
+            "The nerve runs posterior to the facial artery only"
           ],
-          "correctAnswer": 1,
-          "explanation": "Intramuscular Epinephrine (1:1000 dilution, 0.5 mg) in the anterolateral thigh is the first-line life-saving intervention for anaphylaxis."
+          "correctAnswer": 0,
+          "explanation": "The lingual nerve begins lateral to the submandibular duct, crosses inferiorly beneath it, and then ascends medially to reach the tongue ('lingual nerve winds around the submandibular duct')."
         },
         {
           "id": "secA_q4",
-          "question": "The definitive diagnostic test for Hirschsprung's disease is:",
+          "question": "At which vertebral level does the inferior vena cava pierce the central tendon of the diaphragm?",
           "image": "",
           "options": [
-            "Rectal suction biopsy",
-            "Barium enema",
-            "Anorectal manometry",
-            "Abdominal ultrasound"
+            "T8",
+            "T10",
+            "T12",
+            "L1"
           ],
           "correctAnswer": 0,
-          "explanation": "Rectal suction biopsy showing an absence of ganglion cells in the submucosal (Meissner) and myenteric (Auerbach) plexuses with elevated acetylcholinesterase staining is the gold standard."
+          "explanation": "Major diaphragmatic apertures: Vena Cava at T8 (central tendon), Esophagus at T10, and Aortic hiatus at T12."
+        },
+        {
+          "id": "secA_q5",
+          "question": "Which artery primarily supplies the posterior limb of the internal capsule?",
+          "image": "",
+          "options": [
+            "Anterior choroidal artery and lateral striate branches of MCA",
+            "Recurrent artery of Heubner",
+            "Posterior cerebral artery cortical branches",
+            "Anterior communicating artery"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The posterior limb of the internal capsule is supplied by the lenticulostriate (lateral striate) branches of the middle cerebral artery (MCA) and the anterior choroidal artery."
+        },
+        {
+          "id": "secA_q6",
+          "question": "The coronary sinus terminates and empties deoxygenated myocardial blood directly into the:",
+          "image": "",
+          "options": [
+            "Right atrium",
+            "Left atrium",
+            "Superior vena cava",
+            "Inferior vena cava"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The coronary sinus opens into the posterior wall of the right atrium between the opening of the inferior vena cava and the right atrioventricular orifice (guarded by the Thebesian valve)."
+        },
+        {
+          "id": "secA_q7",
+          "question": "During a total abdominal hysterectomy, the surgeon must remember that the ureter passes in close proximity to the uterine artery in which anatomical relationship?",
+          "image": "",
+          "options": [
+            "Ureter passes inferior to the uterine artery ('Water under the bridge')",
+            "Ureter passes superior to the uterine artery",
+            "Ureter runs anterior to the round ligament",
+            "Ureter traverses through the broad ligament above the ovarian vessels"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The ureter passes directly inferior to the uterine artery near the lateral fornix of the vagina, clinically remembered as 'water under the bridge'."
+        },
+        {
+          "id": "secA_q8",
+          "question": "Which of the following is the only medial branch of the external carotid artery?",
+          "image": "",
+          "options": [
+            "Ascending pharyngeal artery",
+            "Superior thyroid artery",
+            "Lingual artery",
+            "Facial artery"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The external carotid artery has 8 branches: Medial (1) - Ascending pharyngeal; Anterior (3) - Superior thyroid, Lingual, Facial; Posterior (2) - Occipital, Posterior auricular; Terminal (2) - Maxillary, Superficial temporal."
+        },
+        {
+          "id": "secA_q9",
+          "question": "The posterior wall of the inguinal canal is reinforced medially by the:",
+          "image": "",
+          "options": [
+            "Conjoint tendon",
+            "External oblique aponeurosis",
+            "Lacunar ligament",
+            "Reflected part of inguinal ligament"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The posterior wall of the inguinal canal is formed by the transversalis fascia throughout and is reinforced medially by the conjoint tendon (falx inguinalis)."
+        },
+        {
+          "id": "secA_q10",
+          "question": "Functional Residual Capacity (FRC) of the lungs is mathematically defined as the sum of:",
+          "image": "",
+          "options": [
+            "Expiratory Reserve Volume (ERV) + Residual Volume (RV)",
+            "Tidal Volume (TV) + Inspiratory Reserve Volume (IRV)",
+            "Vital Capacity (VC) - Inspiratory Capacity (IC)",
+            "Total Lung Capacity (TLC) - Vital Capacity (VC)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Functional Residual Capacity (FRC) is the volume of air remaining in the lungs after a normal passive exhalation: FRC = ERV + RV."
+        },
+        {
+          "id": "secA_q11",
+          "question": "Phase 0 rapid depolarization of the ventricular myocardial action potential is primarily mediated by:",
+          "image": "",
+          "options": [
+            "Inflow of Na+ through fast voltage-gated Na+ channels",
+            "Inflow of Ca2+ through L-type calcium channels",
+            "Efflux of K+ through delayed rectifier channels",
+            "Closing of funny current (If) channels"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Phase 0 depolarization in ventricular myocytes is driven by rapid influx of Na+ through voltage-gated fast sodium channels. In nodal tissue (SA/AV nodes), Phase 0 is mediated by L-type calcium channels."
+        },
+        {
+          "id": "secA_q12",
+          "question": "The macula densa cells in the juxtaglomerular apparatus detect changes primarily in:",
+          "image": "",
+          "options": [
+            "Sodium chloride (NaCl) delivery/concentration in the tubular fluid",
+            "Perfusion pressure in the renal efferent arteriole",
+            "Systemic circulating angiotensin II levels",
+            "Potassium excretion in the collecting duct"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Macula densa cells in the early distal convoluted tubule sense changes in luminal NaCl concentration/flow and signal juxtaglomerular cells to modulate renin release."
+        },
+        {
+          "id": "secA_q13",
+          "question": "Which of the following gastrointestinal hormones is the most potent inhibitor of gastric acid secretion?",
+          "image": "",
+          "options": [
+            "Somatostatin",
+            "Gastrin",
+            "Histamine",
+            "Acetylcholine"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Somatostatin (secreted by D cells) acts paracrinely to directly inhibit parietal cell acid secretion and suppresses gastrin and histamine release."
+        },
+        {
+          "id": "secA_q14",
+          "question": "Which substance provides the most accurate clinical measurement of Glomerular Filtration Rate (GFR) because it is freely filtered and neither reabsorbed nor secreted?",
+          "image": "",
+          "options": [
+            "Inulin",
+            "Para-aminohippuric acid (PAH)",
+            "Glucose",
+            "Urea"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Inulin clearance equals GFR because it is freely filtered at the glomerulus and undergoes zero reabsorption or tubular secretion. PAH clearance measures renal plasma flow (RPF)."
+        },
+        {
+          "id": "secA_q15",
+          "question": "During skeletal muscle contraction, what causes the detachment of the myosin head from the actin active site?",
+          "image": "",
+          "options": [
+            "Binding of a new ATP molecule to the myosin head",
+            "Hydrolysis of ATP to ADP and inorganic phosphate",
+            "Efflux of calcium from the sarcoplasm into the T-tubules",
+            "Binding of troponin C to tropomyosin"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Binding of a new ATP molecule to the myosin head causes conformational detachment from actin. Absence of ATP leads to persistent actin-myosin cross-linking, causing rigor mortis."
+        },
+        {
+          "id": "secA_q16",
+          "question": "Which electroencephalographic (EEG) waveform is characteristic of normal adult Stage N3 (deep slow-wave) sleep?",
+          "image": "",
+          "options": [
+            "Delta waves (< 4 Hz, high amplitude)",
+            "Theta waves (4-7 Hz)",
+            "Sleep spindles and K-complexes",
+            "Beta waves (> 13 Hz)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Stage N3 (slow-wave sleep) is dominated by high-voltage, low-frequency Delta waves (< 4 Hz). Sleep spindles and K-complexes define Stage N2."
+        },
+        {
+          "id": "secA_q17",
+          "question": "Which of the following physiological changes causes a RIGHTWARD shift of the oxyhemoglobin dissociation curve (facilitating O2 unloading to tissues)?",
+          "image": "",
+          "options": [
+            "Increased 2,3-Bisphosphoglycerate (2,3-BPG), increased H+ (low pH), and hyperthermia",
+            "Decreased temperature, alkalosis, and low 2,3-BPG",
+            "Presence of fetal hemoglobin (HbF)",
+            "Carbon monoxide poisoning"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A rightward shift (decreased affinity, increased O2 delivery) occurs with increased CADET: CO2, Acidity (H+ / low pH), 2,3-DPG, Exercise, and Temperature."
+        },
+        {
+          "id": "secA_q18",
+          "question": "The crista ampullaris in the semicircular canals is the sensory receptor organ specifically responsible for detecting:",
+          "image": "",
+          "options": [
+            "Angular acceleration / head rotation",
+            "Linear horizontal acceleration",
+            "Linear vertical acceleration / gravity",
+            "Auditory sound frequency discrimination"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Semicircular canal cristae ampullares detect angular/rotational acceleration. The utricle and saccule maculae detect linear horizontal and vertical acceleration/gravity respectively."
+        },
+        {
+          "id": "secA_q19",
+          "question": "The rate-limiting and committed step of the hepatic urea cycle is catalyzed by which enzyme?",
+          "image": "",
+          "options": [
+            "Carbamoyl phosphate synthetase I (CPS-I)",
+            "Ornithine transcarbamylase (OTC)",
+            "Argininosuccinate synthetase",
+            "Arginase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Carbamoyl Phosphate Synthetase I (CPS-I) in the mitochondria is the rate-limiting enzyme of the urea cycle and strictly requires N-acetylglutamate (NAG) as an allosteric activator."
+        },
+        {
+          "id": "secA_q20",
+          "question": "Which of the following is the key rate-limiting regulatory enzyme of glycolysis?",
+          "image": "",
+          "options": [
+            "Phosphofructokinase-1 (PFK-1)",
+            "Hexokinase",
+            "Pyruvate kinase",
+            "Phosphoglycerate kinase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Phosphofructokinase-1 (PFK-1) converts Fructose-6-phosphate to Fructose-1,6-bisphosphate and is the primary committed and rate-limiting step of glycolysis."
+        },
+        {
+          "id": "secA_q21",
+          "question": "The rate-limiting enzyme in hepatic ketogenesis is:",
+          "image": "",
+          "options": [
+            "Mitochondrial HMG-CoA synthase",
+            "Cytosolic HMG-CoA reductase",
+            "Thiolase",
+            "Beta-hydroxybutyrate dehydrogenase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Mitochondrial HMG-CoA synthase is rate-limiting for ketogenesis in hepatocytes. In contrast, cytosolic HMG-CoA reductase is rate-limiting for cholesterol biosynthesis."
+        },
+        {
+          "id": "secA_q22",
+          "question": "A patient with macrocytic megaloblastic anemia shows elevated serum Methylmalonic Acid (MMA) and elevated Homocysteine. This pattern is diagnostic of:",
+          "image": "",
+          "options": [
+            "Vitamin B12 (Cobalamin) deficiency",
+            "Folate (Vitamin B9) deficiency",
+            "Pyridoxine (Vitamin B6) deficiency",
+            "Iron deficiency anemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Vitamin B12 deficiency leads to elevation of BOTH methylmalonic acid and homocysteine (due to methylmalonyl-CoA mutase impairment). Folate deficiency causes elevated homocysteine with NORMAL MMA."
+        },
+        {
+          "id": "secA_q23",
+          "question": "In Glucose-6-Phosphate Dehydrogenase (G6PD) deficiency, hemolytic episodes following oxidative stress occur primarily due to deficient generation of:",
+          "image": "",
+          "options": [
+            "NADPH",
+            "NADH",
+            "ATP",
+            "FADH2"
+          ],
+          "correctAnswer": 0,
+          "explanation": "G6PD is the rate-limiting enzyme of the HMP shunt producing NADPH, which is required by glutathione reductase to maintain reduced glutathione for detoxifying reactive oxygen species in RBCs."
+        },
+        {
+          "id": "secA_q24",
+          "question": "Classical Phenylketonuria (PKU) is an autosomal recessive disorder caused by deficiency of:",
+          "image": "",
+          "options": [
+            "Phenylalanine hydroxylase",
+            "Homogentisate oxidase",
+            "Branched-chain alpha-ketoacid dehydrogenase",
+            "Tyrosinase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Classic PKU is caused by deficiency of phenylalanine hydroxylase (PAH), impairing the conversion of phenylalanine to tyrosine and leading to toxic accumulation of phenylketones."
+        },
+        {
+          "id": "secA_q25",
+          "question": "Ascorbic acid (Vitamin C) deficiency impairs collagen synthesis by preventing which specific post-translational modification?",
+          "image": "",
+          "options": [
+            "Hydroxylation of proline and lysine residues",
+            "Glycosylation of hydroxylysine",
+            "Cleavage of N- and C-terminal propeptides",
+            "Cross-linking of tropocollagen by lysyl oxidase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Prolyl and lysyl hydroxylases require Vitamin C (and Fe2+) as cofactors. Lack of hydroxylation impairs collagen triple helix stability, manifesting as scurvy."
+        },
+        {
+          "id": "secA_q26",
+          "question": "Which apolipoprotein acts as the essential cofactor for Lipoprotein Lipase (LPL) on capillary endothelial surfaces?",
+          "image": "",
+          "options": [
+            "Apo C-II",
+            "Apo B-100",
+            "Apo A-I",
+            "Apo E"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Apolipoprotein C-II activates lipoprotein lipase to hydrolyze triglycerides in chylomicrons and VLDLs. Apo A-I activates LCAT; Apo B-48 is required for chylomicron secretion."
+        },
+        {
+          "id": "secA_q27",
+          "question": "During Polymerase Chain Reaction (PCR), the correct thermal sequence for each cycle is:",
+          "image": "",
+          "options": [
+            "Denaturation (94-96°C) -> Annealing (50-65°C) -> Extension (72°C)",
+            "Annealing (55°C) -> Denaturation (95°C) -> Extension (72°C)",
+            "Extension (72°C) -> Denaturation (95°C) -> Annealing (55°C)",
+            "Denaturation (72°C) -> Annealing (95°C) -> Extension (55°C)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "PCR steps: Denaturation of dsDNA (~95°C), Annealing of forward/reverse primers (~55°C), and Extension by Taq DNA polymerase (~72°C)."
+        },
+        {
+          "id": "secA_q28",
+          "question": "Which of the following proteins is a pro-survival (ANTI-apoptotic) member of the Bcl-2 protein family?",
+          "image": "",
+          "options": [
+            "Bcl-2",
+            "Bax",
+            "Bak",
+            "Bid"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Bcl-2, Bcl-xL, and Mcl-1 are anti-apoptotic proteins that stabilize the outer mitochondrial membrane. Bax, Bak, Bid, and Bad are pro-apoptotic."
+        },
+        {
+          "id": "secA_q29",
+          "question": "Amyloid deposits under polarized light microscopy after Congo Red staining exhibit characteristic:",
+          "image": "",
+          "options": [
+            "Apple-green birefringence",
+            "Golden yellow fluorescence",
+            "Prussian blue positivity",
+            "Metachromatic magenta staining"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Amyloid fibrils with beta-pleated sheet conformation demonstrate pathognomonic apple-green birefringence under cross-polarized light when stained with Congo red."
+        },
+        {
+          "id": "secA_q30",
+          "question": "Diagnostic Reed-Sternberg cells of classical Hodgkin Lymphoma characteristically express which immunohistochemical markers?",
+          "image": "",
+          "options": [
+            "CD15+ and CD30+",
+            "CD20+ and CD3+",
+            "CD45+ and CD19+",
+            "CD138+ and CD56+"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Classical Reed-Sternberg cells in Hodgkin lymphoma are characteristically positive for CD15 and CD30, and usually negative for CD45 (LCA) and CD20."
+        },
+        {
+          "id": "secA_q31",
+          "question": "In granulomatous inflammation, the Langhans giant cell is characterized by nuclei arranged in:",
+          "image": "",
+          "options": [
+            "Horseshoe/periphery pattern",
+            "Disorganized central cluster",
+            "Ring around a lipid droplet",
+            "Linear tandem chain"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Langhans giant cells (seen in tuberculosis and other granulomas) have nuclei arranged peripherally in a horseshoe or collar pattern. Foreign body giant cells have haphazardly scattered central nuclei."
+        },
+        {
+          "id": "secA_q32",
+          "question": "What is the hallmark histopathological feature seen on endomyocardial biopsy in Hypertrophic Cardiomyopathy (HCM)?",
+          "image": "",
+          "options": [
+            "Myofiber disarray with interstitial fibrosis",
+            "Aschoff nodules with Anitschkow cells",
+            "Contraction band necrosis",
+            "Non-caseating granulomas with Schaumann bodies"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Hypertrophic cardiomyopathy is histopathologically defined by extensive branching, hypertrophy, and chaotic myofiber disarray accompanied by interstitial fibrosis."
+        },
+        {
+          "id": "secA_q33",
+          "question": "On renal biopsy, subepithelial immune complex deposits producing a 'spike and dome' pattern on silver methenamine stain is diagnostic of:",
+          "image": "",
+          "options": [
+            "Membranous Nephropathy",
+            "Minimal Change Disease",
+            "Post-Streptococcal Glomerulonephritis",
+            "IgA Nephropathy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Membranous nephropathy features diffuse capillary wall thickening with subepithelial IgG/C3 immune complex deposits showing a characteristic 'spike and dome' appearance."
+        },
+        {
+          "id": "secA_q34",
+          "question": "Barrett's esophagus is histopathologically classified as what type of metaplasia?",
+          "image": "",
+          "options": [
+            "Specialized intestinal metaplasia (columnar epithelium with goblet cells)",
+            "Squamous metaplasia of glandular epithelium",
+            "Apocrine metaplasia",
+            "Transitional cell metaplasia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Barrett's esophagus is the replacement of normal stratified squamous epithelium with intestinal-type columnar epithelium containing mucin-filled goblet cells (Alcain blue positive)."
+        },
+        {
+          "id": "secA_q35",
+          "question": "The reciprocal chromosomal translocation t(11;22)(q24;q12) is specific for which small round blue cell tumor?",
+          "image": "",
+          "options": [
+            "Ewing sarcoma",
+            "Burkitt lymphoma",
+            "Synovial sarcoma",
+            "Alveolar rhabdomyosarcoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Ewing sarcoma / PNET is characterized by the t(11;22)(q24;q12) translocation generating the EWSR1-FLI1 fusion transcript. Burkitt is t(8;14); Synovial sarcoma is t(X;18)."
+        },
+        {
+          "id": "secA_q36",
+          "question": "Which of the following laboratory findings on serum protein electrophoresis (SPEP) is characteristic of Multiple Myeloma?",
+          "image": "",
+          "options": [
+            "Monoclonal M-protein spike in the gamma globulin region",
+            "Polyclonal hypergammaglobulinemia",
+            "Decreased alpha-1 antitrypsin peak",
+            "Bisalbuminemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Multiple myeloma characteristically produces a sharp, narrow monoclonal 'M-spike' on SPEP, most commonly composed of IgG (55%) or IgA (20%) monoclonal light/heavy chains."
         }
       ]
     },
     {
       "id": "sec_b",
       "name": "Section B",
-      "durationMinutes": 4,
+      "durationMinutes": 42,
       "questions": [
         {
           "id": "secB_q1",
-          "question": "Which cranial nerve is tested by assessing sensation over the anterior two-thirds of the tongue?",
+          "question": "Warfarin exerts its anticoagulant effect by directly inhibiting which enzyme?",
           "image": "",
           "options": [
-            "Facial nerve (Chorda tympani)",
-            "Trigeminal nerve (Lingual branch of V3)",
-            "Glossopharyngeal nerve (CN IX)",
-            "Hypoglossal nerve (CN XII)"
+            "Vitamin K epoxide reductase (VKORC1)",
+            "Factor Xa",
+            "Thrombin (Factor IIa)",
+            "Antithrombin III"
           ],
-          "correctAnswer": 1,
-          "explanation": "General somatic sensation from the anterior 2/3 of the tongue is carried by the lingual nerve (branch of CN V3). Taste sensation from the same region is mediated by the chorda tympani (CN VII)."
+          "correctAnswer": 0,
+          "explanation": "Warfarin inhibits Vitamin K Epoxide Reductase Complex subunit 1 (VKORC1), preventing regeneration of reduced Vitamin K and blocking gamma-carboxylation of Factors II, VII, IX, X, and Proteins C and S."
+        },
+        {
+          "id": "secB_q2",
+          "question": "Which of the following beta-adrenergic receptor blockers possesses non-selective beta-blocking AND alpha-1 receptor blocking activity?",
+          "image": "",
+          "options": [
+            "Carvedilol",
+            "Metoprolol",
+            "Atenolol",
+            "Esmolol"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Carvedilol and Labetalol are combined non-selective beta and selective alpha-1 adrenergic antagonists, providing peripheral vasodilation along with beta-blockade."
+        },
+        {
+          "id": "secB_q3",
+          "question": "What is the earliest and most frequent electrocardiographic sign of Digoxin toxicity?",
+          "image": "",
+          "options": [
+            "Ventricular premature contractions (VPCs / Bigeminy)",
+            "Sinus tachycardia",
+            "Right bundle branch block",
+            "ST-segment elevation in lead aVR"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Ventricular premature contractions (often presenting as ventricular bigeminy) are the most common and earliest arrhythmia in digitalis toxicity. Characteristic ECG feature is 'scooped' ST-depression."
+        },
+        {
+          "id": "secB_q4",
+          "question": "To rescue normal tissues from high-dose Methotrexate toxicity, which agent is administered?",
+          "image": "",
+          "options": [
+            "Leucovorin (Folinic acid)",
+            "Folic acid",
+            "Pyridoxine",
+            "Mesna"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Leucovorin (folinic acid / N5-formyl-THF) bypasses dihydrofolate reductase (DHFR) inhibited by methotrexate, providing downstream tetrahydrofolate cofactors to rescue bone marrow and gastrointestinal mucosa."
+        },
+        {
+          "id": "secB_q5",
+          "question": "The reduced incidence of extrapyramidal motor side effects with atypical antipsychotics (e.g., Olanzapine, Clozapine) is due to their potent antagonism at:",
+          "image": "",
+          "options": [
+            "Serotonin 5-HT2A receptors",
+            "Muscarinic M3 receptors",
+            "Dopamine D1 receptors",
+            "GABA-A receptors"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Atypical (second-generation) antipsychotics have high 5-HT2A receptor antagonism relative to D2 receptor blockade, promoting dopamine release in the nigrostriatal pathway and reducing EPS risk."
+        },
+        {
+          "id": "secB_q6",
+          "question": "A farm worker presents with pinpoint pupils, excessive salivation, lacrimation, wheezing, and muscle fasciculations. What is the immediate specific pharmacotherapy?",
+          "image": "",
+          "options": [
+            "Atropine sulfate followed by Pralidoxime (2-PAM)",
+            "Physostigmine and Epinephrine",
+            "Naloxone and Flumazenil",
+            "Neostigmine and Glycopyrrolate"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Organophosphate poisoning requires high-dose IV Atropine (muscarinic antagonist) titrated to clear lung secretions, combined with Pralidoxime (oxime reactivator of acetylcholinesterase before aging occurs)."
+        },
+        {
+          "id": "secB_q7",
+          "question": "Which macrolide antibiotic acts as a motilin receptor agonist and is clinically utilized off-label to stimulate gastrointestinal motility in diabetic gastroparesis?",
+          "image": "",
+          "options": [
+            "Erythromycin",
+            "Azithromycin",
+            "Clarithromycin",
+            "Telithromycin"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Erythromycin directly binds and stimulates motilin receptors on GI smooth muscle, promoting migrating motor complexes and accelerating gastric emptying."
+        },
+        {
+          "id": "secB_q8",
+          "question": "Sodium-Glucose Cotransporter 2 (SGLT2) inhibitors like Dapagliflozin and Empagliflozin exert their glycemic and cardioprotective effects primarily by acting in the:",
+          "image": "",
+          "options": [
+            "Early proximal convoluted tubule (PCT)",
+            "Thick ascending limb of Henle",
+            "Late distal convoluted tubule (DCT)",
+            "Medullary collecting duct"
+          ],
+          "correctAnswer": 0,
+          "explanation": "SGLT2 is located in the S1 segment of the proximal convoluted tubule, responsible for ~90% of renal glucose reabsorption. Inhibiting SGLT2 promotes glucosuria, natriuresis, and reduces HF hospitalization."
+        },
+        {
+          "id": "secB_q9",
+          "question": "According to the WHO multidrug therapy (MDT) guidelines, the standard treatment regimen for Multibacillary (MB) Leprosy consists of:",
+          "image": "",
+          "options": [
+            "Rifampicin, Dapsone, and Clofazimine for 12 months",
+            "Rifampicin and Dapsone for 6 months",
+            "Isoniazid, Rifampicin, and Ethambutol for 9 months",
+            "Minocycline, Ofloxacin, and Clarithromycin for 12 months"
+          ],
+          "correctAnswer": 0,
+          "explanation": "WHO standard regimen for Multibacillary Leprosy is triple therapy with Rifampicin (monthly supervised), Dapsone (daily self-administered), and Clofazimine (monthly supervised + daily self-administered) for 12 months."
+        },
+        {
+          "id": "secB_q10",
+          "question": "What is the specific intravenous antidote administered for the treatment of bupivacaine-induced Local Anesthetic Systemic Toxicity (LAST) refractory to standard resuscitation?",
+          "image": "",
+          "options": [
+            "20% Intralipid (Intravenous Lipid Emulsion)",
+            "Sodium bicarbonate",
+            "Methylene blue",
+            "N-acetylcysteine"
+          ],
+          "correctAnswer": 0,
+          "explanation": "20% Intralipid acts as a 'lipid sink' to extract lipophilic local anesthetics (like bupivacaine) from cardiac tissue and restores myocardial fatty acid metabolism in LAST."
+        },
+        {
+          "id": "secB_q11",
+          "question": "Which of the following is the current first-line oral antibiotic therapy for an initial episode of non-fulminant Clostridioides difficile infection?",
+          "image": "",
+          "options": [
+            "Oral Vancomycin or Oral Fidaxomicin",
+            "Intravenous Metronidazole",
+            "Oral Ciprofloxacin",
+            "Oral Amoxicillin-Clavulanate"
+          ],
+          "correctAnswer": 0,
+          "explanation": "IDSA guidelines recommend oral Fidaxomicin or oral Vancomycin as first-line agents for primary C. difficile colitis. Metronidazole is no longer first-line due to inferior efficacy."
+        },
+        {
+          "id": "secB_q12",
+          "question": "Eosinophilic, intracytoplasmic Negri bodies diagnostic of Rabies virus infection are most abundantly identified in which anatomical areas of the brain?",
+          "image": "",
+          "options": [
+            "Hippocampal pyramidal cells (Ammon's horn) and cerebellar Purkinje cells",
+            "Substantia nigra and locus coeruleus",
+            "Basal ganglia and thalamus",
+            "Frontal cerebral cortex layers II and III"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Negri bodies are pathognomonic round/oval eosinophilic inclusion bodies found predominantly in the pyramidal neurons of hippocampus (Ammon's horn) and Purkinje cells of cerebellum."
+        },
+        {
+          "id": "secB_q13",
+          "question": "In a patient with Hepatitis B virus (HBV) infection, the presence of Hepatitis B 'e' antigen (HBeAg) in serum indicates:",
+          "image": "",
+          "options": [
+            "High levels of active viral replication and high infectivity",
+            "Recovery and immunity against HBV",
+            "Past resolved infection without risk of transmission",
+            "Infection with Hepatitis D virus superinfection only"
+          ],
+          "correctAnswer": 0,
+          "explanation": "HBeAg is a secretory protein and surrogate marker for high viral replication, active transcription of HBV DNA, and elevated transmission infectivity."
+        },
+        {
+          "id": "secB_q14",
+          "question": "The Quellung reaction utilizes specific anticapsular antibodies to produce capsular swelling in which organism?",
+          "image": "",
+          "options": [
+            "Streptococcus pneumoniae",
+            "Staphylococcus aureus",
+            "Corynebacterium diphtheriae",
+            "Listeria monocytogenes"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Quellung (capsular swelling) reaction is positive in encapsulated bacteria like Streptococcus pneumoniae, Klebsiella pneumoniae, Neisseria meningitidis, and Haemophilus influenzae type b."
+        },
+        {
+          "id": "secB_q15",
+          "question": "Which mosquito vector is primarily responsible for the transmission of Dengue, Chikungunya, and Zika viruses?",
+          "image": "",
+          "options": [
+            "Aedes aegypti (Day biter)",
+            "Anopheles stephensi (Night biter)",
+            "Culex quinquefasciatus",
+            "Mansonia annulifera"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Aedes aegypti (and Aedes albopictus), recognized by white stripes on its legs (tiger mosquito) and daytime biting habits, transmits Dengue, Chikungunya, Yellow fever, and Zika viruses."
+        },
+        {
+          "id": "secB_q16",
+          "question": "A patient with HIV/AIDS presents with subacute headache and fever. Lumbar puncture CSF wet mount stained with India ink reveals budding yeast cells surrounded by a clear, wide halo. What is the organism?",
+          "image": "",
+          "options": [
+            "Cryptococcus neoformans",
+            "Candida albicans",
+            "Histoplasma capsulatum",
+            "Pneumocystis jirovecii"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Cryptococcus neoformans is an opportunistic fungus with an extensive mucopolysaccharide capsule that repels carbon particles in India ink, creating a distinctive clear halo around the yeast cell."
+        },
+        {
+          "id": "secB_q17",
+          "question": "Interferon-Gamma Release Assays (IGRAs like QuantiFERON-TB Gold) for latent tuberculosis detection have an advantage over the Tuberculin Skin Test (Mantoux) because they do not cross-react with:",
+          "image": "",
+          "options": [
+            "Prior BCG vaccination status",
+            "HIV co-infection",
+            "Non-tuberculous mycobacteria like M. marinum",
+            "Active pulmonary cavitary disease"
+          ],
+          "correctAnswer": 0,
+          "explanation": "IGRAs measure IFN-gamma release in response to specific M. tuberculosis antigens (ESAT-6, CFP-10) absent from all BCG vaccine strains and most non-tuberculous mycobacteria, avoiding false-positive Mantoux readings."
+        },
+        {
+          "id": "secB_q18",
+          "question": "Which of the following peripheral blood smear features is characteristic of Plasmodium falciparum malaria?",
+          "image": "",
+          "options": [
+            "Delicate ring forms, multiple rings per RBC, appliqué/accolé forms, and banana-shaped gametocytes",
+            "Enlarged RBCs with Schüffner's dots and amoeboid trophozoites",
+            "Band-shaped trophozoites with Ziemann's stippling",
+            "Oval erythrocytes with fimbriated ragged edges"
+          ],
+          "correctAnswer": 0,
+          "explanation": "P. falciparum features multiple delicate ring stages per RBC, marginal accolé forms, Maurer's clefts, and diagnostic crescent/banana-shaped gametocytes."
+        },
+        {
+          "id": "secB_q19",
+          "question": "The oncogenic potential of High-Risk Human Papillomaviruses (HPV 16 and 18) in cervical carcinogenesis is mediated by viral oncoproteins E6 and E7, which inhibit:",
+          "image": "",
+          "options": [
+            "p53 and Retinoblastoma (pRb) tumor suppressors respectively",
+            "BRCA1 and BRCA2",
+            "APC and Beta-catenin",
+            "PTEN and Wilms tumor (WT1)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "HPV oncoprotein E6 facilitates ubiquitin-mediated degradation of p53, while oncoprotein E7 binds and inactivates the retinoblastoma (pRb) protein, promoting cell cycle progression."
+        },
+        {
+          "id": "secB_q20",
+          "question": "Pseudomonas aeruginosa produces Exotoxin A, which exerts its cytotoxic mechanism of action identically to Diphtheria toxin by:",
+          "image": "",
+          "options": [
+            "ADP-ribosylation and inactivation of Elongation Factor-2 (EF-2)",
+            "Cleaving SNARE synaptobrevin proteins",
+            "Inactivating 60S ribosomal subunits (Shiga mechanism)",
+            "Activating adenylate cyclase via Gs alpha subunit ADP-ribosylation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Both Diphtheria toxin (Corynebacterium diphtheriae) and Exotoxin A (Pseudomonas aeruginosa) transfer an ADP-ribose group onto host Elongation Factor-2 (EF-2), halting cellular protein synthesis."
+        },
+        {
+          "id": "secB_q21",
+          "question": "The definitive postmortem finding confirming that a victim was alive during the ignition of a fire (antemortem burn) is:",
+          "image": "",
+          "options": [
+            "Presence of soot/carbon particles in the trachea and bronchial tree",
+            "Pugilistic attitude of the corpse",
+            "Postmortem epidural heat hematoma",
+            "Skin blistering with clear serous fluid"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Inhalation of soot/carbon particles deep into the larynx, trachea, and bronchi with high blood carboxyhemoglobin (> 10-15%) unequivocally proves active respiration during fire exposure (antemortem sign)."
+        },
+        {
+          "id": "secB_q22",
+          "question": "Which of the following is the most reliable parameter for estimating the time since death (postmortem interval) in the early 24 hours?",
+          "image": "",
+          "options": [
+            "Algor mortis (Rate of core rectal temperature cooling using Henssge nomogram)",
+            "Degree of hair and fingernail growth",
+            "Extent of postmortem lividity color change",
+            "Loss of corneal transparency only"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Algor mortis (body temperature measurement via deep rectal probe calibrated against ambient temperature on the Henssge nomogram) is the most scientifically validated method in the early postmortem period."
+        },
+        {
+          "id": "secB_q23",
+          "question": "The recovery of acid-fast silica-walled diatoms from the closed bone marrow (femur) of a submerged corpse signifies:",
+          "image": "",
+          "options": [
+            "Death due to antemortem drowning",
+            "Postmortem disposal of a body in water",
+            "Death due to dry drowning / vagal shock",
+            "Contamination from funeral washing"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Diatom test: In antemortem drowning, live inhalation drives microscopic aquatic diatoms through alveolar-capillary membranes into the left heart, which distributes them into closed organs like bone marrow."
+        },
+        {
+          "id": "secB_q24",
+          "question": "In forensic ballistics, skin tattooing (stippling) around a firearm entry wound is produced by:",
+          "image": "",
+          "options": [
+            "Unburnt and partially burnt gunpowder particles embedding in the dermis",
+            "Flame combustion burning the stratum corneum",
+            "Deposition of superficial smoke soot (wipeable)",
+            "Impact distortion of the lead bullet core"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tattooing/stippling is caused by unburnt gunpowder grains puncturing and embedding indelibly into the dermis, characteristic of intermediate/close-range firing (usually within 1 to 3 feet)."
+        },
+        {
+          "id": "secB_q25",
+          "question": "Which feature decisively distinguishes antemortem suicidal hanging from postmortem suspension or ligature strangulation?",
+          "image": "",
+          "options": [
+            "Ligature mark is oblique, non-continuous, highest at the knot, with vital tissue reaction/ecchymosis",
+            "Ligature mark is completely circular, horizontal, and below the thyroid cartilage",
+            "Absence of salivary dribbling from the mouth angle",
+            "Absence of subconjunctival petechial hemorrhages"
+          ],
+          "correctAnswer": 0,
+          "explanation": "In typical hanging, the ligature mark is oblique, incomplete (interrupted at the suspension knot), located high above the thyroid cartilage, and shows vital subcutaneous cellular extravasation."
+        },
+        {
+          "id": "secB_q26",
+          "question": "What is the specific chelating agent of choice for acute elemental Arsenic poisoning presenting with rice-water diarrhea and garlic odor breath?",
+          "image": "",
+          "options": [
+            "British Anti-Lewisite (BAL / Dimercaprol)",
+            "Deferoxamine",
+            "Calcium disodium EDTA",
+            "D-Penicillamine"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Dimercaprol (BAL - British Anti-Lewisite) forms stable, non-toxic excretable heterocyclic rings with sulfhydryl-binding metals like Arsenic, Mercury, and Lead."
+        },
+        {
+          "id": "secB_q27",
+          "question": "The landmark English legal principle establishing that medical negligence is determined by the standard of the ordinary skilled practitioner exercising reasonable care is the:",
+          "image": "",
+          "options": [
+            "Bolam Test (Bolam v Friern Hospital)",
+            "McNaughten Rule",
+            "Locard's Principle",
+            "Miranda Warning"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Bolam test states that a doctor is not guilty of negligence if they have acted in accordance with a practice accepted as proper by a responsible body of medical professionals skilled in that art."
+        },
+        {
+          "id": "secB_q28",
+          "question": "A classic 'lucid interval' following head trauma is most characteristically associated with:",
+          "image": "",
+          "options": [
+            "Epidural (Extradural) hematoma from middle meningeal artery rupture",
+            "Subdural hematoma from bridging vein tearing",
+            "Subarachnoid hemorrhage from berry aneurysm",
+            "Diffuse axonal injury"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A lucid interval (initial concussion -> temporary complete regain of consciousness -> rapid deterioration and coma due to uncal herniation) classically occurs in Epidural Hematoma (EDH) from middle meningeal arterial bleed."
+        },
+        {
+          "id": "secB_q29",
+          "question": "In an epidemiological study, the proportion of truly diseased individuals who are correctly identified as positive by a diagnostic test is called:",
+          "image": "",
+          "options": [
+            "Sensitivity",
+            "Specificity",
+            "Positive Predictive Value",
+            "Likelihood Ratio"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Sensitivity = True Positives / (True Positives + False Negatives). It measures the probability that a test is positive given that the patient truly has the disease."
+        },
+        {
+          "id": "secB_q30",
+          "question": "Which epidemiological study design is best suited to study rare diseases and calculates the Odds Ratio (OR) as its primary measure of association?",
+          "image": "",
+          "options": [
+            "Case-Control Study",
+            "Prospective Cohort Study",
+            "Randomized Controlled Trial",
+            "Cross-Sectional Survey"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Case-control studies are retrospective, inexpensive, ideal for investigating rare diseases/outcomes, and quantify association through the Odds Ratio (OR = ad/bc)."
+        },
+        {
+          "id": "secB_q31",
+          "question": "What is the temperature range strictly maintained in Ice-Lined Refrigerators (ILRs) for storing vaccines under India's Universal Immunization Programme (UIP)?",
+          "image": "",
+          "options": [
+            "+2°C to +8°C",
+            "-15°C to -25°C",
+            "0°C to +4°C",
+            "-2°C to +2°C"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Under national cold chain protocols, ILRs store heat-sensitive and freeze-sensitive routine childhood vaccines (like DPT, Pentavalent, TT, BCG, Rotavirus, PCV) between +2°C and +8°C."
+        },
+        {
+          "id": "secB_q32",
+          "question": "According to the Demographic Transition Model, a country characterized by a high birth rate and a rapidly declining death rate (resulting in high population growth) is in:",
+          "image": "",
+          "options": [
+            "Stage 2 (Early Expanding)",
+            "Stage 1 (High Stationary)",
+            "Stage 3 (Late Expanding)",
+            "Stage 4 (Low Stationary)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Stage 2 (Early Expanding) features high birth rates with rapidly falling death rates (due to healthcare improvements). Stage 3 features falling birth rates with low death rates (India's current stage)."
+        },
+        {
+          "id": "secB_q33",
+          "question": "Under India's National Immunization Schedule, the birth dose of Hepatitis B vaccine must be administered within:",
+          "image": "",
+          "options": [
+            "24 hours of birth",
+            "7 days of birth",
+            "6 weeks of age",
+            "14 days of birth"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Hepatitis B birth dose (0.5 mL IM anterolateral thigh) must be given within 24 hours of birth to effectively prevent perinatal mother-to-child vertical transmission."
+        },
+        {
+          "id": "secB_q34",
+          "question": "Biological Oxygen Demand (BOD) measured over 5 days at 20°C (BOD5) is a standard parameter used to evaluate:",
+          "image": "",
+          "options": [
+            "Organic pollution load in sewage and wastewater",
+            "Total dissolved mineral solids in potable water",
+            "Free residual chlorine concentration",
+            "Coliform bacterial count per 100 mL"
+          ],
+          "correctAnswer": 0,
+          "explanation": "BOD measures the amount of dissolved oxygen required by aerobic microorganisms to biologically decompose organic matter in water; higher BOD indicates greater organic pollution."
+        },
+        {
+          "id": "secB_q35",
+          "question": "According to the Biomedical Waste Management Rules (India), human anatomical tissues, amputated limbs, and placenta must be segregated in which color-coded container?",
+          "image": "",
+          "options": [
+            "Yellow bag",
+            "Red bag",
+            "Blue container",
+            "White translucent puncture-proof box"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Yellow bags are designated for incinerable waste: human anatomical waste, animal waste, soiled bandages, expired drugs, and cytotoxic items. Red is for recyclable plastics."
+        },
+        {
+          "id": "secB_q36",
+          "question": "The time interval between the invasion of an infectious agent into the host and the appearance of the first clinical sign or symptom is termed:",
+          "image": "",
+          "options": [
+            "Incubation period",
+            "Latent period",
+            "Period of communicability",
+            "Serial interval"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Incubation period is the time elapsed from pathogen entry/exposure to the onset of the first clinical symptom. Latent period refers to the time from infection to becoming infectious."
+        }
+      ]
+    },
+    {
+      "id": "sec_c",
+      "name": "Section C",
+      "durationMinutes": 42,
+      "questions": [
+        {
+          "id": "secC_q1",
+          "question": "A dip in bone conduction thresholds specifically at 2000 Hz (Carhart's notch) on pure-tone audiometry is characteristic of:",
+          "image": "",
+          "options": [
+            "Otosclerosis (Stapedial fixation)",
+            "Noise-induced hearing loss",
+            "Presbycusis",
+            "Meniere's disease"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Carhart's notch is a pathognomonic mechanical artifact showing a 10-15 dB notch in bone conduction at 2000 Hz in otosclerosis, which resolves after successful stapedotomy."
+        },
+        {
+          "id": "secC_q2",
+          "question": "The classic symptomatic triad of Meniere's disease (Endolymphatic hydrops) includes:",
+          "image": "",
+          "options": [
+            "Episodic vertigo, fluctuating sensorineural hearing loss (low-frequency), and tinnitus/aural fullness",
+            "Constant vertigo, conductive hearing loss, and otorrhea",
+            "Positional vertigo, facial palsy, and otalgia",
+            "Bilateral high-frequency hearing loss, ataxia, and headache"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Meniere's disease is caused by endolymphatic hydrops presenting with episodic spinning vertigo, fluctuating low-frequency SNHL, roaring tinnitus, and aural fullness."
+        },
+        {
+          "id": "secC_q3",
+          "question": "Little's area (Kiesselbach's plexus) on the anterior nasal septum is formed by anastomoses of all of the following arteries EXCEPT:",
+          "image": "",
+          "options": [
+            "Posterior ethmoidal artery",
+            "Anterior ethmoidal artery",
+            "Sphenopalatine artery",
+            "Superior labial artery"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Kiesselbach's plexus is formed by 4 arteries (AMPLE/ASSS): Anterior ethmoidal, Sphenopalatine, Greater palatine, and Superior labial. The posterior ethmoidal artery DOES NOT participate."
+        },
+        {
+          "id": "secC_q4",
+          "question": "Unilateral surgical injury to the Recurrent Laryngeal Nerve (RLN) during thyroidectomy results in the paralyzed vocal cord assuming the:",
+          "image": "",
+          "options": [
+            "Paramedian position",
+            "Full abduction / lateral position",
+            "Intermediate (cadaveric) position",
+            "Median position with normal voice"
+          ],
+          "correctAnswer": 0,
+          "explanation": "In unilateral complete RLN palsy, the paralyzed cord rests in the paramedian position (because intact cricothyroid muscle supplied by external branch of SLN adducts the cord). Voice is hoarse."
+        },
+        {
+          "id": "secC_q5",
+          "question": "The most common site of origin for Nasopharyngeal Carcinoma (strongly associated with Epstein-Barr Virus) is the:",
+          "image": "",
+          "options": [
+            "Fossa of Rosenmüller (Pharyngeal recess)",
+            "Roof of nasopharynx / adenoid bed",
+            "Torus tubarius",
+            "Posterior margin of nasal septum"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Fossa of Rosenmüller (lateral pharyngeal recess) is the most frequent anatomical site of origin for nasopharyngeal carcinoma, presenting with painless cervical lymphadenopathy and conductive hearing loss."
+        },
+        {
+          "id": "secC_q6",
+          "question": "An unsafe (atticoantral) Chronic Suppurative Otitis Media (CSOM) with cholesteatoma typically demonstrates which type of tympanic membrane perforation?",
+          "image": "",
+          "options": [
+            "Attic or marginal perforation",
+            "Central kidney-shaped perforation",
+            "Anterior inferior central perforation",
+            "Traumatic slit-like perforation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Unsafe CSOM involves the pars flaccida (attic) or postero-superior margin of the pars tensa, associated with bone-eroding cholesteatoma and high risk of intracranial complications."
+        },
+        {
+          "id": "secC_q7",
+          "question": "High-pitched inspiratory stridor that worsens in the supine position and improves in the prone position in a 2-month-old infant is classic for:",
+          "image": "",
+          "options": [
+            "Laryngomalacia",
+            "Subglottic stenosis",
+            "Foreign body aspiration",
+            "Acute epiglottitis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Laryngomalacia is the most common congenital laryngeal anomaly, caused by inward collapse of flaccid supraglottic structures during inspiration, producing positional inspiratory stridor."
+        },
+        {
+          "id": "secC_q8",
+          "question": "What is the primary medical emergency treatment combination for Acute Primary Angle-Closure Glaucoma to rapidly lower intraocular pressure?",
+          "image": "",
+          "options": [
+            "Intravenous Mannitol, oral Acetazolamide, and topical Pilocarpine (after IOP drops)",
+            "Topical Atropine 1% and oral Prednisolone",
+            "Topical Tropicamide and Cyclopentolate",
+            "Intravenous Heparin and Dexamethasone"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Emergency treatment of acute angle-closure: Systemic hyperosmotics (IV Mannitol), carbonic anhydrase inhibitors (Acetazolamide), topical beta-blockers/alpha-2 agonists, and miotics (Pilocarpine 2%) to open the trabecular meshwork."
+        },
+        {
+          "id": "secC_q9",
+          "question": "The earliest clinically detectable ophthalmoscopic sign of Non-Proliferative Diabetic Retinopathy (NPDR) is:",
+          "image": "",
+          "options": [
+            "Microaneurysms",
+            "Cotton-wool spots (soft exudates)",
+            "Neovascularization of the disc (NVD)",
+            "Hard exudates (circinate ring)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Microaneurysms (saccular outpouchings of retinal capillaries in the inner nuclear layer due to pericyte loss) are the earliest ophthalmoscopically visible lesions of diabetic retinopathy."
+        },
+        {
+          "id": "secC_q10",
+          "question": "In Rhegmatogenous Retinal Detachment, the visualization of tobacco-dust pigment granules in the anterior vitreous on slit-lamp exam is known as:",
+          "image": "",
+          "options": [
+            "Shafer's sign",
+            "Kayser-Fleischer ring",
+            "Vogt's striae",
+            "Munson's sign"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Shafer's sign ('tobacco-dust') represents pigmented retinal pigment epithelial (RPE) cells released into the vitreous body through a full-thickness retinal tear, indicating retinal detachment."
+        },
+        {
+          "id": "secC_q11",
+          "question": "Which of the following clinical signs is pathognomonic of advanced Keratoconus?",
+          "image": "",
+          "options": [
+            "Munson's sign (V-shaped protrusion of lower eyelid on downgaze)",
+            "Krukenberg's spindle",
+            "Bitot's spots",
+            "Herbert's pits"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Munson's sign (V-shaped cone indentation of the lower lid in downgaze), Fleischer's iron ring, and Vogt's vertical stress striae are classic hallmarks of Keratoconus."
+        },
+        {
+          "id": "secC_q12",
+          "question": "Congenital cataract with 'salt and pepper' retinopathy and sensorineural deafness in a newborn is most classically part of:",
+          "image": "",
+          "options": [
+            "Congenital Rubella Syndrome",
+            "Congenital Toxoplasmosis",
+            "Congenital Syphilis",
+            "Cytomegalovirus infection"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Classic Gregg triad of Congenital Rubella Syndrome: Cataracts ('pearled' nuclear), Sensorineural Hearing Loss, and Congenital Heart Disease (PDA / pulmonary artery stenosis)."
+        },
+        {
+          "id": "secC_q13",
+          "question": "Horner's syndrome resulting from disruption of the cervical oculosympathetic pathway consists of the clinical triad of:",
+          "image": "",
+          "options": [
+            "Partial ptosis, miosis, and ipsilateral facial anhidrosis",
+            "Complete ptosis, mydriasis, and exophthalmos",
+            "Proptosis, ophthalmoplegia, and chemosis",
+            "Mydriasis, cycloplegia, and dry eye"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Horner's syndrome results from interruption of sympathetic innervation to the eye/face, producing partial ptosis (Müller's muscle), miosis (pupillodilator loss), and anhidrosis."
+        },
+        {
+          "id": "secC_q14",
+          "question": "In the WHO 'SAFE' strategy for the elimination of blinding Trachoma (Chlamydia trachomatis), 'S-A-F-E' stands for:",
+          "image": "",
+          "options": [
+            "Surgery, Antibiotics (Azithromycin), Facial cleanliness, Environmental improvement",
+            "Screening, Acyclovir, Fluid therapy, Education",
+            "Steroids, Antiseptics, Fumigation, Eradication",
+            "Sanitation, Analgesics, Fogging, Eye drops"
+          ],
+          "correctAnswer": 0,
+          "explanation": "WHO SAFE strategy: Surgery for trichiasis, Antibiotics (single-dose oral Azithromycin), Facial cleanliness, and Environmental improvements (water and sanitation)."
+        },
+        {
+          "id": "secC_q15",
+          "question": "Removal of silver-white scales from a well-demarcated erythematous plaque reveals pinpoint bleeding spots. This is known as:",
+          "image": "",
+          "options": [
+            "Auspitz sign",
+            "Nikolsky sign",
+            "Darier sign",
+            "Asboe-Hansen sign"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Auspitz sign is pathognomonic of plaque psoriasis: scraping scales exposes dilated tortuous capillaries in the elongated dermal papillae (papillomatosis), causing pinpoint bleeding."
+        },
+        {
+          "id": "secC_q16",
+          "question": "Pemphigus vulgaris is an autoimmune blistering disorder characterized by IgG autoantibodies directed against:",
+          "image": "",
+          "options": [
+            "Desmoglein 3 (and Desmoglein 1)",
+            "BP180 (Collagen XVII) and BP230",
+            "Type VII collagen",
+            "Transglutaminase"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Pemphigus vulgaris features anti-Desmoglein 3/1 antibodies causing intraepidermal acantholysis (tombstone pattern, Nikolsky positive). Bullous pemphigoid targets BP180/BP230 at hemidesmosomes."
+        },
+        {
+          "id": "secC_q17",
+          "question": "The definitive topical treatment of choice for Sarcoptes scabiei (Scabies) infestation in adults and children is:",
+          "image": "",
+          "options": [
+            "5% Permethrin dermal cream (neck to toe for 8-14 hours)",
+            "1% Lindane lotion",
+            "0.5% Coal tar ointment",
+            "0.1% Betamethasone cream"
+          ],
+          "correctAnswer": 0,
+          "explanation": "5% Permethrin cream applied overnight from neck down and washed after 8-14 hours (repeated in 1-2 weeks) is the first-line treatment for scabies."
+        },
+        {
+          "id": "secC_q18",
+          "question": "Violaceous, polygonal, pruritic, planar, purple papules with Wickham's striae on the flexor wrists are characteristic of:",
+          "image": "",
+          "options": [
+            "Lichen planus",
+            "Pityriasis rosea",
+            "Psoriasis vulgaris",
+            "Erythema multiforme"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lichen planus presents with the 6 Ps: Pruritic, Polygonal, Planar, Purple, Papules, and Plaques, exhibiting Wickham's striae (lacy white surface markings) and Civatte bodies."
+        },
+        {
+          "id": "secC_q19",
+          "question": "Stevens-Johnson Syndrome (SJS) and Toxic Epidermal Necrolysis (TEN) are distinguished primarily on the basis of:",
+          "image": "",
+          "options": [
+            "Percentage of total body surface area (TBSA) with epidermal detachment (< 10% SJS vs > 30% TEN)",
+            "Histopathology showing acantholysis vs spongiosis",
+            "Presence of mucosal involvement",
+            "Serum IgE levels"
+          ],
+          "correctAnswer": 0,
+          "explanation": "SJS/TEN spectrum: SJS involves < 10% TBSA epidermal detachment; SJS/TEN overlap involves 10-30% TBSA; and Toxic Epidermal Necrolysis (TEN) involves > 30% TBSA epidermal necrolysis."
+        },
+        {
+          "id": "secC_q20",
+          "question": "According to the Hanifin and Rajka diagnostic criteria for Atopic Dermatitis, which of the following is considered a MAJOR criterion?",
+          "image": "",
+          "options": [
+            "Pruritus",
+            "Xerosis",
+            "Dennie-Morgan infraorbital fold",
+            "Elevated serum IgE"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Hanifin & Rajka major criteria (must have 3 of 4): 1. Pruritus, 2. Typical morphology & distribution (flexural in adults, facial/extensor in infants), 3. Chronic/relapsing dermatitis, 4. Personal/family history of atopy."
+        },
+        {
+          "id": "secC_q21",
+          "question": "Which of the following is recognized as one of Schneider's First-Rank Symptoms (FRS) of Schizophrenia?",
+          "image": "",
+          "options": [
+            "Audible thoughts (Thought echo / Gedankenlautwerden)",
+            "Anhedonia",
+            "Avolition",
+            "Visual hallucinations"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Schneider's First-Rank Symptoms include: Audible thoughts (thought echo), Voices arguing/discussing, Voices commenting on actions, Somatic passivity, Thought insertion/withdrawal/broadcasting, and Delusional perceptions."
+        },
+        {
+          "id": "secC_q22",
+          "question": "To fulfill the DSM-5 criteria for a Major Depressive Episode, depressive symptoms must persist continuously for at least:",
+          "image": "",
+          "options": [
+            "2 consecutive weeks",
+            "1 month",
+            "6 months",
+            "3 consecutive days"
+          ],
+          "correctAnswer": 0,
+          "explanation": "DSM-5 criteria for Major Depressive Disorder require at least 5 of 9 symptoms (must include depressed mood or anhedonia) present for at least 2 consecutive weeks."
+        },
+        {
+          "id": "secC_q23",
+          "question": "What is the recommended therapeutic serum level range for Lithium in the maintenance management of Bipolar I disorder?",
+          "image": "",
+          "options": [
+            "0.6 to 1.0 mEq/L (Acute mania: 0.8 - 1.2 mEq/L)",
+            "1.5 to 2.5 mEq/L",
+            "0.1 to 0.4 mEq/L",
+            "3.0 to 4.5 mEq/L"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lithium has a narrow therapeutic index: 0.8-1.2 mEq/L for acute mania and 0.6-1.0 mEq/L for maintenance. Toxicity typically emerges above 1.5 mEq/L."
+        },
+        {
+          "id": "secC_q24",
+          "question": "A patient started on Haloperidol develops severe involuntary upward deviation of the eyes (oculogyric crisis) and torticollis after 24 hours. The immediate treatment of choice is:",
+          "image": "",
+          "options": [
+            "Intramuscular/IV Promethazine or Diphenhydramine (Anticholinergic)",
+            "Oral Haloperidol dose increase",
+            "Intravenous Flumazenil",
+            "Oral Propranolol"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Acute dystonia (oculogyric crisis, torticollis) from D2 blockade is treated immediately with central anticholinergics/antihistaminics like Promethazine, Diphenhydramine, or Benztropine."
+        },
+        {
+          "id": "secC_q25",
+          "question": "What is the first-line pharmacological treatment of choice for long-term management of Panic Disorder?",
+          "image": "",
+          "options": [
+            "Selective Serotonin Reuptake Inhibitors (SSRIs)",
+            "Low-dose Haloperidol",
+            "Buspirone",
+            "Propranolol"
+          ],
+          "correctAnswer": 0,
+          "explanation": "SSRIs (e.g., Sertraline, Escitalopram, Paroxetine) and Cognitive Behavioral Therapy (CBT) are first-line treatments for panic disorder. Benzodiazepines are reserved for acute abortive use."
+        },
+        {
+          "id": "secC_q26",
+          "question": "Bipolar I Disorder is differentiated diagnostically from Bipolar II Disorder by the essential occurrence of at least one:",
+          "image": "",
+          "options": [
+            "Full manic episode",
+            "Hypomanic episode only",
+            "Dysthymic episode",
+            "Rapid cycling pattern"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Bipolar I requires at least one lifetime full Manic episode (with significant functional impairment or psychosis). Bipolar II requires Hypomania PLUS at least one Major Depressive Episode."
+        },
+        {
+          "id": "secC_q27",
+          "question": "Wernicke's encephalopathy in chronic alcoholism (triad: ataxia, confusion, ophthalmoplegia) is caused by deficiency of:",
+          "image": "",
+          "options": [
+            "Thiamine (Vitamin B1)",
+            "Niacin (Vitamin B3)",
+            "Riboflavin (Vitamin B2)",
+            "Cobalamin (Vitamin B12)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Thiamine (B1) deficiency impairs pyruvate dehydrogenase and alpha-ketoglutarate dehydrogenase, causing petechial hemorrhages in mammillary bodies and periaqueductal gray (Wernicke's encephalopathy)."
+        },
+        {
+          "id": "secC_q28",
+          "question": "Which clinical feature fundamentally distinguishes Anorexia Nervosa from Bulimia Nervosa?",
+          "image": "",
+          "options": [
+            "Significantly low body weight (BMI < 18.5 kg/m2 in adults) and intense fear of weight gain",
+            "Presence of recurrent binge-eating episodes",
+            "Self-induced vomiting",
+            "Use of laxatives and excessive exercise"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Anorexia Nervosa is defined by significantly low body weight (BMI < 18.5 kg/m2) and distorted body image. Patients with Bulimia Nervosa maintain normal or near-normal body weight (BMI >= 18.5)."
+        },
+        {
+          "id": "secC_q29",
+          "question": "What is the single best and most sensitive initial radiographic view for detecting pneumoperitoneum in suspected hollow viscus perforation?",
+          "image": "",
+          "options": [
+            "Erect Chest X-ray (including both domes of the diaphragm)",
+            "Supine abdominal radiograph",
+            "Left lateral decubitus radiograph without chest",
+            "Prone pelvic radiograph"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Erect Chest X-ray is the most sensitive plain radiograph, capable of detecting as little as 1-2 mL of free subdiaphragmatic gas under the right dome of the diaphragm."
+        },
+        {
+          "id": "secC_q30",
+          "question": "An 'apple-core' circumferential annular constricting lesion on barium enema is classically indicative of:",
+          "image": "",
+          "options": [
+            "Colorectal adenocarcinoma (Left-sided colon)",
+            "Ulcerative colitis (Lead-pipe colon)",
+            "Crohn's disease (String sign)",
+            "Intussusception (Claw sign)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The 'apple-core' sign on double-contrast barium enema represents tight, annular, napkin-ring constriction produced by invasive adenocarcinoma of the descending/sigmoid colon."
+        },
+        {
+          "id": "secC_q31",
+          "question": "Which of the following is an early non-contrast CT (NCCT) sign of Acute Middle Cerebral Artery (MCA) Ischemic Stroke?",
+          "image": "",
+          "options": [
+            "Dense MCA sign and loss of insular ribbon definition",
+            "Parietal bone hyperostosis",
+            "Diffuse intracranial calcification",
+            "Periventricular ring-enhancing lesions"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Early ischemic signs on NCCT within 6 hours include: Hyperdense MCA sign (intraluminal thrombus), loss of gray-white differentiation at the insular ribbon, and effacement of cortical sulci."
+        },
+        {
+          "id": "secC_q32",
+          "question": "On standard Magnetic Resonance Imaging (MRI), pure cerebrospinal fluid (CSF) in cerebral ventricles appears:",
+          "image": "",
+          "options": [
+            "Hypointense (Dark) on T1-weighted, Hyperintense (Bright) on T2-weighted",
+            "Hyperintense (Bright) on T1, Hypointense (Dark) on T2",
+            "Hyperintense on both T1 and T2",
+            "Hypointense on both T1 and T2"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Basic MRI physics: Water/CSF is dark (hypointense) on T1-weighted images and bright (hyperintense) on T2-weighted images ('T2 = H2O is bright')."
+        },
+        {
+          "id": "secC_q33",
+          "question": "What is the specific life-saving pharmacotherapy for malignant hyperthermia triggered by inhalational anesthetics or succinylcholine?",
+          "image": "",
+          "options": [
+            "Intravenous Dantrolene sodium",
+            "Intravenous Calcium gluconate",
+            "Intravenous Potassium chloride",
+            "Intravenous Neostigmine"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Dantrolene sodium is a specific ryanodine receptor (RYR1) antagonist that blocks uncontrolled calcium release from the sarcoplasmic reticulum in malignant hyperthermia."
+        },
+        {
+          "id": "secC_q34",
+          "question": "In the modified Mallampati airway classification, visualization of only the soft palate and base of the uvula corresponds to:",
+          "image": "",
+          "options": [
+            "Class III",
+            "Class I",
+            "Class II",
+            "Class IV"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Mallampati scoring: Class I - soft palate, fauces, uvula, pillars; Class II - soft palate, fauces, portion of uvula; Class III - soft palate, base of uvula; Class IV - hard palate only."
+        },
+        {
+          "id": "secC_q35",
+          "question": "What is the required sensory dermatomal block level for performing a Cesarean section under spinal anesthesia?",
+          "image": "",
+          "options": [
+            "T4 (Xiphisternum / Nipple level)",
+            "T10 (Umbilicus level)",
+            "L1 (Inguinal ligament level)",
+            "T1 (Axilla level)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Cesarean section requires a sensory block up to the T4 dermatome (nipple level) to prevent pain during peritoneal traction and exteriorization of the uterus."
+        },
+        {
+          "id": "secC_q36",
+          "question": "Propofol produces rapid induction of general anesthesia primarily through positive allosteric modulation of:",
+          "image": "",
+          "options": [
+            "GABA-A receptors (potentiating chloride influx)",
+            "NMDA glutamate receptors",
+            "Mu-opioid receptors",
+            "Nicotinic acetylcholine receptors"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Propofol binds to beta-subunits of GABA-A receptors, potentiating the inhibitory action of GABA and increasing transmembrane chloride conductance to cause hyperpolarization."
+        }
+      ]
+    },
+    {
+      "id": "sec_d",
+      "name": "Section D",
+      "durationMinutes": 42,
+      "questions": [
+        {
+          "id": "secD_q1",
+          "question": "ST-segment elevation in leads V1, V2, V3, and V4 with reciprocal ST depression in leads II, III, and aVF indicates acute transmural myocardial infarction of the:",
+          "image": "",
+          "options": [
+            "Anterior / Anteroseptal wall (Left Anterior Descending artery)",
+            "Inferior wall (Right Coronary Artery)",
+            "Lateral wall (Left Circumflex artery)",
+            "Posterior wall (Posterior Descending artery)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "ST elevation in V1-V4 reflects acute anteroseptal/anterior STEMI caused by occlusion of the Left Anterior Descending (LAD) coronary artery."
+        },
+        {
+          "id": "secD_q2",
+          "question": "Which of the following drug classes forms one of the 'Four Pillars' of guideline-directed medical therapy (GDMT) proven to reduce mortality in Heart Failure with Reduced Ejection Fraction (HFrEF)?",
+          "image": "",
+          "options": [
+            "SGLT2 Inhibitor (e.g., Dapagliflozin / Empagliflozin)",
+            "Loop Diuretic (e.g., Furosemide)",
+            "Calcium Channel Blocker (e.g., Diltiazem)",
+            "Digoxin"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The 4 mortality-reducing GDMT pillars for HFrEF are: 1. ARNI (Sacubitril/Valsartan) or ACEi/ARB, 2. Evidence-based Beta-blocker, 3. Mineralocorticoid receptor antagonist (MRA - Spironolactone), 4. SGLT2 inhibitor."
+        },
+        {
+          "id": "secD_q3",
+          "question": "A 22-year-old with Type 1 Diabetes presents with vomiting, Kussmaul respiration, and confusion. Labs: Glucose 380 mg/dL, pH 7.15, HCO3- 9 mEq/L, Anion Gap 24, K+ 5.2 mEq/L. The immediate primary step in management is:",
+          "image": "",
+          "options": [
+            "0.9% Normal Saline IV fluid resuscitation before insulin infusion",
+            "IV Sodium bicarbonate bolus",
+            "Subcutaneous long-acting Glargine insulin",
+            "IV Potassium chloride bolus"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The immediate priority in DKA is aggressive isotonic crystalloid resuscitation (0.9% NS, 1-1.5 L in the 1st hour) to restore perfusion, followed by continuous low-dose IV regular insulin."
+        },
+        {
+          "id": "secD_q4",
+          "question": "According to the Modified Duke Criteria for Infective Endocarditis, which of the following is considered a MAJOR criterion?",
+          "image": "",
+          "options": [
+            "Echocardiographic evidence of oscillating intracardiac vegetation or abscess",
+            "Fever > 38.0°C",
+            "Janeway lesions",
+            "Roth spots on fundoscopy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Duke Major Criteria: 1. Persistently positive blood cultures for typical organisms, 2. Endocardial involvement on Echo (oscillating vegetation, abscess, new partial dehiscence of prosthetic valve), 3. New regurgitant murmur."
+        },
+        {
+          "id": "secD_q5",
+          "question": "A patient with Chronic Kidney Disease has an estimated GFR (eGFR) of 22 mL/min/1.73 m2. According to KDIGO staging, this corresponds to:",
+          "image": "",
+          "options": [
+            "Stage G4 (Severely decreased GFR)",
+            "Stage G3a",
+            "Stage G3b",
+            "Stage G5 (Kidney failure)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "KDIGO GFR Stages: G1 (>=90), G2 (60-89), G3a (45-59), G3b (30-44), G4 (15-29, severely decreased), G5 (<15, kidney failure/ESRD)."
+        },
+        {
+          "id": "secD_q6",
+          "question": "In the workup of ACTH-dependent Cushing's syndrome, an 8 mg High-Dose Dexamethasone Suppression Test (HDDST) that results in > 50% suppression of baseline serum cortisol points to:",
+          "image": "",
+          "options": [
+            "Cushing's Disease (Pituitary ACTH-secreting adenoma)",
+            "Ectopic ACTH secretion (Small cell lung carcinoma)",
+            "Adrenal adenoma",
+            "Adrenal cortical carcinoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Pituitary adenomas (Cushing disease) retain partial negative feedback and suppress cortisol by > 50% on HDDST. Ectopic ACTH tumors and adrenal tumors do not suppress."
+        },
+        {
+          "id": "secD_q7",
+          "question": "Which autoantibody is the MOST SPECIFIC for the diagnosis of Systemic Lupus Erythematosus (SLE) and correlates with disease activity and lupus nephritis?",
+          "image": "",
+          "options": [
+            "Anti-dsDNA antibody",
+            "Anti-Nuclear Antibody (ANA)",
+            "Anti-Ro / SSA antibody",
+            "Anti-Histone antibody"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Anti-dsDNA and Anti-Smith are highly specific for SLE. Anti-dsDNA titers fluctuate with disease flares and directly correlate with active lupus nephritis. ANA is sensitive but not specific."
+        },
+        {
+          "id": "secD_q8",
+          "question": "Which of the following joint involvement patterns is characteristic of Rheumatoid Arthritis, clearly differentiating it from primary Osteoarthritis?",
+          "image": "",
+          "options": [
+            "Symmetrical polyarthritis involving MCP and PIP joints, characteristically SPARING the DIP joints",
+            "Asymmetrical oligoarthritis involving DIP joints with Heberden nodes",
+            "Isolated first Metatarsophalangeal (MTP) acute podagra",
+            "Axial sacroiliac joint ankylosis without peripheral involvement"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Rheumatoid arthritis is a symmetric destructive polyarthritis targeting wrist, MCP, and PIP joints while characteristically sparing DIP joints. Osteoarthritis characteristically affects DIP (Heberden) and PIP (Bouchard) joints."
+        },
+        {
+          "id": "secD_q9",
+          "question": "In the CURB-65 pneumonia severity score, the letter 'C' stands for:",
+          "image": "",
+          "options": [
+            "Confusion (new mental status disorientation)",
+            "Creatinine > 2.0 mg/dL",
+            "Cyanosis",
+            "Cavitary lesion on chest X-ray"
+          ],
+          "correctAnswer": 0,
+          "explanation": "CURB-65 criteria: Confusion (Abbreviated Mental Test <= 8), Urea > 7 mmol/L (BUN > 19 mg/dL), Respiratory rate >= 30/min, Blood pressure (SBP < 90 or DBP <= 60), Age >= 65 years."
+        },
+        {
+          "id": "secD_q10",
+          "question": "An electric shock-like sensation radiating down the spine into the limbs upon neck flexion (Lhermitte's sign) in a 28-year-old female is a classic manifestation of:",
+          "image": "",
+          "options": [
+            "Multiple Sclerosis (Cervical demyelinating plaque)",
+            "Guillain-Barré Syndrome",
+            "Amyotrophic Lateral Sclerosis",
+            "Myasthenia Gravis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lhermitte's sign reflects posterior column cervical spinal cord demyelination, characteristically seen in Multiple Sclerosis."
+        },
+        {
+          "id": "secD_q11",
+          "question": "The clinical motor triad of Parkinson's Disease consists of:",
+          "image": "",
+          "options": [
+            "Resting tremor ('pill-rolling'), Cogwheel rigidity, and Bradykinesia",
+            "Intention tremor, Ataxia, and Nystagmus",
+            "Chorea, Athetosis, and Hemiballismus",
+            "Spasticity, Hyperreflexia, and Extensor Babinski sign"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Parkinson's disease motor cardinal features (TRAP): Tremor (resting 4-6 Hz pill-rolling), Rigidity (cogwheel/leadpipe), Akinesia/Bradykinesia, and Postural instability."
+        },
+        {
+          "id": "secD_q12",
+          "question": "Which of the following serum biomarkers is the MOST SENSITIVE and SPECIFIC for diagnosing acute pancreatitis within the first 48-72 hours?",
+          "image": "",
+          "options": [
+            "Serum Lipase (elevated >= 3 times upper limit of normal)",
+            "Serum Amylase",
+            "Serum Alanine Aminotransferase",
+            "C-Reactive Protein"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Serum Lipase is more sensitive and specific than amylase because it remains elevated longer (8-14 days) and is not produced by salivary glands."
+        },
+        {
+          "id": "secD_q13",
+          "question": "A colonoscopy showing continuous mucosal inflammation starting from the rectum with superficial ulcerations and pseudopolyps is diagnostic of:",
+          "image": "",
+          "options": [
+            "Ulcerative Colitis",
+            "Crohn's Disease",
+            "Ischemic Colitis",
+            "Intestinal Tuberculosis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Ulcerative colitis features continuous, superficial mucosal/submucosal inflammation invariably starting in the rectum (proctitis) and extending proximally without skip lesions. Crohn's features transmural skip lesions."
+        },
+        {
+          "id": "secD_q14",
+          "question": "A patient with small cell lung cancer presents with euvolemic hyponatremia. Labs: Serum Na+ 118 mEq/L, Serum Osmolality 240 mOsm/kg, Urine Osmolality 550 mOsm/kg, Urine Na+ 45 mEq/L. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Syndrome of Inappropriate Antidiuretic Hormone (SIADH)",
+            "Central Diabetes Insipidus",
+            "Psychogenic Polydipsia",
+            "Cerebral Salt Wasting"
+          ],
+          "correctAnswer": 0,
+          "explanation": "SIADH features hypotonic hyponatremia, inappropriately concentrated urine (Urine Osm > 100-300 mOsm/kg), elevated urine sodium (> 30-40 mEq/L), and clinical euvolemia."
+        },
+        {
+          "id": "secD_q15",
+          "question": "Which serological antibody is the hallmark diagnostic marker for Primary Biliary Cholangitis (PBC) present in > 95% of patients?",
+          "image": "",
+          "options": [
+            "Anti-Mitochondrial Antibody (AMA - M2 subtype)",
+            "Anti-Smooth Muscle Antibody (ASMA)",
+            "Anti-Liver Kidney Microsomal-1 (Anti-LKM1)",
+            "Perinuclear ANCA (p-ANCA)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Anti-Mitochondrial Antibodies (AMA targeting the pyruvate dehydrogenase complex) are highly specific and sensitive (> 95%) for Primary Biliary Cholangitis."
+        },
+        {
+          "id": "secD_q16",
+          "question": "According to the Berlin Definition, Acute Respiratory Distress Syndrome (ARDS) with a PaO2/FiO2 ratio of 150 mmHg under PEEP >= 5 cmH2O is categorized as:",
+          "image": "",
+          "options": [
+            "Moderate ARDS (PaO2/FiO2 101-200 mmHg)",
+            "Mild ARDS (PaO2/FiO2 201-300 mmHg)",
+            "Severe ARDS (PaO2/FiO2 <= 100 mmHg)",
+            "Non-ARDS acute hypoxemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Berlin ARDS severity categories (with PEEP >= 5 cmH2O): Mild (PaO2/FiO2 201-300), Moderate (PaO2/FiO2 101-200), and Severe (PaO2/FiO2 <= 100)."
+        },
+        {
+          "id": "secD_q17",
+          "question": "What is the classic Cerebrospinal Fluid (CSF) analysis finding in Guillain-Barré Syndrome (Acute Inflammatory Demyelinating Polyneuropathy)?",
+          "image": "",
+          "options": [
+            "Albuminocytological dissociation (Markedly elevated protein with normal CSF white cell count)",
+            "Marked neutrophilic pleocytosis with low glucose",
+            "Marked lymphocytic pleocytosis with elevated protein",
+            "Normal protein with oligoclonal IgG bands"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Albuminocytological dissociation (elevated protein due to proximal nerve root inflammation without an increase in CSF cell count / pleocytosis) is pathognomonic of Guillain-Barré syndrome."
+        },
+        {
+          "id": "secD_q18",
+          "question": "The definitive confirmatory electrodiagnostic test for Myasthenia Gravis demonstrating a decremental compound muscle action potential (CMAP) response is:",
+          "image": "",
+          "options": [
+            "Low-frequency (2-3 Hz) Repetitive Nerve Stimulation (RNS)",
+            "High-frequency (20-50 Hz) Repetitive Nerve Stimulation",
+            "Somatosensory evoked potentials (SSEP)",
+            "Visual evoked potentials (VEP)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Low-frequency (2-3 Hz) Repetitive Nerve Stimulation (RNS) shows a progressive > 10% decremental CMAP amplitude response in Myasthenia Gravis due to depleted acetylcholine receptor availability."
+        },
+        {
+          "id": "secD_q19",
+          "question": "At what chronological age does an infant typically develop a mature neat pincer grasp (picking up a small pellet with tips of index finger and thumb)?",
+          "image": "",
+          "options": [
+            "9 to 10 months",
+            "4 to 5 months",
+            "6 months",
+            "15 months"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Developmental grasp progression: Crude palmar grasp at 6 months, inferior pincer grasp at 9 months, and mature neat (fine) pincer grasp between 9 to 10 months."
+        },
+        {
+          "id": "secD_q20",
+          "question": "A newborn at 1 minute post-delivery has a heart rate of 110 bpm, active spontaneous crying, some flexion of extremities, vigorous grimace on suctioning, and pink body with blue hands/feet. The APGAR score is:",
+          "image": "",
+          "options": [
+            "8",
+            "6",
+            "10",
+            "7"
+          ],
+          "correctAnswer": 0,
+          "explanation": "APGAR: HR > 100 (2) + Respiratory effort strong (2) + Muscle tone some flexion (1) + Reflex grimace (2) + Color acrocyanosis (1) = 8."
+        },
+        {
+          "id": "secD_q21",
+          "question": "The four classic anatomical anomalies comprising Tetralogy of Fallot (TOF) are:",
+          "image": "",
+          "options": [
+            "Ventricular Septal Defect (VSD), Pulmonary infundibular stenosis, Overriding aorta, and Right Ventricular Hypertrophy",
+            "Atrial Septal Defect, Mitral stenosis, Overriding aorta, and Left Ventricular Hypertrophy",
+            "Transposition of great arteries, VSD, Coarctation of aorta, and Tricuspid atresia",
+            "Truncus arteriosus, VSD, ASD, and Right Ventricular Hypertrophy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tetralogy of Fallot mnemonic PROVe: Pulmonary infundibular stenosis, Right ventricular hypertrophy, Overriding aorta, and Ventricular septal defect (producing a 'boot-shaped heart' on X-ray)."
+        },
+        {
+          "id": "secD_q22",
+          "question": "Which of the following clinical features fundamentally distinguishes Kwashiorkor from Marasmus in Severe Acute Malnutrition (SAM)?",
+          "image": "",
+          "options": [
+            "Nutritional bilateral pitting pedal edema",
+            "Subcutaneous fat loss",
+            "Severe muscle wasting",
+            "Stunted height-for-age"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Kwashiorkor (protein deficiency) is defined by generalized bilateral pitting edema, hepatomegaly with fatty liver, and 'flaky paint' dermatosis. Marasmus is total calorie starvation without edema."
+        },
+        {
+          "id": "secD_q23",
+          "question": "A full-term 3-day-old neonate with severe unconjugated hyperbilirubinemia is treated with intensive phototherapy. The primary biochemical mechanism of phototherapy is:",
+          "image": "",
+          "options": [
+            "Structural photoisomerization of bilirubin to water-soluble Lumirubin",
+            "Hepatic glucuronyl transferase enzyme induction",
+            "Binding of bilirubin to albumin in the plasma",
+            "Thermal hemolysis suppression"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Phototherapy (blue-green light 460-490 nm) converts toxic unconjugated bilirubin into structural photoisomers (mainly Lumirubin) that can be excreted directly into bile and urine without glucuronidation."
+        },
+        {
+          "id": "secD_q24",
+          "question": "A 2-year-old child presents with barking cough, inspiratory stridor, and hoarseness following a viral URI. Anteroposterior soft-tissue neck radiograph reveals subglottic narrowing known as the:",
+          "image": "",
+          "options": [
+            "Steeple sign (Croup / Laryngotracheobronchitis)",
+            "Thumbprint sign",
+            "Sail sign",
+            "Double-bubble sign"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The 'Steeple sign' on AP neck X-ray reflects symmetric subglottic tracheal edema in viral Croup (parainfluenza). The 'Thumbprint sign' is classic for acute Epiglottitis."
+        },
+        {
+          "id": "secD_q25",
+          "question": "Which of the following is recognized as the earliest and most frequent clinical sign of Congenital Hypothyroidism in a neonate?",
+          "image": "",
+          "options": [
+            "Prolonged unconjugated physiological jaundice, large fontanelles, and umbilical hernia",
+            "Microcephaly and hypertonia",
+            "Early accelerated linear growth",
+            "Profuse diarrhea and irritability"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Early neonatal signs of congenital hypothyroidism include prolonged physiological neonatal jaundice, wide open posterior fontanelle, umbilical hernia, constipation, hypothermia, and macroglossia."
+        },
+        {
+          "id": "secD_q26",
+          "question": "A 9-month-old infant presents with episodic screaming, drawing up of legs, vomiting, and passage of 'red currant jelly' stools. Abdominal ultrasound shows a 'target' or 'doughnut' sign. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Ileocolic Intussusception",
+            "Hypertrophic Pyloric Stenosis",
+            "Meckel's Diverticulum",
+            "Malrotation with Volvulus"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Classic triad of intussusception: Colicky pain, sausage-shaped abdominal mass, and red currant jelly stools (blood + mucus). Target/doughnut sign on ultrasound confirms telescoping of bowel."
+        },
+        {
+          "id": "secD_q27",
+          "question": "Kawasaki disease is a systemic medium-vessel vasculitis of childhood. The most dreaded life-threatening cardiovascular complication is the development of:",
+          "image": "",
+          "options": [
+            "Coronary artery aneurysms and thrombosis",
+            "Aortic dissection",
+            "Coarctation of the aorta",
+            "Subacute infective endocarditis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Without early intravenous immunoglobulin (IVIG) and high-dose aspirin therapy within 10 days of fever onset, 25% of untreated Kawasaki disease children develop Coronary Artery Aneurysms."
+        },
+        {
+          "id": "secD_q28",
+          "question": "On second-trimester Quadruple screening for Down Syndrome (Trisomy 21), which of the following serum marker patterns is characteristic?",
+          "image": "",
+          "options": [
+            "Elevated beta-hCG, Elevated Inhibin-A, Decreased Maternal Serum Alpha-Fetoprotein (MSAFP), and Decreased unconjugated Estriol (uE3)",
+            "Decreased beta-hCG, Decreased Inhibin-A, and Elevated MSAFP",
+            "Elevated MSAFP, Normal beta-hCG, and Decreased Inhibin-A",
+            "Decreased beta-hCG, Decreased MSAFP, and Normal Inhibin-A"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Second-trimester Quad screen in Down Syndrome features the 'HI is high' pattern: hCG and Inhibin-A are ELEVATED, while MSAFP and unconjugated Estriol (uE3) are DECREASED."
+        },
+        {
+          "id": "secD_q29",
+          "question": "Following an anterior glenohumeral shoulder dislocation, an impaction cortical fracture of the posterolateral humeral head is known as a:",
+          "image": "",
+          "options": [
+            "Hill-Sachs lesion",
+            "Bankart lesion",
+            "SLAP lesion",
+            "Bennett fracture"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A Hill-Sachs lesion is a posterolateral humeral head compression/impaction fracture caused by abutment against the anterior glenoid rim during anterior shoulder dislocation. A Bankart lesion is an anteroinferior glenoid labrum tear."
+        },
+        {
+          "id": "secD_q30",
+          "question": "A classical Colles' fracture involves a fracture of the distal radius within 2.5 cm of the articular surface with which pattern of displacement?",
+          "image": "",
+          "options": [
+            "Dorsal displacement, dorsal tilt, and radial shift ('Dinner fork deformity')",
+            "Volar displacement and volar tilt ('Spade deformity')",
+            "Intra-articular fracture-subluxation of the radial styloid",
+            "Isolated ulnar styloid avulsion"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Colles' fracture (extra-articular distal radius fracture from FOOSH) produces classic 'Dinner Fork Deformity' due to dorsal displacement, dorsal tilt, radial displacement, radial tilt, and supination."
+        },
+        {
+          "id": "secD_q31",
+          "question": "Avascular necrosis (AVN) following a waist fracture of the scaphoid bone occurs predominantly in the proximal pole because:",
+          "image": "",
+          "options": [
+            "Blood supply enters via distal ridge and runs in a retrograde direction",
+            "The scaphoid is completely devoid of periosteum",
+            "The anterior interosseous artery is torn",
+            "The radial artery directly pierces the proximal pole"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The scaphoid receives 70-80% of its blood supply from branches of the radial artery entering distally and running in a retrograde fashion; a waist fracture interrupts blood flow to the proximal fragment."
+        },
+        {
+          "id": "secD_q32",
+          "question": "Volkmann's Ischemic Contracture (VIC) of the forearm flexor compartment is a catastrophic complication most commonly following which pediatric fracture?",
+          "image": "",
+          "options": [
+            "Supracondylar fracture of the humerus (Gartland Type III)",
+            "Fracture lateral condyle of humerus",
+            "Monteggia fracture-dislocation",
+            "Clavicle mid-shaft fracture"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Supracondylar humerus fractures can cause brachial artery spasm/entrapment and deep forearm compartment syndrome, resulting in ischemic contracture of flexor digitorum profundus and flexor pollicis longus (VIC)."
+        },
+        {
+          "id": "secD_q33",
+          "question": "Which clinical screening test for Developmental Dysplasia of the Hip (DDH) actively attempts to REDUCE a dislocated femoral head back into the acetabulum with a palpable 'clunk'?",
+          "image": "",
+          "options": [
+            "Ortolani test",
+            "Barlow test",
+            "Galeazzi test",
+            "Trendelenburg test"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Ortolani test REDUCES a dislocated hip (abduction and anterior lift: 'O'pen/Out). Barlow test DISLOCATES an unstable hip (adduction and posterior pressure: 'B'ack/Bad)."
+        },
+        {
+          "id": "secD_q34",
+          "question": "A 16-year-old male presents with distal femur pain. Plain radiograph demonstrates a metaphyseal lesion with subperiosteal bone elevation ('Codman's triangle') and a 'sunburst' periosteal reaction. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Osteosarcoma",
+            "Ewing sarcoma",
+            "Osteoid osteoma",
+            "Chondrosarcoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Osteosarcoma typically arises in the metaphysis of long bones around the knee, producing malignant osteoid with classic 'Sunburst' spiculation and 'Codman's triangle' periosteal reaction."
+        },
+        {
+          "id": "secD_q35",
+          "question": "A 30-year-old female presents with pain in the distal femur. Radiograph shows an expansile, eccentric lytic lesion in the EPIPHYSIS extending to the articular subchondral bone with a 'soap bubble' appearance. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Giant Cell Tumor of bone (Osteoclastoma)",
+            "Aneurysmal Bone Cyst",
+            "Enchondroma",
+            "Fibrous Dysplasia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Giant Cell Tumor (Osteoclastoma) is a benign but locally aggressive epiphyseal lesion occurring in skeletally mature adults (20-40 yrs) showing an eccentric, expansile 'soap-bubble' lytic appearance."
+        },
+        {
+          "id": "secD_q36",
+          "question": "What is the earliest, most reliable, and most sensitive clinical symptom of Acute Compartment Syndrome of the limb?",
+          "image": "",
+          "options": [
+            "Severe pain out of proportion to injury aggravated by passive stretching of compartment muscles",
+            "Loss of distal arterial peripheral pulses",
+            "Complete motor paralysis of the limb",
+            "Pallor and skin hypothermia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Disproportionate unremitting pain worsened by passive muscle stretch is the earliest indicator of compartment syndrome. Pulselessness, pallor, and paralysis are late, irreversible signs of ischemia."
+        }
+      ]
+    },
+    {
+      "id": "sec_e",
+      "name": "Section E",
+      "durationMinutes": 42,
+      "questions": [
+        {
+          "id": "secE_q1",
+          "question": "In the Alvarado scoring system for Acute Appendicitis, which two parameters are allocated a score of 2 points each?",
+          "image": "",
+          "options": [
+            "Right Lower Quadrant (RLQ) Tenderness and Leukocytosis (> 10,000/mcL)",
+            "Migratory RLQ pain and Fever",
+            "Rebound tenderness and Anorexia",
+            "Nausea/vomiting and Elevated neutrophil shift"
+          ],
+          "correctAnswer": 0,
+          "explanation": "In the 10-point MANTRELS (Alvarado) score, RLQ Tenderness (T) and Leukocytosis (L) get 2 points each; all other 6 parameters get 1 point each."
+        },
+        {
+          "id": "secE_q2",
+          "question": "Arrest of inspiration upon deep palpation of the right upper quadrant over the gallbladder fossa is known as:",
+          "image": "",
+          "options": [
+            "Murphy's sign (Acute cholecystitis)",
+            "Courvoisier's sign",
+            "Boas' sign",
+            "Grey Turner's sign"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Murphy's sign is inspiratory arrest during deep right subcostal palpation as the inflamed gallbladder touches the examining fingers, pathognomonic of Acute Cholecystitis."
+        },
+        {
+          "id": "secE_q3",
+          "question": "According to the Parkland Formula, the total crystalloid fluid resuscitation requirement in the first 24 hours for a 60 kg patient with 40% Total Body Surface Area (TBSA) second-degree burns is:",
+          "image": "",
+          "options": [
+            "9,600 mL of Ringer's Lactate (half given in first 8 hours, half over next 16 hours)",
+            "4,800 mL of Normal Saline",
+            "12,000 mL of 5% Dextrose",
+            "6,000 mL of Colloid solution"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Parkland formula: 4 mL * Weight (kg) * %TBSA = 4 * 60 * 40 = 9,600 mL Ringer's Lactate. 50% (4,800 mL) is infused in the first 8 hours from time of burn, and 50% over the remaining 16 hours."
+        },
+        {
+          "id": "secE_q4",
+          "question": "Fine Needle Aspiration Cytology (FNAC) of a thyroid nodule reveals enlarged nuclei with central optical clearing ('Orphan Annie eyes') and intranuclear cytoplasmic inclusions. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Papillary Thyroid Carcinoma",
+            "Follicular Thyroid Carcinoma",
+            "Medullary Thyroid Carcinoma",
+            "Anaplastic Thyroid Carcinoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Papillary thyroid carcinoma is characterized pathognomonically by 'Orphan Annie eyes' nuclei, intranuclear pseudoinclusions, longitudinal nuclear grooves, and psammoma bodies."
+        },
+        {
+          "id": "secE_q5",
+          "question": "A patient with chest trauma presents with hypotension, tracheal deviation to the opposite side, distended neck veins, and absent breath sounds on the affected hemithorax. The immediate next step is:",
+          "image": "",
+          "options": [
+            "Immediate needle thoracostomy (2nd intercostal space midclavicular line or 5th ICS anterior axillary line)",
+            "Immediate contrast-enhanced chest CT scan",
+            "Endotracheal intubation and mechanical ventilation",
+            "Pericardiocentesis under ultrasound guidance"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tension pneumothorax is a clinical diagnosis requiring immediate emergency needle decompression followed by tube thoracostomy (chest drain) without waiting for radiographic confirmation."
+        },
+        {
+          "id": "secE_q6",
+          "question": "Which of the following targeted monoclonal antibodies is indicated for the treatment of invasive breast cancer overexpressing the HER2/neu (ErbB2) receptor oncoprotein?",
+          "image": "",
+          "options": [
+            "Trastuzumab",
+            "Rituximab",
+            "Bevacizumab",
+            "Cetuximab"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Trastuzumab (Herceptin) is a recombinant humanized IgG1 monoclonal antibody directed against the extracellular domain of the HER2/neu receptor tyrosine kinase in breast cancer."
+        },
+        {
+          "id": "secE_q7",
+          "question": "The standard surgical emergency procedure for a perforated anterior duodenal ulcer in an unstable patient is:",
+          "image": "",
+          "options": [
+            "Graham's omental patch repair (Omentopexy)",
+            "Immediate subtotal gastrectomy",
+            "Highly selective vagotomy",
+            "Roux-en-Y gastrojejunostomy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Cellan-Jones / Graham omental patch repair (transfixing the perforation with pedicled vascularized omental flap) is the gold standard surgical procedure for perforated peptic ulcers."
+        },
+        {
+          "id": "secE_q8",
+          "question": "An Ankle-Brachial Index (ABI) value of 0.65 in a patient with calf claudication is diagnostic of:",
+          "image": "",
+          "options": [
+            "Moderate Peripheral Arterial Disease (PAD)",
+            "Normal lower extremity perfusion",
+            "Severe critical limb-threatening ischemia",
+            "Monckeberg medial calcific sclerosis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "ABI interpretation: 1.0-1.4 Normal; 0.91-0.99 Borderline; 0.70-0.90 Mild PAD; 0.41-0.69 Moderate PAD (claudication); <= 0.40 Severe PAD (rest pain/tissue loss)."
+        },
+        {
+          "id": "secE_q9",
+          "question": "According to the Stanford Classification of Aortic Dissection, a dissection that involves the ascending aorta (irrespective of site of entry tear) is classified as:",
+          "image": "",
+          "options": [
+            "Stanford Type A (Requires emergency surgical repair)",
+            "Stanford Type B (Managed medically first-line)",
+            "DeBakey Type III",
+            "Stanford Type C"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Stanford Type A involves the ascending aorta (surgical emergency due to risk of pericardial tamponade and aortic rupture). Stanford Type B involves descending aorta distal to left subclavian (medically managed)."
+        },
+        {
+          "id": "secE_q10",
+          "question": "Courvoisier's Law states that in the presence of a palpably enlarged, non-tender gallbladder with painless jaundice, the cause is UNLIKELY to be gallstones and is most commonly:",
+          "image": "",
+          "options": [
+            "Carcinoma head of the pancreas or periampullary malignancy",
+            "Choledocholithiasis",
+            "Acute calculus cholecystitis",
+            "Biliary atresia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Courvoisier's Law: A palpable, non-tender gallbladder in a jaundiced patient is due to malignant obstruction of the common bile duct (e.g., pancreatic adenocarcinoma), because gallstone disease causes a fibrotic, non-distensible gallbladder."
+        },
+        {
+          "id": "secE_q11",
+          "question": "What is the most common anatomical type of Congenital Tracheoesophageal Fistula (TEF) and Esophageal Atresia (EA)?",
+          "image": "",
+          "options": [
+            "Type C (Gross classification): Proximal esophageal atresia with Distal tracheoesophageal fistula (~85%)",
+            "Type A: Pure esophageal atresia without fistula",
+            "Type E: 'H-type' fistula without atresia",
+            "Type B: Proximal fistula with distal atresia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Type C (Gross classification) represents > 85% of cases: blind-ending upper proximal esophageal pouch with a fistula connecting the distal esophagus to the carina/trachea (producing air in stomach)."
+        },
+        {
+          "id": "secE_q12",
+          "question": "A 15-year-old male presents with sudden-onset acute scrotal pain, high-riding testis, and absent cremasteric reflex. Color Doppler ultrasound shows absent blood flow. What is the definitive management?",
+          "image": "",
+          "options": [
+            "Immediate emergency surgical exploration, bilateral orchiopexy (or orchiectomy if non-viable)",
+            "Oral antibiotics for acute epididymo-orchitis",
+            "Manual detorsion and discharge home",
+            "Elective ultrasound repeat after 24 hours"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Testicular torsion is a surgical emergency with a golden salvage window of 6 hours. Emergency exploration with detorsion and bilateral orchidopexy (due to bell-clapper anomaly) is mandatory."
+        },
+        {
+          "id": "secE_q13",
+          "question": "In the preoperative pharmacological preparation of a patient with Pheochromocytoma, which drug sequence is strictly mandatory to prevent lethal hypertensive crisis?",
+          "image": "",
+          "options": [
+            "Alpha-blocker (Phenoxybenzamine) first, followed by Beta-blocker (Propranolol) after adequate alpha-blockade",
+            "Beta-blocker first, followed by Alpha-blocker",
+            "Beta-blocker monotherapy without alpha-blockade",
+            "ACE inhibitor monotherapy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Alpha-blockade (Phenoxybenzamine) MUST always precede beta-blockade. Administering a beta-blocker first blocks beta-2 mediated vasodilation, leaving unopposed alpha-1 vasoconstriction that triggers catastrophic hypertensive crisis."
+        },
+        {
+          "id": "secE_q14",
+          "question": "The classic diagnostic clinical triad of Renal Cell Carcinoma (seen in ~10% of advanced cases) consists of:",
+          "image": "",
+          "options": [
+            "Gross hematuria, flank pain, and palpable flank/abdominal mass",
+            "Fever, oliguria, and hypertension",
+            "Dysuria, pyuria, and testicular pain",
+            "Proteinuria, generalized edema, and hyperlipidemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The classic triad of Renal Cell Carcinoma (RCC) is gross painless hematuria (most common single sign), dull flank pain, and a palpable abdominal mass."
+        },
+        {
+          "id": "secE_q15",
+          "question": "In the medical management of Benign Prostatic Hyperplasia (BPH), 5-alpha reductase inhibitors (e.g., Finasteride, Dutasteride) exert their therapeutic effect by:",
+          "image": "",
+          "options": [
+            "Blocking conversion of testosterone to Dihydrotestosterone (DHT), reducing prostate volume over time",
+            "Antagonizing alpha-1A adrenergic receptors on the bladder neck",
+            "Directly inhibiting aromatase in Leydig cells",
+            "Relaxing the detrusor smooth muscle via beta-3 stimulation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Finasteride inhibits 5-alpha reductase, preventing the conversion of testosterone to DHT (the primary intracellular androgen stimulating prostate epithelial growth), reducing prostate volume by ~20-25%."
+        },
+        {
+          "id": "secE_q16",
+          "question": "Erect abdominal radiograph in mechanical Small Bowel Obstruction classically demonstrates:",
+          "image": "",
+          "options": [
+            "Multiple centrally located step-ladder air-fluid levels with plicae circulares (valvulae conniventes)",
+            "Single massive coffee-bean sign in the left lower quadrant",
+            "Thumbprinting sign in the splenic flexure",
+            "Ground glass haziness with pneumatosis intestinalis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Mechanical small bowel obstruction shows central dilated loops (> 3 cm) with valvulae conniventes crossing the entire lumen width and 'step-ladder' air-fluid levels on erect abdominal radiograph."
+        },
+        {
+          "id": "secE_q17",
+          "question": "In Transurethral Resection of the Prostate (TURP), 'TURP Syndrome' is caused by systemic vascular absorption of hypotonic non-electrolyte irrigation fluid (glycine/mannitol), causing:",
+          "image": "",
+          "options": [
+            "Hypervolemic dilutional hyponatremia and neurological impairment",
+            "Hypernatremic dehydration",
+            "Acute hypokalemic alkalosis",
+            "Severe metabolic acidosis with hypocalcemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "TURP syndrome results from systemic intravascular absorption of large volumes of 1.5% Glycine irrigant through open prostatic venous sinuses, causing acute fluid overload, dilutional hyponatremia (< 120 mEq/L), and glycine neurotoxicity."
+        },
+        {
+          "id": "secE_q18",
+          "question": "Which of the following is the single most common histology of testicular cancer in young males aged 15-35 years?",
+          "image": "",
+          "options": [
+            "Seminoma (Germ cell tumor)",
+            "Leydig cell tumor",
+            "Sertoli cell tumor",
+            "Testicular lymphoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Seminoma is the most common testicular germ cell tumor (40-50% of GCTs), exquisitely radiosensitive, producing elevated beta-hCG (in 10-15%) but NEVER elevating serum AFP."
+        },
+        {
+          "id": "secE_q19",
+          "question": "The definitive clinical discriminative serum beta-hCG zone for transvaginal ultrasonography (TVUS) above which an intrauterine gestational sac MUST be visualized in normal pregnancy is:",
+          "image": "",
+          "options": [
+            "1,500 to 2,000 mIU/mL",
+            "500 mIU/mL",
+            "5,000 mIU/mL",
+            "10,000 mIU/mL"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The discriminatory zone is the serum beta-hCG level (1,500 - 2,000 mIU/mL) at which a gestational sac must be visualized on TVUS. Absence of an intrauterine sac above this threshold indicates ectopic pregnancy or non-viable gestation."
+        },
+        {
+          "id": "secE_q20",
+          "question": "Pre-eclampsia is clinically defined as new-onset hypertension (BP >= 140/90 mmHg on two occasions) occurring after which gestational age accompanied by significant proteinuria?",
+          "image": "",
+          "options": [
+            "20 weeks of gestation",
+            "12 weeks of gestation",
+            "28 weeks of gestation",
+            "36 weeks of gestation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Pre-eclampsia is defined as new-onset hypertension (SBP >= 140 or DBP >= 90 mmHg) presenting after 20 weeks of gestation in a previously normotensive woman, with proteinuria (>= 300 mg/24 hr or PCR >= 0.3) or end-organ dysfunction."
+        },
+        {
+          "id": "secE_q21",
+          "question": "What is the anticonvulsant regimen of choice for seizure prophylaxis and control in severe Pre-eclampsia and Eclampsia?",
+          "image": "",
+          "options": [
+            "Magnesium Sulfate (Pritchard / Zuspan regimen)",
+            "Intravenous Phenytoin",
+            "Intravenous Diazepam infusion",
+            "Oral Sodium valproate"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Magnesium Sulfate (Pritchard IM or Zuspan IV regimen) is the undisputed gold standard for preventing and treating eclamptic seizures (antidote for toxicity is 10% Calcium Gluconate)."
+        },
+        {
+          "id": "secE_q22",
+          "question": "Primary Postpartum Hemorrhage (PPH) following a vaginal delivery is quantitatively defined as blood loss exceeding:",
+          "image": "",
+          "options": [
+            "500 mL (Cesarean delivery: > 1,000 mL)",
+            "200 mL",
+            "1,500 mL",
+            "100 mL"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Postpartum Hemorrhage (PPH) is defined as cumulative blood loss >= 500 mL following vaginal delivery or >= 1,000 mL following Cesarean section within 24 hours of delivery."
+        },
+        {
+          "id": "secE_q23",
+          "question": "Which of the following parameters is NOT a component of the modified Bishop Score for evaluating pre-induction cervical readiness?",
+          "image": "",
+          "options": [
+            "Fetal heart rate baseline",
+            "Cervical dilation",
+            "Cervical effacement",
+            "Station of fetal presenting part"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The 5 components of the Bishop score (mnemonic DOPES): Dilation, Position of cervix, Effacement, Consistency, and Station of fetal head. Bishop score > 8 indicates a favorable cervix."
+        },
+        {
+          "id": "secE_q24",
+          "question": "The chronological sequence of cardinal movements of the fetal head during normal vertex labor is:",
+          "image": "",
+          "options": [
+            "Engagement -> Descent -> Flexion -> Internal Rotation -> Extension -> Restitution -> External Rotation",
+            "Engagement -> Extension -> Internal Rotation -> Descent -> Flexion -> External Rotation",
+            "Descent -> Extension -> Flexion -> Internal Rotation -> Restitution",
+            "Flexion -> Descent -> Engagement -> Extension -> Restitution"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Correct sequence of cardinal movements: Engagement, Descent, Flexion, Internal rotation, Extension (delivery of head), Restitution, External rotation (delivery of shoulders), and Expulsion."
+        },
+        {
+          "id": "secE_q25",
+          "question": "A 32-week pregnant female presents with sudden onset of PAINLESS, bright red, recurrent vaginal bleeding without uterine tenderness. The most likely diagnosis is:",
+          "image": "",
+          "options": [
+            "Placenta Previa",
+            "Abruptio Placentae",
+            "Uterine Rupture",
+            "Vasa Previa"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Placenta Previa classically presents with painless, causeless, bright red recurrent antepartum hemorrhage with a soft, non-tender uterus. Abruptio Placentae presents with painful, dark red bleeding with a woody tense uterus."
+        },
+        {
+          "id": "secE_q26",
+          "question": "Transvaginal ultrasound revealing enlarged uterine cavity filled with heterogenous echogenic material and multiple diffuse hydropic vesicular echoes ('Snowstorm appearance') is diagnostic of:",
+          "image": "",
+          "options": [
+            "Complete Hydatidiform Mole (Gestational Trophoblastic Disease)",
+            "Missed Abortion",
+            "Uterine Fibroid with degeneration",
+            "Ectopic Tubal Pregnancy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Complete Hydatidiform mole (46,XX androgenetic diploid) presents with markedly elevated beta-hCG (> 100,000 mIU/mL), hyperemesis, theca lutein cysts, and classic 'snowstorm / bunch of grapes' ultrasound appearance."
+        },
+        {
+          "id": "secE_q27",
+          "question": "According to the Rotterdam Criteria, a diagnosis of Polycystic Ovarian Syndrome (PCOS) requires at least TWO of which three features?",
+          "image": "",
+          "options": [
+            "Oligo-anovulation, Clinical/biochemical hyperandrogenism, and Polycystic ovarian morphology on USG",
+            "Obesity, Insulin resistance, and Infertility",
+            "Elevated LH/FSH ratio > 3, Galactorrhea, and Hirsutism",
+            "Endometrial hyperplasia, Amenorrhea, and Acne"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Rotterdam Criteria (2 of 3 required): 1. Oligo- or anovulation, 2. Clinical and/or biochemical signs of hyperandrogenism, 3. Polycystic ovaries on ultrasound (>= 20 follicles per ovary or ovarian volume > 10 mL)."
+        },
+        {
+          "id": "secE_q28",
+          "question": "Laparoscopy in a patient with severe dysmenorrhea and infertility reveals bilateral ovarian 'chocolate cysts' and 'powder-burn' peritoneal implants. The diagnosis is:",
+          "image": "",
+          "options": [
+            "Endometriosis",
+            "Pelvic Inflammatory Disease (PID)",
+            "Polycystic Ovarian Syndrome",
+            "Adenomyosis"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Endometriosis is ectopic functional endometrial stroma and glands outside the uterine cavity, classically forming ovarian endometriomas (chocolate cysts filled with old hemolyzed blood) and peritoneal powder-burn lesions."
+        },
+        {
+          "id": "secE_q29",
+          "question": "The single most common histological subtype of Cervical Cancer associated with high-risk HPV strains 16 and 18 is:",
+          "image": "",
+          "options": [
+            "Squamous Cell Carcinoma (80-85%)",
+            "Adenocarcinoma",
+            "Adenosquamous Carcinoma",
+            "Small Cell Neuroendocrine Carcinoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Squamous cell carcinoma accounts for 80-85% of all cervical carcinomas, arising from the transformation zone (squamocolumnar junction) of the cervix."
+        },
+        {
+          "id": "secE_q30",
+          "question": "Which of the following is the most significant unopposed hormonal risk factor for the development of Type I Endometrial Adenocarcinoma?",
+          "image": "",
+          "options": [
+            "Prolonged unopposed Estrogen stimulation (e.g., obesity, nulliparity, PCOS, Tamoxifen)",
+            "High sustained Progesterone levels",
+            "Elevated prolactin levels",
+            "Multigravidity"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Type 1 endometrioid adenocarcinoma is estrogen-driven, arising in the setting of endometrial hyperplasia caused by unopposed estrogen exposure (obesity with peripheral estrone aromatization, nulliparity, late menopause)."
+        },
+        {
+          "id": "secE_q31",
+          "question": "A 19-year-old female presents with an ovarian mass. Histology reveals glomeruloid-like perivascular structures known as 'Schiller-Duval bodies' and elevated serum Alpha-Fetoprotein (AFP). The diagnosis is:",
+          "image": "",
+          "options": [
+            "Yolk Sac Tumor (Endodermal Sinus Tumor)",
+            "Dysgerminoma",
+            "Granulosa Cell Tumor",
+            "Mature Cystic Teratoma"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Yolk Sac Tumor (Endodermal Sinus Tumor) characteristically produces Alpha-Fetoprotein (AFP) and exhibits pathognomonic Schiller-Duval bodies (central capillary surrounded by tumor cells)."
+        },
+        {
+          "id": "secE_q32",
+          "question": "On continuous intrapartum fetal heart rate (FHR) cardiotocography, repetitive LATE decelerations mirror uterine contractions with a delayed nadir. This indicates:",
+          "image": "",
+          "options": [
+            "Uteroplacental insufficiency and fetal hypoxia/acidosis",
+            "Benign fetal head compression (Vagal response)",
+            "Umbilical cord compression",
+            "Fetal sleep cycle"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Late decelerations (nadir of FHR deceleration occurs AFTER the peak of the contraction) signify uteroplacental insufficiency and fetal hypoxemia, requiring urgent intrauterine resuscitation or delivery."
+        },
+        {
+          "id": "secE_q33",
+          "question": "To prevent Rh isoimmunization, standard Anti-D Immunoglobulin (300 mcg / 1500 IU) is routinely administered to an Rh-negative unsensitized mother at:",
+          "image": "",
+          "options": [
+            "28 weeks of gestation and within 72 hours of delivering an Rh-positive infant",
+            "12 weeks of gestation only",
+            "Immediately during conception",
+            "Within 14 days post-delivery"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Rh prophylaxis: 300 mcg Anti-D Ig given routinely at 28 weeks gestation and a second dose within 72 hours postpartum if the neonate is confirmed Rh-positive and Indirect Coombs Test (ICT) is negative."
+        },
+        {
+          "id": "secE_q34",
+          "question": "Which of the following is an absolute medical CONTRAINDICATION to the prescription of Combined Oral Contraceptive (COC) pills?",
+          "image": "",
+          "options": [
+            "Female smoker >= 35 years of age (or history of thromboembolism)",
+            "Nulliparous female aged 20 years",
+            "History of severe primary dysmenorrhea",
+            "Mild iron deficiency anemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "WHO Medical Eligibility Criteria Category 4 (absolute contraindication) for COCs includes: Women >= 35 years who smoke >= 15 cigarettes/day, history of DVT/PE, ischemic heart disease, stroke, migraine with aura, and active breast cancer."
+        },
+        {
+          "id": "secE_q35",
+          "question": "What is the approved effective lifespan (duration of contraceptive efficacy) of the Copper T-380A Intrauterine Device (IUCD)?",
+          "image": "",
+          "options": [
+            "10 years",
+            "3 years",
+            "5 years",
+            "15 years"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Copper T-380A is licensed and approved for 10 years of continuous contraceptive efficacy. Copper T-200 is for 3 years; LNG-IUS (Mirena) is approved for 5-8 years."
+        },
+        {
+          "id": "secE_q36",
+          "question": "Postpartum ischemic pituitary necrosis following severe obstetric hemorrhage (Sheehan's syndrome) classically manifests initially as:",
+          "image": "",
+          "options": [
+            "Failure of lactation (Agalactia) and persistent amenorrhea",
+            "Galactorrhea and bitemporal hemianopia",
+            "Sudden diabetic ketoacidosis",
+            "Early secondary polycythemia"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Sheehan syndrome (anterior pituitary ischemic necrosis due to PPH shock) manifests earliest as failure of postpartum lactation (loss of prolactin), followed by failure to resume menses (loss of LH/FSH), hypothyroidism, and adrenal insufficiency."
         }
       ]
     }
