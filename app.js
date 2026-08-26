@@ -90,13 +90,71 @@ function startSection(idx) {
   startTimer();
 }
 
+function getSectionStats(sec) {
+  let ans = 0, notAns = 0, rev = 0, revAns = 0, notVis = 0;
+  sec.questions.forEach(q => {
+    const st = state.responses[q.id].status;
+    if (st === 'ANSWERED') ans++;
+    else if (st === 'NOT_ANSWERED') notAns++;
+    else if (st === 'REVIEW') rev++;
+    else if (st === 'REVIEW_ANSWERED') revAns++;
+    else notVis++;
+  });
+  return { ans, notAns, rev, revAns, notVis };
+}
+
 function renderSectionHeaders() {
   const tabsContainer = document.getElementById('cbt-sec-tab-list');
   tabsContainer.innerHTML = '';
+
   examData.sections.forEach((sec, idx) => {
     const tab = document.createElement('div');
     tab.className = `tab-pill ${idx === currentSectionIdx ? 'active' : ''}`;
-    tab.innerText = `${sec.name}`;     tabsContainer.appendChild(tab);   });   document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name}`;
+    tab.innerHTML = `
+      <span class="tab-label">${sec.name} <span class="tab-info-icon">ℹ</span></span>
+      <div class="sec-hover-popup"></div>
+    `;
+
+    // Dynamically calculate and render statistics on hover
+    tab.onmouseenter = () => {
+      const stats = getSectionStats(sec);
+      const popup = tab.querySelector('.sec-hover-popup');
+      popup.innerHTML = `
+        <div class="popup-title">${sec.name} Status</div>
+        <div class="popup-grid">
+          <div class="popup-row">
+            <span class="shape-answered p-mini-shape"></span>
+            <span>Answered</span>
+            <strong>${stats.ans}</strong>
+          </div>
+          <div class="popup-row">
+            <span class="shape-not-answered p-mini-shape"></span>
+            <span>Not Answered</span>
+            <strong>${stats.notAns}</strong>
+          </div>
+          <div class="popup-row">
+            <span class="shape-review p-mini-shape"></span>
+            <span>Marked for Review</span>
+            <strong>${stats.rev}</strong>
+          </div>
+          <div class="popup-row">
+            <span class="shape-review-ans p-mini-shape"></span>
+            <span>Ans & Marked</span>
+            <strong>${stats.revAns}</strong>
+          </div>
+          <div class="popup-row">
+            <span class="shape-not-visited p-mini-shape"></span>
+            <span>Not Visited</span>
+            <strong>${stats.notVis}</strong>
+          </div>
+        </div>
+      `;
+    };
+
+    tabsContainer.appendChild(tab);
+  });
+
+  document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name} ℹ`;
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
