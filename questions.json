@@ -1,0 +1,83 @@
+{
+  "sections": [
+    {
+      "id": "sec_a",
+      "name": "Section A",
+      "durationMinutes": 4,
+      "questions": [
+        {
+          "id": "secA_q1",
+          "question": "A 35-year-old patient presents with itchy plaques over elbows and knees. The most likely diagnosis is:",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Psoriasis_on_arm.jpg/640px-Psoriasis_on_arm.jpg",
+          "options": [
+            "Psoriasis vulgaris",
+            "Tinea corporis",
+            "Lichen planus",
+            "Eczema"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Well-demarcated erythematous plaques with silvery-white scales over extensor surfaces (elbows and knees) is the classic presentation of plaque psoriasis (Psoriasis vulgaris)."
+        },
+        {
+          "id": "secA_q2",
+          "question": "A 50-year-old man presents with acute abdomen and guarding. The X-ray finding suggests:",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pneumoperitoneum_-_upright_chest_X-ray.jpg/640px-Pneumoperitoneum_-_upright_chest_X-ray.jpg",
+          "options": [
+            "Hollow viscus perforation",
+            "Cholecystitis",
+            "Acute pancreatitis",
+            "Intestinal obstruction"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Free air under the right dome of the diaphragm (pneumoperitoneum) on an erect chest radiograph confirms a perforated hollow viscus requiring urgent surgical exploration."
+        },
+        {
+          "id": "secA_q3",
+          "question": "Which of the following is considered the drug of choice for anaphylactic shock in adults?",
+          "image": "",
+          "options": [
+            "Intravenous Hydrocortisone",
+            "Intramuscular Epinephrine (1:1000)",
+            "Intravenous Diphenhydramine",
+            "Nebulized Salbutamol"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Intramuscular Epinephrine (1:1000 dilution, 0.5 mg) in the anterolateral thigh is the first-line life-saving intervention for anaphylaxis."
+        },
+        {
+          "id": "secA_q4",
+          "question": "The definitive diagnostic test for Hirschsprung's disease is:",
+          "image": "",
+          "options": [
+            "Rectal suction biopsy",
+            "Barium enema",
+            "Anorectal manometry",
+            "Abdominal ultrasound"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Rectal suction biopsy showing an absence of ganglion cells in the submucosal (Meissner) and myenteric (Auerbach) plexuses with elevated acetylcholinesterase staining is the gold standard."
+        }
+      ]
+    },
+    {
+      "id": "sec_b",
+      "name": "Section B",
+      "durationMinutes": 4,
+      "questions": [
+        {
+          "id": "secB_q1",
+          "question": "Which cranial nerve is tested by assessing sensation over the anterior two-thirds of the tongue?",
+          "image": "",
+          "options": [
+            "Facial nerve (Chorda tympani)",
+            "Trigeminal nerve (Lingual branch of V3)",
+            "Glossopharyngeal nerve (CN IX)",
+            "Hypoglossal nerve (CN XII)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "General somatic sensation from the anterior 2/3 of the tongue is carried by the lingual nerve (branch of CN V3). Taste sensation from the same region is mediated by the chorda tympani (CN VII)."
+        }
+      ]
+    }
+  ]
+}
