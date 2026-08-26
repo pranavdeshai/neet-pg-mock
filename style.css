@@ -209,3 +209,25 @@ body { background: #fff; color: #222; overflow-x: hidden; }
 .opt-badge { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold; }
 .badge-tag-correct { background: #22c55e; color: #ffffff; }
 .badge-tag-user-wrong { background: #ef4444; color: #ffffff; }
+
+/* Review Meta Badge Layout */
+.review-meta-badges { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  flex-shrink: 0; 
+}
+
+/* Purple Bookmark Tag */
+.review-bookmark { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 4px; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  color: #684693; 
+  background: #f3e8ff; 
+  border: 1px solid #d8b4fe; 
+  padding: 2px 8px; 
+  border-radius: 4px; 
+}
