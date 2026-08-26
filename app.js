@@ -3,14 +3,14 @@ let currentSectionIdx = 0;
 let currentQuestionIdx = 0;
 let sectionSecondsLeft = 0;
 let timerInterval = null;
+let activeReviewSecIdx = 0;
 
-// User state tracker
+// Global response store
 const state = {
-  // [questionGlobalId]: { selectedOption: null, status: 'NOT_VISITED'|'NOT_ANSWERED'|'ANSWERED'|'REVIEW'|'REVIEW_ANSWERED' }
-  responses: {}
+  responses: {} // [qId]: { selectedOption: number|null, status: string }
 };
 
-// Initialize
+// Initialization
 window.addEventListener('DOMContentLoaded', () => {
   fetch('questions.json')
     .then(res => res.json())
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
       examData = data;
       initData();
     })
-    .catch(err => console.error("Error loading mock data", err));
+    .catch(err => console.error("Error loading questions.json:", err));
 });
 
 function initData() {
@@ -34,6 +34,7 @@ function initData() {
   });
   document.getElementById('table-total-q').innerText = totalQ;
   setupScreenTransitions();
+  loadLastUpdatedCommit();
 }
 
 function showScreen(screenId) {
@@ -42,42 +43,35 @@ function showScreen(screenId) {
 }
 
 function setupScreenTransitions() {
-  // Login -> Instructions 1
   document.getElementById('btn-login').onclick = () => showScreen('view-instructions-1');
-
-  // Instructions 1 -> Instructions 2
   document.getElementById('btn-inst-next').onclick = () => showScreen('view-instructions-2');
   document.getElementById('btn-inst-prev').onclick = () => showScreen('view-instructions-1');
 
-  // Checkbox declaration
   const declCheck = document.getElementById('decl-check');
   declCheck.onchange = () => {
     document.getElementById('btn-ready-begin').disabled = !declCheck.checked;
   };
 
-  // Ready -> Exam CBT
   document.getElementById('btn-ready-begin').onclick = () => {
     showScreen('view-exam');
     startSection(0);
   };
 
-  // Exam CBT Actions
   document.getElementById('btn-save-next').onclick = () => handleSaveAndNext();
   document.getElementById('btn-mark-review').onclick = () => handleMarkForReviewAndNext();
   document.getElementById('btn-clear-response').onclick = () => handleClearResponse();
   document.getElementById('btn-prev-q').onclick = () => handlePreviousQuestion();
 
-  // Summary -> Exit modal -> Scorecard
   document.getElementById('btn-summary-next').onclick = () => showScreen('view-exit');
   document.getElementById('btn-exit-exam').onclick = () => renderAnalytics();
 }
 
+// Section & Question Execution
 function startSection(idx) {
   currentSectionIdx = idx;
   currentQuestionIdx = 0;
   sectionSecondsLeft = examData.sections[idx].durationMinutes * 60;
 
-  // Set first question to NOT_ANSWERED if not visited
   const firstQ = examData.sections[idx].questions[0];
   if (state.responses[firstQ.id].status === 'NOT_VISITED') {
     state.responses[firstQ.id].status = 'NOT_ANSWERED';
@@ -114,7 +108,6 @@ function renderSectionHeaders() {
       <div class="sec-hover-popup"></div>
     `;
 
-    // Dynamically calculate and render statistics on hover
     tab.onmouseenter = () => {
       const stats = getSectionStats(sec);
       const popup = tab.querySelector('.sec-hover-popup');
@@ -153,7 +146,7 @@ function renderSectionHeaders() {
     tabsContainer.appendChild(tab);
   });
 
-  document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name}`;
+  document.getElementById('active-sec-tag').innerText = examData.sections[currentSectionIdx].name;
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
@@ -198,7 +191,18 @@ function renderCurrentQuestion() {
     qState.status = 'NOT_ANSWERED';
   }
 
-  document.getElementById('q-number-title').innerText = `Question No. ${currentQuestionIdx + 1}`;   document.getElementById('q-statement').innerText = q.question;    // Image   const imgBox = document.getElementById('q-image-container');   imgBox.innerHTML = q.image ? `<img src="${q.image}" alt="Clinical vignette">` : '';
+  document.getElementById('q-number-title').innerText = `Question No. ${currentQuestionIdx + 1}`;
+  document.getElementById('q-statement').innerText = q.question;
+
+  // Toggle Previous button visibility
+  const prevBtn = document.getElementById('btn-prev-q');
+  if (prevBtn) {
+    prevBtn.style.display = currentQuestionIdx > 0 ? 'inline-block' : 'none';
+  }
+
+  // Question Image
+  const imgBox = document.getElementById('q-image-container');
+  imgBox.innerHTML = q.image ? `<img src="${q.image}" alt="Clinical vignette">` : '';
 
   // Options
   const optBox = document.getElementById('q-options-container');
@@ -253,6 +257,7 @@ window.goToQuestion = function(idx) {
   renderCurrentQuestion();
 };
 
+// Exam Action Handlers
 function handleSaveAndNext() {
   const selected = document.querySelector('input[name="cbt-opt"]:checked');
   const q = getCurrentQuestion();
@@ -284,34 +289,24 @@ function handleClearResponse() {
   renderCurrentQuestion();
 }
 
+function handlePreviousQuestion() {
+  if (currentQuestionIdx > 0) {
+    currentQuestionIdx--;
+    renderCurrentQuestion();
+  }
+}
+
 function advanceNextQuestion() {
   const totalInSec = examData.sections[currentSectionIdx].questions.length;
-  
-  // If on the last question of the section, loop back to the first question
   if (currentQuestionIdx < totalInSec - 1) {
     currentQuestionIdx++;
   } else {
-    currentQuestionIdx = 0;
+    currentQuestionIdx = 0; // Cyclic loop
   }
-  
   renderCurrentQuestion();
 }
 
-function confirmSubmitSection() {
-  if (confirm("Are you sure you want to submit this section? Once submitted, you cannot edit responses in this section.")) {
-    proceedToNextSectionOrSummary(false);
-  }
-}
-
-function proceedToNextSectionOrSummary(isAuto = false) {
-  clearInterval(timerInterval);
-  if (currentSectionIdx < examData.sections.length - 1) {
-    startSection(currentSectionIdx + 1);
-  } else {
-    showExamSummary();
-  }
-}
-
+// Exam Summary
 function showExamSummary() {
   showScreen('view-summary');
   const host = document.getElementById('summary-tables-host');
@@ -360,8 +355,7 @@ function showExamSummary() {
   });
 }
 
-let activeReviewSecIdx = 0;
-
+// Performance Scorecard & Review
 function renderAnalytics() {
   showScreen('view-analytics');
   let score = 0, correct = 0, wrong = 0, unattempted = 0, total = 0;
@@ -443,7 +437,6 @@ function renderReviewQuestions(secIdx) {
          </span>`
       : '';
 
-    // Options list with clean ✓ and ✗
     let optionsHtml = '<div class="review-options-list">';
     q.options.forEach((optText, optIdx) => {
       const isOptCorrect = optIdx === q.correctAnswer;
@@ -488,30 +481,30 @@ function renderReviewQuestions(secIdx) {
   });
 }
 
-// Show updated date and time instead of version
-const GITHUB_USERNAME = 'pranavdeshai';
-const REPO_NAME = 'neet-pg-mock';
+// Commit Tracker
+function loadLastUpdatedCommit() {
+  const GITHUB_USERNAME = 'pranavdeshai';
+  const REPO_NAME = 'neet-pg-mock';
 
-fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=1`)
-  .then(response => response.json())
-  .then(commits => {
-    if (commits && commits.length > 0) {
-      const commitDate = new Date(commits[0].commit.committer.date);
-      const dateStr = commitDate.toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
-      });
-      const timeStr = commitDate.toLocaleTimeString('en-IN', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-      });
-
-      document.getElementById('footer-version').innerText = `Updated : ${dateStr} ${timeStr}`;
-    }
-  })
-  .catch(() => {
-    // Fallback if API rate-limited or offline
-    document.getElementById('footer-version').innerText = `Updated : ${new Date().toLocaleDateString('en-IN')}`;
-  });
+  fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=1`)
+    .then(res => res.json())
+    .then(commits => {
+      if (commits && commits.length > 0) {
+        const commitDate = new Date(commits[0].commit.committer.date);
+        const dateStr = commitDate.toLocaleDateString('en-IN', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+        const timeStr = commitDate.toLocaleTimeString('en-IN', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+        document.getElementById('footer-version').innerText = `Updated : ${dateStr} ${timeStr}`;
+      }
+    })
+    .catch(() => {
+      document.getElementById('footer-version').innerText = `Updated : ${new Date().toLocaleDateString('en-IN')}`;
+    });
+}
