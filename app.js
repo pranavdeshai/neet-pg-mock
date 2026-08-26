@@ -96,7 +96,7 @@ function renderSectionHeaders() {
   examData.sections.forEach((sec, idx) => {
     const tab = document.createElement('div');
     tab.className = `tab-pill ${idx === currentSectionIdx ? 'active' : ''}`;
-    tab.innerText = `${sec.name} ℹ`;     tabsContainer.appendChild(tab);   });   document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name} ℹ`;
+    tab.innerText = `${sec.name}`;     tabsContainer.appendChild(tab);   });   document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name}`;
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
