@@ -290,24 +290,21 @@ function showExamSummary() {
   });
 }
 
+let activeReviewSecIdx = 0;
+
 function renderAnalytics() {
   showScreen('view-analytics');
   let score = 0, correct = 0, wrong = 0, unattempted = 0, total = 0;
-  const reviewHost = document.getElementById('analytics-question-review');
-  reviewHost.innerHTML = '<h3>Detailed Question Review</h3><br>';
 
   examData.sections.forEach(sec => {
     sec.questions.forEach(q => {
       total++;
       const resp = state.responses[q.id];
       const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
-      let isCorrect = false;
-
       if (hasAns) {
         if (resp.selectedOption === q.correctAnswer) {
           correct++;
           score += 4;
-          isCorrect = true;
         } else {
           wrong++;
           score -= 1;
@@ -315,55 +312,6 @@ function renderAnalytics() {
       } else {
         unattempted++;
       }
-
-      const statusClass = !hasAns ? 'unattempted' : isCorrect ? 'correct' : 'wrong';
-      const statusLabel = !hasAns ? '<span class="status-tag tag-skipped">Unattempted (0 Marks)</span>' 
-                        : isCorrect ? '<span class="status-tag tag-correct">+4 Marks</span>' 
-                        : '<span class="status-tag tag-wrong">-1 Mark</span>';
-
-      // Build options list with highlights
-      let optionsHtml = '<div class="review-options-list">';
-      q.options.forEach((optText, optIdx) => {
-        const isOptCorrect = optIdx === q.correctAnswer;
-        const isUserChoice = hasAns && resp.selectedOption === optIdx;
-
-        let optClass = 'review-opt';
-        let tagsHtml = '';
-
-        if (isOptCorrect && isUserChoice) {
-          optClass += ' opt-correct';
-          tagsHtml = '<span class="opt-badge badge-tag-user-correct">✓ Your Choice & Correct</span>';
-        } else if (isOptCorrect) {
-          optClass += ' opt-correct';
-          tagsHtml = '<span class="opt-badge badge-tag-correct">✓ Correct Answer</span>';
-        } else if (isUserChoice) {
-          optClass += ' opt-wrong-user';
-          tagsHtml = '<span class="opt-badge badge-tag-user-wrong">✗ Your Choice</span>';
-        }
-
-        optionsHtml += `
-          <div class="${optClass}">
-            <span><strong>${String.fromCharCode(65 + optIdx)}.</strong> ${optText}</span>
-            <div class="opt-tags">${tagsHtml}</div>
-          </div>
-        `;
-      });
-      optionsHtml += '</div>';
-
-      // Clinical image if present
-      const imgHtml = q.image ? `<div class="review-img-box"><img src="${q.image}" alt="Vignette Image"></div>` : '';
-
-      reviewHost.innerHTML += `
-        <div class="review-item ${statusClass}">
-          <div class="review-header-strip">
-            <strong>${q.question}</strong>
-            ${statusLabel}
-          </div>
-          ${imgHtml}
-          ${optionsHtml}
-          <div class="review-exp"><strong>Explanation:</strong> ${q.explanation || 'No explanation available.'}</div>
-        </div>
-      `;
     });
   });
 
@@ -373,6 +321,92 @@ function renderAnalytics() {
   document.getElementById('res-correct').innerText = correct;
   document.getElementById('res-wrong').innerText = wrong;
   document.getElementById('res-unattempted').innerText = unattempted;
+
+  activeReviewSecIdx = 0;
+  renderReviewTabs();
+  renderReviewQuestions(0);
+}
+
+function renderReviewTabs() {
+  const tabsHost = document.getElementById('review-section-tabs');
+  tabsHost.innerHTML = '';
+  examData.sections.forEach((sec, idx) => {
+    const btn = document.createElement('button');
+    btn.className = `review-tab-btn ${idx === activeReviewSecIdx ? 'active' : ''}`;
+    btn.innerText = sec.name;
+    btn.onclick = () => {
+      activeReviewSecIdx = idx;
+      renderReviewTabs();
+      renderReviewQuestions(idx);
+    };
+    tabsHost.appendChild(btn);
+  });
+}
+
+function renderReviewQuestions(secIdx) {
+  const sec = examData.sections[secIdx];
+  const host = document.getElementById('analytics-question-review');
+  host.innerHTML = '';
+
+  sec.questions.forEach((q, qIndex) => {
+    const resp = state.responses[q.id];
+    const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
+    let isCorrect = false;
+
+    if (hasAns) {
+      isCorrect = (resp.selectedOption === q.correctAnswer);
+    }
+
+    const statusClass = !hasAns ? 'unattempted' : isCorrect ? 'correct' : 'wrong';
+    const scoreBadge = !hasAns 
+      ? '<span class="status-tag tag-skipped">0</span>' 
+      : isCorrect 
+        ? '<span class="status-tag tag-correct">+4</span>' 
+        : '<span class="status-tag tag-wrong">-1</span>';
+
+    // Options list with clean ✓ and ✗
+    let optionsHtml = '<div class="review-options-list">';
+    q.options.forEach((optText, optIdx) => {
+      const isOptCorrect = optIdx === q.correctAnswer;
+      const isUserChoice = hasAns && resp.selectedOption === optIdx;
+
+      let optClass = 'review-opt';
+      let markSymbol = '';
+
+      if (isOptCorrect) {
+        optClass += ' opt-correct';
+        markSymbol = '<span class="opt-badge badge-tag-correct">✓</span>';
+      } else if (isUserChoice) {
+        optClass += ' opt-wrong-user';
+        markSymbol = '<span class="opt-badge badge-tag-user-wrong">✗</span>';
+      }
+
+      optionsHtml += `
+        <div class="${optClass}">
+          <span><strong>${String.fromCharCode(65 + optIdx)}.</strong> ${optText}</span>
+          <div class="opt-tags">${markSymbol}</div>
+        </div>
+      `;
+    });
+    optionsHtml += '</div>';
+
+    const imgHtml = q.image ? `<div class="review-img-box"><img src="${q.image}" alt="Vignette Image"></div>` : '';
+
+    host.innerHTML += `
+      <div class="review-item ${statusClass}">
+        <div class="review-header-strip">
+          <div class="q-title-wrap">
+            <span class="q-review-num">Question ${qIndex + 1}</span>
+            <p class="q-review-text">${q.question}</p>
+          </div>
+          ${scoreBadge}
+        </div>
+        ${imgHtml}
+        ${optionsHtml}
+        <div class="review-exp"><strong>Explanation:</strong> ${q.explanation || 'No explanation available.'}</div>
+      </div>
+    `;
+  });
 }
 
 // Show updated date and time instead of version
