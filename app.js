@@ -351,6 +351,7 @@ function renderReviewQuestions(secIdx) {
   sec.questions.forEach((q, qIndex) => {
     const resp = state.responses[q.id];
     const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
+    const isMarked = resp && (resp.status === 'REVIEW' || resp.status === 'REVIEW_ANSWERED');
     let isCorrect = false;
 
     if (hasAns) {
@@ -363,6 +364,15 @@ function renderReviewQuestions(secIdx) {
       : isCorrect 
         ? '<span class="status-tag tag-correct">+4</span>' 
         : '<span class="status-tag tag-wrong">-1</span>';
+
+    const bookmarkHtml = isMarked
+      ? `<span class="review-bookmark" title="Marked for Review">
+           <svg viewBox="0 0 24 24" width="13" height="13" fill="#684693">
+             <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+           </svg>
+           Marked for Review
+         </span>`
+      : '';
 
     // Options list with clean ✓ and ✗
     let optionsHtml = '<div class="review-options-list">';
@@ -396,7 +406,10 @@ function renderReviewQuestions(secIdx) {
       <div class="review-item ${statusClass}">
         <div class="review-header-strip">
           <p class="q-review-title"><strong>${qIndex + 1}.</strong> ${q.question}</p>
-          ${scoreBadge}
+          <div class="review-meta-badges">
+            ${bookmarkHtml}
+            ${scoreBadge}
+          </div>
         </div>
         ${imgHtml}
         ${optionsHtml}
@@ -405,6 +418,7 @@ function renderReviewQuestions(secIdx) {
     `;
   });
 }
+
 // Show updated date and time instead of version
 const GITHUB_USERNAME = 'pranavdeshai';
 const REPO_NAME = 'neet-pg-mock';
