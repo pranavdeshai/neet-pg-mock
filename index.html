@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Top Global NBEMS Header -->
+  <!-- Header -->
   <header class="nbems-global-header">
     <div class="header-banner">
       <div class="logo-title-group">
@@ -19,13 +19,13 @@
           <p>(An Autonomous Body under Ministry of Health and Family Welfare, Government of India)</p>
         </div>
       </div>
-      <div class="header-cert-logos">
-        <span class="cert-badge">ISO 9001:2015</span>
+      <div class="header-actions">
+        <button id="global-theme-btn" class="global-theme-toggle">🌙 Dark Mode</button>
       </div>
     </div>
   </header>
 
-  <!-- ================= VIEW 1: LOGIN SCREEN ================= -->
+  <!-- View 1: Login -->
   <section id="view-login" class="screen-view">
     <div class="login-sub-bar">
       <div class="sys-info">
@@ -36,7 +36,7 @@
       <div class="cand-id-box">
         <div>
           <span class="lbl">Candidate Name :</span>
-          <h3 class="cand-name-yellow">John Smith</h3>
+          <h3 class="cand-name-yellow disp-cand-name">John Smith</h3>
           <span class="sub-lbl">Subject : <strong>NEET-PG Mock Test</strong></span>
         </div>
         <div class="avatar-icon"></div>
@@ -48,12 +48,12 @@
         <div class="login-card-header">Login</div>
         <div class="login-card-body">
           <div class="input-row">
-            <span class="input-icon user-icon">👤</span>
-            <input type="text" value="11111" readonly>
+            <span class="input-icon">👤</span>
+            <input type="text" id="login-username" value="John Smith" placeholder="Enter Candidate Name">
             <span class="keyboard-icon">⌨</span>
           </div>
           <div class="input-row">
-            <span class="input-icon lock-icon">🔒</span>
+            <span class="input-icon">🔒</span>
             <input type="password" value="•••••" readonly>
             <span class="keyboard-icon">⌨</span>
           </div>
@@ -63,8 +63,8 @@
     </div>
   </section>
 
-  <!-- ================= VIEW 2: GENERAL INSTRUCTIONS ================= -->
-  <section id="view-instructions-1" class="screen-view" style="display: none;">
+  <!-- View 2: General Instructions -->
+  <section id="view-instructions-1" class="screen-view" hidden>
     <div class="instruction-header-bar">Instructions</div>
     <div class="instruction-main-layout">
       <div class="instruction-body">
@@ -90,7 +90,7 @@
       </div>
       <aside class="right-profile-rail">
         <div class="avatar-large"></div>
-        <span class="cand-name-rail">John Smith</span>
+        <span class="cand-name-rail disp-cand-name">John Smith</span>
       </aside>
     </div>
     <div class="bottom-action-rail right-align">
@@ -98,8 +98,8 @@
     </div>
   </section>
 
-  <!-- ================= VIEW 3: SUBJECT INSTRUCTIONS & DECLARATION ================= -->
-  <section id="view-instructions-2" class="screen-view" style="display: none;">
+  <!-- View 3: Subject Instructions & Declaration -->
+  <section id="view-instructions-2" class="screen-view" hidden>
     <div class="instruction-header-bar">Other Important Instructions</div>
     <div class="instruction-main-layout">
       <div class="instruction-body">
@@ -122,29 +122,21 @@
       </div>
       <aside class="right-profile-rail">
         <div class="avatar-large"></div>
-        <span class="cand-name-rail">John Smith</span>
+        <span class="cand-name-rail disp-cand-name">John Smith</span>
       </aside>
     </div>
     <div class="bottom-action-rail between-align">
       <button id="btn-inst-prev" class="btn-default">&lt; Previous</button>
       <button id="btn-ready-begin" class="btn-primary-blue" disabled>I am ready to begin</button>
-      <span></span>
     </div>
   </section>
 
-  <!-- ================= VIEW 4: MAIN CBT EXAM SCREEN ================= -->
-  <section id="view-exam" class="screen-view" style="display: none;">
-    <!-- Mock link banner -->
+  <!-- View 4: CBT Exam Shell -->
+  <section id="view-exam" class="screen-view" hidden>
     <div class="exam-sub-top-bar">
       <span>Static Mock Link for NEET-PG</span>
-      <div class="top-nav-tools">
-        <span>♿ Accessibility</span>
-        <span>🔍 Screen Magnifier</span>
-        <span>ℹ️ Instructions</span>
-      </div>
     </div>
 
-    <!-- Section navigation and timer strip -->
     <div class="cbt-section-nav-strip">
       <div class="sec-nav-left">
         <div id="cbt-sec-tab-list" class="tab-list"></div>
@@ -155,14 +147,12 @@
       </div>
     </div>
 
-    <!-- Section breadcrumb -->
     <div class="sec-active-breadcrumb">
       <button class="active-sec-pill" id="active-sec-tag">Section A</button>
     </div>
 
-    <!-- Exam workspace -->
     <div class="cbt-workspace">
-      <!-- Left: Question Vignette -->
+      <!-- Question Vignette Pane -->
       <div class="cbt-question-pane watermark-bg">
         <div class="q-meta-strip">
           <strong id="q-type-label">Question Type: MCQ</strong>
@@ -177,11 +167,11 @@
         </div>
       </div>
 
-      <!-- Right: Candidate Rail & Palette -->
+      <!-- Right Question Palette -->
       <aside class="cbt-side-palette">
         <div class="palette-user-header">
           <div class="avatar-sm"></div>
-          <strong class="user-name">John Smith</strong>
+          <strong class="user-name disp-cand-name">John Smith</strong>
         </div>
 
         <div class="legend-compact-table">
@@ -206,21 +196,21 @@
       </aside>
     </div>
 
-    <!-- Bottom Actions Toolbar -->
     <footer class="cbt-bottom-bar">
       <div class="bar-left">
         <button id="btn-mark-review" class="btn-cbt-default">Mark for Review & Next</button>
         <button id="btn-clear-response" class="btn-cbt-default">Clear Response</button>
       </div>
       <div class="bar-right">
-        <button id="btn-prev-q" class="btn-cbt-default" style="display:none;">Previous</button>
+        <button id="btn-prev-q" class="btn-cbt-default" hidden>Previous</button>
         <button id="btn-save-next" class="btn-cbt-blue">Save & Next</button>
+        <button id="btn-submit-exam" class="btn-cbt-blue">Submit</button>
       </div>
     </footer>
   </section>
 
-  <!-- ================= VIEW 5: SECTION SUMMARY TABLE ================= -->
-  <section id="view-summary" class="screen-view" style="display: none;">
+  <!-- View 5: Section Summary -->
+  <section id="view-summary" class="screen-view" hidden>
     <div class="summary-top-header">Exam Summary</div>
     <div class="summary-content" id="summary-tables-host"></div>
     <div class="bottom-action-rail center-align">
@@ -228,8 +218,8 @@
     </div>
   </section>
 
-  <!-- ================= VIEW 6: EXIT CONFIRMATION ================= -->
-  <section id="view-exit" class="screen-view" style="display: none;">
+  <!-- View 6: Completion / Exit -->
+  <section id="view-exit" class="screen-view" hidden>
     <div class="exit-modal-card">
       <h3>Dear Candidate, You have now successfully completed the Exam.</h3>
       <p>Please click on the below button to exit and view score analytics.</p>
@@ -237,8 +227,8 @@
     </div>
   </section>
 
-  <!-- ================= VIEW 7: PERFORMANCE SCORECARD ================= -->
-  <section id="view-analytics" class="screen-view" style="display: none;">
+  <!-- View 7: Result Analytics -->
+  <section id="view-analytics" class="screen-view" hidden>
     <div class="analytics-container">
       <h2>NEET PG Mock Result & Performance Analysis</h2>
       <div class="score-summary-grid">
@@ -264,16 +254,13 @@
         </div>
       </div>
 
-      <!-- Section Tabs for Review -->
       <div class="review-section-tabs" id="review-section-tabs"></div>
-
-      <!-- Review Questions -->
       <div id="analytics-question-review"></div>
     </div>
   </section>
 
   <footer id="footer-version" class="nbems-global-footer">Updated : Loading...</footer>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>
