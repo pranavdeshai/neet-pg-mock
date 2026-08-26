@@ -395,10 +395,7 @@ function renderReviewQuestions(secIdx) {
     host.innerHTML += `
       <div class="review-item ${statusClass}">
         <div class="review-header-strip">
-          <div class="q-title-wrap">
-            <span class="q-review-num">Question ${qIndex + 1}</span>
-            <p class="q-review-text">${q.question}</p>
-          </div>
+          <p class="q-review-title"><strong>${qIndex + 1}.</strong> ${q.question}</p>
           ${scoreBadge}
         </div>
         ${imgHtml}
@@ -408,7 +405,6 @@ function renderReviewQuestions(secIdx) {
     `;
   });
 }
-
 // Show updated date and time instead of version
 const GITHUB_USERNAME = 'pranavdeshai';
 const REPO_NAME = 'neet-pg-mock';
