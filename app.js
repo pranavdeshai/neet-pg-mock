@@ -374,4 +374,31 @@ function renderAnalytics() {
   document.getElementById('res-wrong').innerText = wrong;
   document.getElementById('res-unattempted').innerText = unattempted;
 }
-}
+
+// Show updated date and time instead of version
+const GITHUB_USERNAME = 'pranavdeshai';
+const REPO_NAME = 'neet-pg-mock';
+
+fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=1`)
+  .then(response => response.json())
+  .then(commits => {
+    if (commits && commits.length > 0) {
+      const commitDate = new Date(commits[0].commit.committer.date);
+      const dateStr = commitDate.toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      });
+      const timeStr = commitDate.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+
+      document.getElementById('footer-version').innerText = `Updated : ${dateStr} ${timeStr}`;
+    }
+  })
+  .catch(() => {
+    // Fallback if API rate-limited or offline
+    document.getElementById('footer-version').innerText = `Updated : ${new Date().toLocaleDateString('en-IN')}`;
+  });
