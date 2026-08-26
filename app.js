@@ -1,30 +1,49 @@
+/* ==========================================================================
+   State & Configuration
+   ========================================================================== */
+
 let examData = null;
 let currentSectionIdx = 0;
 let currentQuestionIdx = 0;
 let sectionSecondsLeft = 0;
 let timerInterval = null;
 let activeReviewSecIdx = 0;
+let isExamActive = false;
+let candidateName = 'John Smith';
 
-// Global response store
 const state = {
-  responses: {} // [qId]: { selectedOption: number|null, status: string }
+  responses: {}
 };
 
-// Initialization
+/* ==========================================================================
+   Lifecycle & Initialization
+   ========================================================================== */
+
 window.addEventListener('DOMContentLoaded', () => {
+  setupTheme();
   fetch('questions.json')
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       examData = data;
       initData();
     })
-    .catch(err => console.error("Error loading questions.json:", err));
+    .catch((err) => {
+      console.error('Error loading questions.json:', err);
+    });
+});
+
+window.addEventListener('beforeunload', (e) => {
+  if (isExamActive) {
+    e.preventDefault();
+    e.returnValue = '';
+  }
 });
 
 function initData() {
   let totalQ = 0;
-  examData.sections.forEach(sec => {
-    sec.questions.forEach(q => {
+
+  examData.sections.forEach((sec) => {
+    sec.questions.forEach((q) => {
       totalQ++;
       state.responses[q.id] = {
         selectedOption: null,
@@ -32,20 +51,128 @@ function initData() {
       };
     });
   });
+
   document.getElementById('table-total-q').innerText = totalQ;
+
   setupScreenTransitions();
   loadLastUpdatedCommit();
+  restoreSavedSession();
 }
 
+/* ==========================================================================
+   Theme Management
+   ========================================================================== */
+
+function setupTheme() {
+  const globalBtn = document.getElementById('global-theme-btn');
+  const examBtn = document.getElementById('theme-toggle-btn');
+  const savedTheme = sessionStorage.getItem('cbt-theme') || 'light';
+
+  function applyTheme(isDark) {
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+      if (globalBtn) globalBtn.innerText = '☀️ Light Mode';
+      if (examBtn) examBtn.innerText = '☀️ Light Mode';
+    } else {
+      document.body.classList.remove('dark-mode');
+      if (globalBtn) globalBtn.innerText = '🌙 Dark Mode';
+      if (examBtn) examBtn.innerText = '🌙 Dark Mode';
+    }
+  }
+
+  function toggle() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    sessionStorage.setItem('cbt-theme', isDark ? 'dark' : 'light');
+    applyTheme(isDark);
+  }
+
+  applyTheme(savedTheme === 'dark');
+
+  if (globalBtn) globalBtn.onclick = toggle;
+  if (examBtn) examBtn.onclick = toggle;
+}
+
+/* ==========================================================================
+   Session Storage & Persistence
+   ========================================================================== */
+
+function saveSessionState() {
+  if (!isExamActive) return;
+
+  const payload = {
+    candidateName,
+    currentSectionIdx,
+    currentQuestionIdx,
+    sectionSecondsLeft,
+    responses: state.responses
+  };
+
+  sessionStorage.setItem('cbt_active_exam', JSON.stringify(payload));
+}
+
+function restoreSavedSession() {
+  const rawData = sessionStorage.getItem('cbt_active_exam');
+  if (!rawData) return;
+
+  try {
+    const saved = JSON.parse(rawData);
+    if (saved && saved.responses) {
+      if (saved.candidateName) {
+        updateCandidateName(saved.candidateName);
+        const loginInput = document.getElementById('login-username');
+        if (loginInput) loginInput.value = saved.candidateName;
+      }
+
+      state.responses = saved.responses;
+      currentSectionIdx = saved.currentSectionIdx;
+      currentQuestionIdx = saved.currentQuestionIdx;
+      sectionSecondsLeft = saved.sectionSecondsLeft;
+      isExamActive = true;
+
+      showScreen('view-exam');
+      renderSectionHeaders();
+      renderPalette();
+      renderCurrentQuestion();
+      startTimer(true);
+    }
+  } catch (err) {
+    sessionStorage.removeItem('cbt_active_exam');
+  }
+}
+
+/* ==========================================================================
+   Navigation & UI Screen Transitions
+   ========================================================================== */
+
 function showScreen(screenId) {
-  document.querySelectorAll('.screen-view').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.screen-view').forEach((el) => {
+    el.style.display = 'none';
+  });
   document.getElementById(screenId).style.display = 'block';
 }
 
+function updateCandidateName(newName) {
+  candidateName = newName.trim() || 'John Smith';
+  document.querySelectorAll('.disp-cand-name').forEach((el) => {
+    el.innerText = candidateName;
+  });
+}
+
 function setupScreenTransitions() {
-  document.getElementById('btn-login').onclick = () => showScreen('view-instructions-1');
-  document.getElementById('btn-inst-next').onclick = () => showScreen('view-instructions-2');
-  document.getElementById('btn-inst-prev').onclick = () => showScreen('view-instructions-1');
+  document.getElementById('btn-login').onclick = () => {
+    const inputVal = document.getElementById('login-username').value;
+    updateCandidateName(inputVal);
+    saveSessionState();
+    showScreen('view-instructions-1');
+  };
+
+  document.getElementById('btn-inst-next').onclick = () => {
+    showScreen('view-instructions-2');
+  };
+
+  document.getElementById('btn-inst-prev').onclick = () => {
+    showScreen('view-instructions-1');
+  };
 
   const declCheck = document.getElementById('decl-check');
   declCheck.onchange = () => {
@@ -53,6 +180,7 @@ function setupScreenTransitions() {
   };
 
   document.getElementById('btn-ready-begin').onclick = () => {
+    isExamActive = true;
     showScreen('view-exam');
     startSection(0);
   };
@@ -62,11 +190,29 @@ function setupScreenTransitions() {
   document.getElementById('btn-clear-response').onclick = () => handleClearResponse();
   document.getElementById('btn-prev-q').onclick = () => handlePreviousQuestion();
 
-  document.getElementById('btn-summary-next').onclick = () => showScreen('view-exit');
-  document.getElementById('btn-exit-exam').onclick = () => renderAnalytics();
+  document.getElementById('btn-submit-exam').onclick = () => {
+    const confirmed = confirm(
+      'Are you sure you want to submit the examination? You will not be able to modify your answers.'
+    );
+    if (confirmed) {
+      clearInterval(timerInterval);
+      showExamSummary();
+    }
+  };
+
+  document.getElementById('btn-summary-next').onclick = () => {
+    showScreen('view-exit');
+  };
+
+  document.getElementById('btn-exit-exam').onclick = () => {
+    renderAnalytics();
+  };
 }
 
-// Section & Question Execution
+/* ==========================================================================
+   Section Management & Timer
+   ========================================================================== */
+
 function startSection(idx) {
   currentSectionIdx = idx;
   currentQuestionIdx = 0;
@@ -81,11 +227,47 @@ function startSection(idx) {
   renderPalette();
   renderCurrentQuestion();
   startTimer();
+  saveSessionState();
+}
+
+function startTimer(isResumed = false) {
+  clearInterval(timerInterval);
+  updateTimerUI();
+
+  timerInterval = setInterval(() => {
+    sectionSecondsLeft--;
+    updateTimerUI();
+    saveSessionState();
+
+    if (sectionSecondsLeft <= 0) {
+      clearInterval(timerInterval);
+      handleSectionTimerExpiry();
+    }
+  }, 1000);
+}
+
+function handleSectionTimerExpiry() {
+  if (currentSectionIdx < examData.sections.length - 1) {
+    startSection(currentSectionIdx + 1);
+  } else {
+    showExamSummary();
+  }
+}
+
+function updateTimerUI() {
+  const m = String(Math.floor(sectionSecondsLeft / 60)).padStart(2, '0');
+  const s = String(sectionSecondsLeft % 60).padStart(2, '0');
+  document.getElementById('exam-timer').innerText = `${m}:${s}`;
 }
 
 function getSectionStats(sec) {
-  let ans = 0, notAns = 0, rev = 0, revAns = 0, notVis = 0;
-  sec.questions.forEach(q => {
+  let ans = 0;
+  let notAns = 0;
+  let rev = 0;
+  let revAns = 0;
+  let notVis = 0;
+
+  sec.questions.forEach((q) => {
     const st = state.responses[q.id].status;
     if (st === 'ANSWERED') ans++;
     else if (st === 'NOT_ANSWERED') notAns++;
@@ -93,6 +275,7 @@ function getSectionStats(sec) {
     else if (st === 'REVIEW_ANSWERED') revAns++;
     else notVis++;
   });
+
   return { ans, notAns, rev, revAns, notVis };
 }
 
@@ -150,34 +333,9 @@ function renderSectionHeaders() {
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
-function startTimer() {
-  clearInterval(timerInterval);
-  updateTimerUI();
-  timerInterval = setInterval(() => {
-    sectionSecondsLeft--;
-    updateTimerUI();
-    if (sectionSecondsLeft <= 0) {
-      clearInterval(timerInterval);
-      handleSectionTimerExpiry();
-    }
-  }, 1000);
-}
-
-function handleSectionTimerExpiry() {
-  if (currentSectionIdx < examData.sections.length - 1) {
-    alert(`Time up for ${examData.sections[currentSectionIdx].name}. Moving to the next section.`);
-    startSection(currentSectionIdx + 1);
-  } else {
-    alert("Examination time has ended. Submitting your responses now.");
-    showExamSummary();
-  }
-}
-
-function updateTimerUI() {
-  const m = String(Math.floor(sectionSecondsLeft / 60)).padStart(2, '0');
-  const s = String(sectionSecondsLeft % 60).padStart(2, '0');
-  document.getElementById('exam-timer').innerText = `${m}:${s}`;
-}
+/* ==========================================================================
+   Question Handling & Palette
+   ========================================================================== */
 
 function getCurrentQuestion() {
   return examData.sections[currentSectionIdx].questions[currentQuestionIdx];
@@ -194,19 +352,17 @@ function renderCurrentQuestion() {
   document.getElementById('q-number-title').innerText = `Question No. ${currentQuestionIdx + 1}`;
   document.getElementById('q-statement').innerText = q.question;
 
-  // Toggle Previous button visibility
   const prevBtn = document.getElementById('btn-prev-q');
   if (prevBtn) {
     prevBtn.style.display = currentQuestionIdx > 0 ? 'inline-block' : 'none';
   }
 
-  // Question Image
   const imgBox = document.getElementById('q-image-container');
   imgBox.innerHTML = q.image ? `<img src="${q.image}" alt="Clinical vignette">` : '';
 
-  // Options
   const optBox = document.getElementById('q-options-container');
   optBox.innerHTML = '';
+
   q.options.forEach((optText, optIdx) => {
     const isChecked = qState.selectedOption === optIdx ? 'checked' : '';
     optBox.innerHTML += `
@@ -225,17 +381,31 @@ function renderPalette() {
   const grid = document.getElementById('palette-button-grid');
   grid.innerHTML = '';
 
-  let cAns = 0, cNotAns = 0, cNotVis = 0, cRev = 0, cRevAns = 0;
+  let cAns = 0;
+  let cNotAns = 0;
+  let cNotVis = 0;
+  let cRev = 0;
+  let cRevAns = 0;
 
   sec.questions.forEach((q, idx) => {
     const qState = state.responses[q.id];
     let shapeClass = 'shape-not-visited';
 
-    if (qState.status === 'ANSWERED') { shapeClass = 'shape-answered'; cAns++; }
-    else if (qState.status === 'NOT_ANSWERED') { shapeClass = 'shape-not-answered'; cNotAns++; }
-    else if (qState.status === 'REVIEW') { shapeClass = 'shape-review'; cRev++; }
-    else if (qState.status === 'REVIEW_ANSWERED') { shapeClass = 'shape-review-ans'; cRevAns++; }
-    else { cNotVis++; }
+    if (qState.status === 'ANSWERED') {
+      shapeClass = 'shape-answered';
+      cAns++;
+    } else if (qState.status === 'NOT_ANSWERED') {
+      shapeClass = 'shape-not-answered';
+      cNotAns++;
+    } else if (qState.status === 'REVIEW') {
+      shapeClass = 'shape-review';
+      cRev++;
+    } else if (qState.status === 'REVIEW_ANSWERED') {
+      shapeClass = 'shape-review-ans';
+      cRevAns++;
+    } else {
+      cNotVis++;
+    }
 
     const activeClass = idx === currentQuestionIdx ? 'active-q-btn' : '';
     grid.innerHTML += `
@@ -252,69 +422,87 @@ function renderPalette() {
   document.getElementById('count-revans').innerText = cRevAns;
 }
 
-window.goToQuestion = function(idx) {
+window.goToQuestion = function (idx) {
   currentQuestionIdx = idx;
   renderCurrentQuestion();
+  saveSessionState();
 };
 
-// Exam Action Handlers
 function handleSaveAndNext() {
   const selected = document.querySelector('input[name="cbt-opt"]:checked');
   const q = getCurrentQuestion();
+
   if (selected) {
-    state.responses[q.id].selectedOption = parseInt(selected.value);
+    state.responses[q.id].selectedOption = parseInt(selected.value, 10);
     state.responses[q.id].status = 'ANSWERED';
   } else {
     state.responses[q.id].status = 'NOT_ANSWERED';
   }
+
   advanceNextQuestion();
+  saveSessionState();
 }
 
 function handleMarkForReviewAndNext() {
   const selected = document.querySelector('input[name="cbt-opt"]:checked');
   const q = getCurrentQuestion();
+
   if (selected) {
-    state.responses[q.id].selectedOption = parseInt(selected.value);
+    state.responses[q.id].selectedOption = parseInt(selected.value, 10);
     state.responses[q.id].status = 'REVIEW_ANSWERED';
   } else {
     state.responses[q.id].status = 'REVIEW';
   }
+
   advanceNextQuestion();
+  saveSessionState();
 }
 
 function handleClearResponse() {
   const q = getCurrentQuestion();
   state.responses[q.id].selectedOption = null;
   state.responses[q.id].status = 'NOT_ANSWERED';
+
   renderCurrentQuestion();
+  saveSessionState();
 }
 
 function handlePreviousQuestion() {
   if (currentQuestionIdx > 0) {
     currentQuestionIdx--;
     renderCurrentQuestion();
+    saveSessionState();
   }
 }
 
 function advanceNextQuestion() {
   const totalInSec = examData.sections[currentSectionIdx].questions.length;
-  if (currentQuestionIdx < totalInSec - 1) {
-    currentQuestionIdx++;
-  } else {
-    currentQuestionIdx = 0; // Cyclic loop
-  }
+  currentQuestionIdx = currentQuestionIdx < totalInSec - 1 ? currentQuestionIdx + 1 : 0;
+
   renderCurrentQuestion();
+  saveSessionState();
 }
 
-// Exam Summary
+/* ==========================================================================
+   Exam Summary, Analytics & Review
+   ========================================================================== */
+
 function showExamSummary() {
+  isExamActive = false;
+  sessionStorage.removeItem('cbt_active_exam');
   showScreen('view-summary');
+
   const host = document.getElementById('summary-tables-host');
   host.innerHTML = '';
 
-  examData.sections.forEach(sec => {
-    let ans = 0, notAns = 0, rev = 0, revAns = 0, notVis = 0;
-    sec.questions.forEach(q => {
+  examData.sections.forEach((sec) => {
+    let ans = 0;
+    let notAns = 0;
+    let rev = 0;
+    let revAns = 0;
+    let notVis = 0;
+
+    sec.questions.forEach((q) => {
       const st = state.responses[q.id].status;
       if (st === 'ANSWERED') ans++;
       else if (st === 'NOT_ANSWERED') notAns++;
@@ -334,7 +522,7 @@ function showExamSummary() {
               <th>Answered</th>
               <th>Not Answered</th>
               <th>Marked for Review</th>
-              <th>Answered & Marked for Review (will also be evaluated)</th>
+              <th>Answered & Marked for Review</th>
               <th>Not Visited</th>
             </tr>
           </thead>
@@ -355,16 +543,23 @@ function showExamSummary() {
   });
 }
 
-// Performance Scorecard & Review
 function renderAnalytics() {
+  isExamActive = false;
+  sessionStorage.removeItem('cbt_active_exam');
   showScreen('view-analytics');
-  let score = 0, correct = 0, wrong = 0, unattempted = 0, total = 0;
 
-  examData.sections.forEach(sec => {
-    sec.questions.forEach(q => {
+  let score = 0;
+  let correct = 0;
+  let wrong = 0;
+  let unattempted = 0;
+  let total = 0;
+
+  examData.sections.forEach((sec) => {
+    sec.questions.forEach((q) => {
       total++;
       const resp = state.responses[q.id];
       const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
+
       if (hasAns) {
         if (resp.selectedOption === q.correctAnswer) {
           correct++;
@@ -379,7 +574,8 @@ function renderAnalytics() {
     });
   });
 
-  const accuracy = (correct + wrong) > 0 ? ((correct / (correct + wrong)) * 100).toFixed(1) : 0;
+  const accuracy = correct + wrong > 0 ? ((correct / (correct + wrong)) * 100).toFixed(1) : 0;
+
   document.getElementById('res-total-score').innerText = `${score} / ${total * 4}`;
   document.getElementById('res-accuracy').innerText = `${accuracy}%`;
   document.getElementById('res-correct').innerText = correct;
@@ -394,6 +590,7 @@ function renderAnalytics() {
 function renderReviewTabs() {
   const tabsHost = document.getElementById('review-section-tabs');
   tabsHost.innerHTML = '';
+
   examData.sections.forEach((sec, idx) => {
     const btn = document.createElement('button');
     btn.className = `review-tab-btn ${idx === activeReviewSecIdx ? 'active' : ''}`;
@@ -416,22 +613,12 @@ function renderReviewQuestions(secIdx) {
     const resp = state.responses[q.id];
     const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
     const isMarked = resp && (resp.status === 'REVIEW' || resp.status === 'REVIEW_ANSWERED');
-    let isCorrect = false;
-
-    if (hasAns) {
-      isCorrect = (resp.selectedOption === q.correctAnswer);
-    }
-
+    const isCorrect = hasAns && resp.selectedOption === q.correctAnswer;
     const statusClass = !hasAns ? 'unattempted' : isCorrect ? 'correct' : 'wrong';
-    const scoreBadge = !hasAns 
-      ? '<span class="status-tag tag-skipped">0</span>' 
-      : isCorrect 
-        ? '<span class="status-tag tag-correct">+4</span>' 
-        : '<span class="status-tag tag-wrong">-1</span>';
 
     const bookmarkHtml = isMarked
       ? `<span class="review-bookmark" title="Marked for Review">
-           <svg viewBox="0 0 24 24" width="13" height="13" fill="#684693">
+           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
              <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
            </svg>
          </span>`
@@ -462,7 +649,9 @@ function renderReviewQuestions(secIdx) {
     });
     optionsHtml += '</div>';
 
-    const imgHtml = q.image ? `<div class="review-img-box"><img src="${q.image}" alt="Vignette Image"></div>` : '';
+    const imgHtml = q.image
+      ? `<div class="review-img-box"><img src="${q.image}" alt="Vignette Image"></div>`
+      : '';
 
     host.innerHTML += `
       <div class="review-item ${statusClass}">
@@ -470,7 +659,6 @@ function renderReviewQuestions(secIdx) {
           <p class="q-review-title"><strong>${qIndex + 1}.</strong> ${q.question}</p>
           <div class="review-meta-badges">
             ${bookmarkHtml}
-            ${scoreBadge}
           </div>
         </div>
         ${imgHtml}
@@ -481,14 +669,17 @@ function renderReviewQuestions(secIdx) {
   });
 }
 
-// Commit Tracker
+/* ==========================================================================
+   Utilities & External Integrations
+   ========================================================================== */
+
 function loadLastUpdatedCommit() {
   const GITHUB_USERNAME = 'pranavdeshai';
   const REPO_NAME = 'neet-pg-mock';
 
   fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/commits?per_page=1`)
-    .then(res => res.json())
-    .then(commits => {
+    .then((res) => res.json())
+    .then((commits) => {
       if (commits && commits.length > 0) {
         const commitDate = new Date(commits[0].commit.committer.date);
         const dateStr = commitDate.toLocaleDateString('en-IN', {
@@ -501,6 +692,7 @@ function loadLastUpdatedCommit() {
           minute: '2-digit',
           hour12: true
         });
+
         document.getElementById('footer-version').innerText = `Updated : ${dateStr} ${timeStr}`;
       }
     })
