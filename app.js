@@ -154,7 +154,7 @@ function renderSectionHeaders() {
     tabsContainer.appendChild(tab);
   });
 
-  document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name} ℹ`;
+  document.getElementById('active-sec-tag').innerText = `${examData.sections[currentSectionIdx].name}`;
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
