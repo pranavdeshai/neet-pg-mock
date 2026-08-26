@@ -300,7 +300,7 @@ function renderAnalytics() {
     sec.questions.forEach(q => {
       total++;
       const resp = state.responses[q.id];
-      const hasAns = resp.selectedOption !== null;
+      const hasAns = resp && resp.selectedOption !== null && resp.selectedOption !== undefined;
       let isCorrect = false;
 
       if (hasAns) {
@@ -317,21 +317,27 @@ function renderAnalytics() {
       }
 
       const statusClass = !hasAns ? 'unattempted' : isCorrect ? 'correct' : 'wrong';
-      const userChoiceText = hasAns ? q.options[resp.selectedOption] : 'None';
-      const correctChoiceText = q.options[q.correctAnswer];
+      const userChoiceText = hasAns 
+        ? `${String.fromCharCode(65 + resp.selectedOption)}. ${q.options[resp.selectedOption]}` 
+        : 'Unattempted';
+      const correctChoiceText = `${String.fromCharCode(65 + q.correctAnswer)}. ${q.options[q.correctAnswer]}`;
 
       reviewHost.innerHTML += `
         <div class="review-item ${statusClass}">
           <strong>${q.question}</strong>
-          <div style="margin: 6px 0;">Your Choice: <strong>${userChoiceText}</strong> \vert{} Correct: <strong>${correctChoiceText}</strong></div>
-          <div class="review-exp"><strong>Explanation:</strong> ${q.explanation || 'N/A'}</div>
+          <div style="margin: 8px 0; font-size: 0.88rem;">
+            <span>Your Choice: <strong>${userChoiceText}</strong></span>
+            <span style="margin: 0 10px; color: #94a3b8;">|</span>
+            <span>Correct Answer: <strong>${correctChoiceText}</strong></span>
+          </div>
+          <div class="review-exp"><strong>Explanation:</strong> ${q.explanation || 'No explanation available.'}</div>
         </div>
       `;
     });
   });
 
   const accuracy = (correct + wrong) > 0 ? ((correct / (correct + wrong)) * 100).toFixed(1) : 0;
-  document.getElementById('res-total-score').innerText = `${score} /${total * 4}`;
+  document.getElementById('res-total-score').innerText = `${score} / ${total * 4}`;
   document.getElementById('res-accuracy').innerText = `${accuracy}%`;
   document.getElementById('res-correct').innerText = correct;
   document.getElementById('res-wrong').innerText = wrong;
