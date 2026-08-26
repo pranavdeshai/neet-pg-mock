@@ -51,7 +51,6 @@ function setupScreenTransitions() {
 
   // Checkbox declaration
   const declCheck = document.getElementById('decl-check');
-  const btnReady = document.getElementById('ready-begin', 'btn-ready-begin');
   declCheck.onchange = () => {
     document.getElementById('btn-ready-begin').disabled = !declCheck.checked;
   };
@@ -66,7 +65,7 @@ function setupScreenTransitions() {
   document.getElementById('btn-save-next').onclick = () => handleSaveAndNext();
   document.getElementById('btn-mark-review').onclick = () => handleMarkForReviewAndNext();
   document.getElementById('btn-clear-response').onclick = () => handleClearResponse();
-  document.getElementById('btn-submit-exam').onclick = () => confirmSubmitSection();
+  document.getElementById('btn-prev-q').onclick = () => handlePreviousQuestion();
 
   // Summary -> Exit modal -> Scorecard
   document.getElementById('btn-summary-next').onclick = () => showScreen('view-exit');
@@ -166,9 +165,19 @@ function startTimer() {
     updateTimerUI();
     if (sectionSecondsLeft <= 0) {
       clearInterval(timerInterval);
-      proceedToNextSectionOrSummary(true);
+      handleSectionTimerExpiry();
     }
   }, 1000);
+}
+
+function handleSectionTimerExpiry() {
+  if (currentSectionIdx < examData.sections.length - 1) {
+    alert(`Time up for ${examData.sections[currentSectionIdx].name}. Moving to the next section.`);
+    startSection(currentSectionIdx + 1);
+  } else {
+    alert("Examination time has ended. Submitting your responses now.");
+    showExamSummary();
+  }
 }
 
 function updateTimerUI() {
@@ -277,12 +286,15 @@ function handleClearResponse() {
 
 function advanceNextQuestion() {
   const totalInSec = examData.sections[currentSectionIdx].questions.length;
+  
+  // If on the last question of the section, loop back to the first question
   if (currentQuestionIdx < totalInSec - 1) {
     currentQuestionIdx++;
-    renderCurrentQuestion();
   } else {
-    renderPalette();
+    currentQuestionIdx = 0;
   }
+  
+  renderCurrentQuestion();
 }
 
 function confirmSubmitSection() {
