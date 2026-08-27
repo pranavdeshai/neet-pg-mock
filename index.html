@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Header -->
     <header class="nbems-global-header">
       <div class="header-banner">
         <div class="logo-title-group">
@@ -25,12 +26,13 @@
         </div>
         <div class="header-actions">
           <button id="global-theme-btn" class="global-theme-toggle">
-            🌙 Dark Mode
+            Dark Mode
           </button>
         </div>
       </div>
     </header>
 
+    <!-- View 1: Login -->
     <section id="view-login" class="screen-view">
       <div class="login-sub-bar">
         <div class="sys-info">
@@ -81,6 +83,7 @@
       </div>
     </section>
 
+    <!-- View 2: General Instructions -->
     <section id="view-instructions-1" class="screen-view" hidden>
       <div class="instruction-header-bar">Instructions</div>
       <div class="instruction-main-layout">
@@ -150,6 +153,7 @@
       </div>
     </section>
 
+    <!-- View 3: Subject Instructions & Declaration -->
     <section id="view-instructions-2" class="screen-view" hidden>
       <div class="instruction-header-bar">Other Important Instructions</div>
       <div class="instruction-main-layout">
@@ -207,6 +211,7 @@
       </div>
     </section>
 
+    <!-- View 4: CBT Exam Shell -->
     <section id="view-exam" class="screen-view" hidden>
       <div class="exam-sub-top-bar">
         <span>Static Mock Link for NEET-PG</span>
@@ -225,13 +230,14 @@
       <div class="sec-active-breadcrumb">
         <button class="active-sec-pill" id="active-sec-tag">Section A</button>
         <button id="btn-toggle-palette" class="btn-palette-toggle">
-          📋 Question Palette
+          Question Palette
         </button>
       </div>
 
       <div class="cbt-workspace">
         <div id="palette-backdrop" class="palette-backdrop"></div>
 
+        <!-- Question Vignette Pane -->
         <div class="cbt-question-pane watermark-bg">
           <div class="q-meta-strip">
             <strong id="q-type-label">Question Type: MCQ</strong>
@@ -249,6 +255,7 @@
           </div>
         </div>
 
+        <!-- Question Palette Drawer -->
         <aside class="cbt-side-palette">
           <div class="palette-user-header">
             <div class="palette-user-info">
@@ -326,6 +333,7 @@
       </footer>
     </section>
 
+    <!-- View 5: Section Summary -->
     <section id="view-summary" class="screen-view" hidden>
       <div class="summary-top-header">Exam Summary</div>
       <div class="summary-content" id="summary-tables-host"></div>
@@ -334,6 +342,7 @@
       </div>
     </section>
 
+    <!-- View 6: Completion / Exit -->
     <section id="view-exit" class="screen-view" hidden>
       <div class="exit-modal-card">
         <h3>Dear Candidate, You have now successfully completed the Exam.</h3>
@@ -344,9 +353,20 @@
       </div>
     </section>
 
+    <!-- View 7: Result & Performance Dashboard -->
     <section id="view-analytics" class="screen-view" hidden>
       <div class="analytics-container">
-        <h2>NEET PG Mock Result & Performance Analysis</h2>
+        <div class="analytics-top-actions">
+          <h2>NEET-PG Performance & Review Dashboard</h2>
+          <button
+            onclick="downloadMistakeNotebook()"
+            class="btn-export-notebook"
+          >
+            Download Mistake Notebook (CSV)
+          </button>
+        </div>
+
+        <!-- Core Scoreboard -->
         <div class="score-summary-grid">
           <div class="score-metric-card">
             <span class="metric-val" id="res-total-score">0 / 720</span>
@@ -370,8 +390,199 @@
           </div>
         </div>
 
-        <div class="review-section-tabs" id="review-section-tabs"></div>
-        <div id="analytics-question-review"></div>
+        <!-- Analytics Layout -->
+        <div class="analytics-layout">
+          <aside class="analytics-sidebar">
+            <button
+              class="analytics-nav-btn active"
+              data-pane="pane-questions"
+              onclick="switchAnalyticsTab('pane-questions')"
+            >
+              Question Review
+            </button>
+            <button
+              class="analytics-nav-btn"
+              data-pane="pane-sections"
+              onclick="switchAnalyticsTab('pane-sections')"
+            >
+              Section-wise Analysis
+            </button>
+            <button
+              class="analytics-nav-btn"
+              data-pane="pane-subjects"
+              onclick="switchAnalyticsTab('pane-subjects')"
+            >
+              Subject-wise Analysis
+            </button>
+            <button
+              class="analytics-nav-btn"
+              data-pane="pane-systems"
+              onclick="switchAnalyticsTab('pane-systems')"
+            >
+              System-wise Analysis
+            </button>
+            <button
+              class="analytics-nav-btn"
+              data-pane="pane-time"
+              onclick="switchAnalyticsTab('pane-time')"
+            >
+              Time & Pace Analysis
+            </button>
+            <button
+              class="analytics-nav-btn"
+              data-pane="pane-profiling"
+              onclick="switchAnalyticsTab('pane-profiling')"
+            >
+              Question Profiling
+            </button>
+          </aside>
+
+          <main class="analytics-main-pane">
+            <!-- Pane 1: Question Review -->
+            <div id="pane-questions" class="analytics-pane active">
+              <div class="pane-header-strip">
+                <h3 class="pane-heading">Question Review</h3>
+                <span id="filtered-count-label" class="filter-count-badge"
+                  >Showing all questions</span
+                >
+              </div>
+
+              <div class="review-filter-toolbar">
+                <div class="filter-group" id="group-filter-section">
+                  <label for="filter-section">Section</label>
+                  <select
+                    id="filter-section"
+                    onchange="onFilterChange('section', this.value)"
+                  >
+                    <option value="ALL">All Sections</option>
+                  </select>
+                </div>
+
+                <div class="filter-group" id="group-filter-status">
+                  <label for="filter-status">Result Status</label>
+                  <select
+                    id="filter-status"
+                    onchange="onFilterChange('status', this.value)"
+                  >
+                    <option value="ALL">All Results</option>
+                    <option value="CORRECT">Correct</option>
+                    <option value="WRONG">Incorrect</option>
+                    <option value="UNATTEMPTED">Unattempted</option>
+                  </select>
+                </div>
+
+                <div class="filter-group" id="group-filter-marked">
+                  <label for="filter-marked">Review Flag</label>
+                  <select
+                    id="filter-marked"
+                    onchange="onFilterChange('marked', this.value)"
+                  >
+                    <option value="ALL">All Questions</option>
+                    <option value="MARKED">Marked for Review Only</option>
+                  </select>
+                </div>
+
+                <div class="filter-group" id="group-filter-subject">
+                  <label for="filter-subject">Subject</label>
+                  <select
+                    id="filter-subject"
+                    onchange="onFilterChange('subject', this.value)"
+                  >
+                    <option value="ALL">All Subjects</option>
+                  </select>
+                </div>
+
+                <div class="filter-group" id="group-filter-system">
+                  <label for="filter-system">System</label>
+                  <select
+                    id="filter-system"
+                    onchange="onFilterChange('system', this.value)"
+                  >
+                    <option value="ALL">All Systems</option>
+                  </select>
+                </div>
+
+                <div class="filter-group" id="group-filter-format">
+                  <label for="filter-format">Format</label>
+                  <select
+                    id="filter-format"
+                    onchange="onFilterChange('format', this.value)"
+                  >
+                    <option value="ALL">All Formats</option>
+                    <option value="Clinical Vignette">Clinical Vignette</option>
+                    <option value="Image-Based">Image-Based</option>
+                    <option value="One-Liner / Recall">
+                      One-Liner / Recall
+                    </option>
+                  </select>
+                </div>
+
+                <div class="filter-group btn-group">
+                  <button
+                    id="btn-reset-filters"
+                    class="btn-reset-filters"
+                    onclick="resetReviewFilters()"
+                    disabled
+                  >
+                    Reset Filters
+                  </button>
+                </div>
+              </div>
+
+              <div id="analytics-question-review"></div>
+            </div>
+
+            <!-- Pane 2: Section-wise Analysis -->
+            <div id="pane-sections" class="analytics-pane" hidden>
+              <h3 class="pane-heading">Section-wise Performance Breakdown</h3>
+              <p class="pane-subtext">
+                Click on any section to view its questions and explanations.
+              </p>
+              <div id="analytics-section-breakdown"></div>
+            </div>
+
+            <!-- Pane 3: Subject-wise Analysis -->
+            <div id="pane-subjects" class="analytics-pane" hidden>
+              <h3 class="pane-heading">Subject-wise Performance Breakdown</h3>
+              <p class="pane-subtext">
+                Click on any subject to filter and view corresponding questions.
+              </p>
+              <div id="analytics-subject-breakdown"></div>
+            </div>
+
+            <!-- Pane 4: System-wise Analysis -->
+            <div id="pane-systems" class="analytics-pane" hidden>
+              <h3 class="pane-heading">Physiological System Breakdown</h3>
+              <p class="pane-subtext">
+                Click on any system card to view associated questions.
+              </p>
+              <div id="analytics-system-breakdown"></div>
+            </div>
+
+            <!-- Pane 5: Time & Pace Analysis -->
+            <div id="pane-time" class="analytics-pane" hidden>
+              <h3 class="pane-heading">
+                Time Allocation & Behavioral Analysis
+              </h3>
+              <p class="pane-subtext">
+                Click on any speed trap or behavioral metric to inspect
+                questions.
+              </p>
+              <div id="analytics-time-behavior"></div>
+            </div>
+
+            <!-- Pane 6: Question Profiling -->
+            <div id="pane-profiling" class="analytics-pane" hidden>
+              <h3 class="pane-heading">
+                Question Format & Difficulty Profiling
+              </h3>
+              <p class="pane-subtext">
+                Click on any format or difficulty tier to filter questions.
+              </p>
+              <div id="analytics-question-profiling"></div>
+            </div>
+          </main>
+        </div>
       </div>
     </section>
 
@@ -379,6 +590,6 @@
       Updated : Loading...
     </footer>
 
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=15"></script>
   </body>
 </html>
