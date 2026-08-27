@@ -35,7 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('beforeunload', (e) => {
   if (isExamActive) {
     e.preventDefault();
-    e.returnValue = '';
   }
 });
 
@@ -133,7 +132,7 @@ function restoreSavedSession() {
       renderSectionHeaders();
       renderPalette();
       renderCurrentQuestion();
-      startTimer(true);
+      startTimer();
     }
   } catch (err) {
     sessionStorage.removeItem('cbt_active_exam');
@@ -207,6 +206,27 @@ function setupScreenTransitions() {
   document.getElementById('btn-exit-exam').onclick = () => {
     renderAnalytics();
   };
+
+  /* Mobile Drawer Controls */
+  const togglePaletteBtn = document.getElementById('btn-toggle-palette');
+  const closePaletteBtn = document.getElementById('btn-close-palette');
+  const paletteDrawer = document.querySelector('.cbt-side-palette');
+  const paletteBackdrop = document.getElementById('palette-backdrop');
+
+  function closePalette() {
+    if (paletteDrawer) paletteDrawer.classList.remove('open');
+    if (paletteBackdrop) paletteBackdrop.classList.remove('active');
+  }
+
+  if (togglePaletteBtn && paletteDrawer) {
+    togglePaletteBtn.onclick = () => {
+      paletteDrawer.classList.toggle('open');
+      if (paletteBackdrop) paletteBackdrop.classList.toggle('active');
+    };
+  }
+
+  if (closePaletteBtn) closePaletteBtn.onclick = closePalette;
+  if (paletteBackdrop) paletteBackdrop.onclick = closePalette;
 }
 
 /* ==========================================================================
@@ -230,7 +250,7 @@ function startSection(idx) {
   saveSessionState();
 }
 
-function startTimer(isResumed = false) {
+function startTimer() {
   clearInterval(timerInterval);
   updateTimerUI();
 
@@ -422,10 +442,16 @@ function renderPalette() {
   document.getElementById('count-revans').innerText = cRevAns;
 }
 
-window.goToQuestion = function (idx) {
+window.goToQuestion = function(idx) {
   currentQuestionIdx = idx;
   renderCurrentQuestion();
   saveSessionState();
+
+  /* Close drawer on mobile selection */
+  const paletteDrawer = document.querySelector('.cbt-side-palette');
+  const paletteBackdrop = document.getElementById('palette-backdrop');
+  if (paletteDrawer) paletteDrawer.classList.remove('open');
+  if (paletteBackdrop) paletteBackdrop.classList.remove('active');
 };
 
 function handleSaveAndNext() {
@@ -514,30 +540,32 @@ function showExamSummary() {
     host.innerHTML += `
       <div class="summary-sec-block">
         <div class="summary-sec-title">${sec.name} :</div>
-        <table class="summary-table">
-          <thead>
-            <tr>
-              <th>Section Name</th>
-              <th>No. of Questions</th>
-              <th>Answered</th>
-              <th>Not Answered</th>
-              <th>Marked for Review</th>
-              <th>Answered & Marked for Review</th>
-              <th>Not Visited</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>${sec.name}</td>
-              <td>${sec.questions.length}</td>
-              <td>${ans}</td>
-              <td>${notAns}</td>
-              <td>${rev}</td>
-              <td>${revAns}</td>
-              <td>${notVis}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive-wrapper">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Section Name</th>
+                <th>No. of Questions</th>
+                <th>Answered</th>
+                <th>Not Answered</th>
+                <th>Marked for Review</th>
+                <th>Answered & Marked for Review</th>
+                <th>Not Visited</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>${sec.name}</td>
+                <td>${sec.questions.length}</td>
+                <td>${ans}</td>
+                <td>${notAns}</td>
+                <td>${rev}</td>
+                <td>${revAns}</td>
+                <td>${notVis}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     `;
   });
