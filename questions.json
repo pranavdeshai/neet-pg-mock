@@ -59,7 +59,7 @@
         {
           "id": "secA_q4",
           "question": "What is the primary electrocardiographic hallmark of acute hyperkalemia before the development of sine waves?",
-          "image": "",
+          "image": "https://www.ecgbook.com/ekg-kniha/obr/1000/ecg-hyperkalemia-9-2.png",
           "options": [
             "Tall, peaked, narrow-based T waves with shortened QT interval",
             "Prominent U waves with ST depression",
@@ -233,7 +233,7 @@
         {
           "id": "secD_q1",
           "question": "A 6-year-old child presents with colicky abdominal pain, palpable purpuric lesions over the buttocks and lower extremities, and hematuria following an upper respiratory infection. Platelet count is normal. What is the underlying immunopathogenesis?",
-          "image": "",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Henoch-schonlein-purpura.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
           "options": [
             "IgA immune complex deposition in small vessel walls (Henoch-Schönlein purpura)",
             "Anti-platelet GP IIb/IIIa autoantibody mediated destruction",
@@ -243,7 +243,11 @@
           "correctAnswer": 0,
           "explanation": "IgA vasculitis (Henoch-Schönlein purpura) is a systemic leukocytoclastic small-vessel vasculitis caused by tissue deposition of IgA-containing immune complexes in the skin, GI tract, joints, and renal mesangium.",
           "subject": ["Pediatrics", "Dermatology", "General Medicine"],
-          "system": ["Renal & Electrolytes", "Gastrointestinal & Hepatic", "Musculoskeletal"],
+          "system": [
+            "Renal & Electrolytes",
+            "Gastrointestinal & Hepatic",
+            "Musculoskeletal"
+          ],
           "format": "Clinical Vignette",
           "difficulty": "Hard"
         },
