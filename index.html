@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- Global Header -->
     <header class="nbems-global-header">
       <div class="header-banner">
         <div class="logo-title-group">
@@ -32,16 +32,15 @@
       </div>
     </header>
 
-    <!-- View 1: Login -->
+    <!-- 1. Candidate Login & Question Setup -->
     <section id="view-login" class="screen-view">
       <div class="login-sub-bar">
         <div class="sys-info">
           <span class="lbl">System Name :</span>
           <h2 class="sys-id">C001</h2>
           <p class="sub-notice">
-            Kindly contact the invigilator if there are any discrepancies in the
-            Name and Photograph displayed on the screen or if the photograph is
-            not yours
+            Kindly verify candidate details and question paper setup before
+            starting.
           </p>
         </div>
         <div class="cand-id-box">
@@ -57,9 +56,12 @@
       </div>
 
       <div class="login-center-wrapper">
-        <div class="login-card">
-          <div class="login-card-header">Login</div>
+        <div class="login-card login-card-wide">
+          <div class="login-card-header">Candidate Login & Paper Setup</div>
           <div class="login-card-body">
+            <label class="login-field-label" for="login-username"
+              >Candidate Name</label
+            >
             <div class="input-row">
               <span class="input-icon">👤</span>
               <input
@@ -70,20 +72,75 @@
               />
               <span class="keyboard-icon">⌨</span>
             </div>
-            <div class="input-row">
-              <span class="input-icon">🔒</span>
-              <input type="password" value="•••••" readonly />
-              <span class="keyboard-icon">⌨</span>
+
+            <div class="question-upload-section">
+              <label class="login-field-label"
+                >Question Paper Configuration</label
+              >
+              <div class="upload-tabs">
+                <button
+                  type="button"
+                  class="upload-tab-btn active"
+                  id="tab-btn-default"
+                >
+                  Use Default
+                </button>
+                <button type="button" class="upload-tab-btn" id="tab-btn-file">
+                  Upload JSON File
+                </button>
+                <button type="button" class="upload-tab-btn" id="tab-btn-text">
+                  Paste JSON Text
+                </button>
+              </div>
+
+              <div id="tab-content-default" class="upload-tab-pane">
+                <div class="default-paper-box">
+                  <p>
+                    Standard NEET-PG mock questions loaded from
+                    <code>questions.json</code>.
+                  </p>
+                </div>
+              </div>
+
+              <div id="tab-content-file" class="upload-tab-pane" hidden>
+                <div class="file-drop-zone">
+                  <input
+                    type="file"
+                    id="input-question-file"
+                    accept=".json,application/json"
+                  />
+                  <label for="input-question-file" class="file-drop-label">
+                    <span class="file-icon">📄</span>
+                    <span id="file-chosen-name"
+                      >Click or drag & drop custom <code>.json</code> file</span
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <div id="tab-content-text" class="upload-tab-pane" hidden>
+                <textarea
+                  id="input-question-json"
+                  class="json-textarea"
+                  placeholder='Paste JSON here... e.g.&#10;{&#10;  "sections": [&#10;    { "name": "Section A", "durationMinutes": 15, "questions": [...] }&#10;  ]&#10;}'
+                ></textarea>
+              </div>
+
+              <div id="login-paper-status" class="paper-status-banner warning">
+                No custom questions uploaded. Using default sample set
+                (questions.json).
+              </div>
             </div>
+
             <button id="btn-login" class="btn-primary-blue full-w">
-              Sign In
+              Sign In & Proceed
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- View 2: General Instructions -->
+    <!-- 2. General Instructions -->
     <section id="view-instructions-1" class="screen-view" hidden>
       <div class="instruction-header-bar">Instructions</div>
       <div class="instruction-main-layout">
@@ -92,9 +149,8 @@
             Please Read the Instructions Carefully
           </h3>
           <p class="note-box">
-            <strong>Note:</strong> This demo test is for familiarising
-            applicants with the interface of the NEET-PG Computer-Based
-            Examination.
+            <strong>Note:</strong> This test is for familiarisation with the
+            NEET-PG Computer-Based Examination interface.
           </p>
           <h4 class="section-heading">General Instructions:</h4>
           <ol class="inst-list">
@@ -103,41 +159,34 @@
               time-bound.
             </li>
             <li>
-              The clock will be set at the server. The countdown timer at the
-              top-right corner will display the remaining time available for the
-              active section.
+              The countdown timer at the top-right corner displays remaining
+              section time.
             </li>
             <li>
-              The Question paper is divided into
-              <strong>5 time-bound sections</strong>. Candidates will not be
-              allowed to proceed to the next section or review previous sections
-              until the allotted time finishes.
+              Sections are strictly non-switchable until the active section
+              timer expires.
             </li>
             <li>
-              The Question Palette displayed on the right side of the screen
-              shows the status of each question using the following symbols:
+              The Question Palette indicates question status:
               <ul class="palette-legend-list">
                 <li>
-                  <span class="legend-shape shape-not-visited">1</span> You have
-                  not visited the question yet.
+                  <span class="legend-shape shape-not-visited">1</span> Not
+                  visited yet.
                 </li>
                 <li>
-                  <span class="legend-shape shape-not-answered">2</span> You
-                  have not answered the question.
+                  <span class="legend-shape shape-not-answered">2</span> Not
+                  answered.
                 </li>
                 <li>
-                  <span class="legend-shape shape-answered">3</span> You have
-                  answered the question.
+                  <span class="legend-shape shape-answered">3</span> Answered.
                 </li>
                 <li>
-                  <span class="legend-shape shape-review">4</span> You have NOT
-                  answered the question, but have marked the question for
+                  <span class="legend-shape shape-review">4</span> Marked for
                   review.
                 </li>
                 <li>
-                  <span class="legend-shape shape-review-ans">5</span> The
-                  question is answered and marked for review (will also be
-                  evaluated).
+                  <span class="legend-shape shape-review-ans">5</span> Answered
+                  & marked for review (evaluated).
                 </li>
               </ul>
             </li>
@@ -149,11 +198,11 @@
         </aside>
       </div>
       <div class="bottom-action-rail right-align">
-        <button id="btn-inst-next" class="btn-default">Next &gt;</button>
+        <button id="btn-inst-next" class="btn-default">Next</button>
       </div>
     </section>
 
-    <!-- View 3: Subject Instructions & Declaration -->
+    <!-- 3. Subject Specific Instructions & Declaration -->
     <section id="view-instructions-2" class="screen-view" hidden>
       <div class="instruction-header-bar">Other Important Instructions</div>
       <div class="instruction-main-layout">
@@ -162,28 +211,28 @@
           <div class="table-responsive-wrapper">
             <table class="nbems-spec-table">
               <tr>
-                <td>Name of the Exam</td>
+                <td>Name of Exam</td>
                 <td>NEET-PG Mock Examination</td>
               </tr>
               <tr>
-                <td>Total number of questions</td>
+                <td>Total Questions</td>
                 <td id="table-total-q">20</td>
               </tr>
               <tr>
-                <td>Number of time-bound sections</td>
-                <td>5</td>
+                <td>Time-bound Sections</td>
+                <td id="table-total-sec">5</td>
               </tr>
               <tr>
-                <td>Marks awarded for Correct response</td>
-                <td>+4</td>
+                <td>Correct Response</td>
+                <td>+4 Marks</td>
               </tr>
               <tr>
-                <td>Marks deducted for Incorrect response</td>
-                <td>-1</td>
+                <td>Incorrect Response</td>
+                <td>-1 Mark</td>
               </tr>
               <tr>
-                <td>Marks awarded for Unattempted questions</td>
-                <td>0</td>
+                <td>Unattempted</td>
+                <td>0 Marks</td>
               </tr>
             </table>
           </div>
@@ -204,14 +253,14 @@
         </aside>
       </div>
       <div class="bottom-action-rail between-align">
-        <button id="btn-inst-prev" class="btn-default">&lt; Previous</button>
+        <button id="btn-inst-prev" class="btn-default">Previous</button>
         <button id="btn-ready-begin" class="btn-primary-blue" disabled>
           I am ready to begin
         </button>
       </div>
     </section>
 
-    <!-- View 4: CBT Exam Shell -->
+    <!-- 4. CBT Exam Interface -->
     <section id="view-exam" class="screen-view" hidden>
       <div class="exam-sub-top-bar">
         <span>Static Mock Link for NEET-PG</span>
@@ -237,13 +286,12 @@
       <div class="cbt-workspace">
         <div id="palette-backdrop" class="palette-backdrop"></div>
 
-        <!-- Question Vignette Pane -->
         <div class="cbt-question-pane watermark-bg">
           <div class="q-meta-strip">
             <strong id="q-type-label">Question Type: MCQ</strong>
             <span class="q-marking"
-              >Marks for correct answer: <span class="green-text">4</span> |
-              Negative Marks: <span class="red-text">1</span></span
+              >Correct: <span class="green-text">+4</span> | Negative:
+              <span class="red-text">-1</span></span
             >
           </div>
 
@@ -255,7 +303,6 @@
           </div>
         </div>
 
-        <!-- Question Palette Drawer -->
         <aside class="cbt-side-palette">
           <div class="palette-user-header">
             <div class="palette-user-info">
@@ -301,7 +348,7 @@
                 <span class="shape-review-ans count-badge" id="count-revans"
                   >0</span
                 >
-                Answered & Marked for Review (evaluated)
+                Answered & Marked for Review
               </div>
             </div>
           </div>
@@ -333,27 +380,18 @@
       </footer>
     </section>
 
-    <!-- View 5: Section Summary -->
+    <!-- 5. Exam Summary -->
     <section id="view-summary" class="screen-view" hidden>
       <div class="summary-top-header">Exam Summary</div>
       <div class="summary-content" id="summary-tables-host"></div>
       <div class="bottom-action-rail center-align">
-        <button id="btn-summary-next" class="btn-default">Next</button>
+        <button id="btn-view-score" class="btn-primary-blue">
+          View Score & Analytics
+        </button>
       </div>
     </section>
 
-    <!-- View 6: Completion / Exit -->
-    <section id="view-exit" class="screen-view" hidden>
-      <div class="exit-modal-card">
-        <h3>Dear Candidate, You have now successfully completed the Exam.</h3>
-        <p>
-          Please click on the below button to exit and view score analytics.
-        </p>
-        <button id="btn-exit-exam" class="btn-primary-blue">Exit Exam</button>
-      </div>
-    </section>
-
-    <!-- View 7: Result & Performance Dashboard -->
+    <!-- 6. Analytics & Review Dashboard -->
     <section id="view-analytics" class="screen-view" hidden>
       <div class="analytics-container">
         <div class="analytics-top-actions">
@@ -366,10 +404,9 @@
           </button>
         </div>
 
-        <!-- Core Scoreboard -->
         <div class="score-summary-grid">
           <div class="score-metric-card">
-            <span class="metric-val" id="res-total-score">0 / 720</span>
+            <span class="metric-val" id="res-total-score">0 / 0</span>
             <span class="metric-lbl">Total Score</span>
           </div>
           <div class="score-metric-card">
@@ -390,7 +427,6 @@
           </div>
         </div>
 
-        <!-- Analytics Layout -->
         <div class="analytics-layout">
           <aside class="analytics-sidebar">
             <button
@@ -405,28 +441,28 @@
               data-pane="pane-sections"
               onclick="switchAnalyticsTab('pane-sections')"
             >
-              Section-wise Analysis
+              Section Analysis
             </button>
             <button
               class="analytics-nav-btn"
               data-pane="pane-subjects"
               onclick="switchAnalyticsTab('pane-subjects')"
             >
-              Subject-wise Analysis
+              Subject Analysis
             </button>
             <button
               class="analytics-nav-btn"
               data-pane="pane-systems"
               onclick="switchAnalyticsTab('pane-systems')"
             >
-              System-wise Analysis
+              System Analysis
             </button>
             <button
               class="analytics-nav-btn"
               data-pane="pane-time"
               onclick="switchAnalyticsTab('pane-time')"
             >
-              Time & Pace Analysis
+              Time & Pace
             </button>
             <button
               class="analytics-nav-btn"
@@ -438,7 +474,6 @@
           </aside>
 
           <main class="analytics-main-pane">
-            <!-- Pane 1: Question Review -->
             <div id="pane-questions" class="analytics-pane active">
               <div class="pane-header-strip">
                 <h3 class="pane-heading">Question Review</h3>
@@ -478,7 +513,7 @@
                     onchange="onFilterChange('marked', this.value)"
                   >
                     <option value="ALL">All Questions</option>
-                    <option value="MARKED">Marked for Review Only</option>
+                    <option value="MARKED">Marked for Review</option>
                   </select>
                 </div>
 
@@ -532,52 +567,45 @@
               <div id="analytics-question-review"></div>
             </div>
 
-            <!-- Pane 2: Section-wise Analysis -->
             <div id="pane-sections" class="analytics-pane" hidden>
-              <h3 class="pane-heading">Section-wise Performance Breakdown</h3>
+              <h3 class="pane-heading">Section Performance Breakdown</h3>
               <p class="pane-subtext">
-                Click on any section to view its questions and explanations.
+                Click on any section row to review its questions.
               </p>
               <div id="analytics-section-breakdown"></div>
             </div>
 
-            <!-- Pane 3: Subject-wise Analysis -->
             <div id="pane-subjects" class="analytics-pane" hidden>
-              <h3 class="pane-heading">Subject-wise Performance Breakdown</h3>
+              <h3 class="pane-heading">Subject Performance Breakdown</h3>
               <p class="pane-subtext">
-                Click on any subject to filter and view corresponding questions.
+                Click on any subject row to filter questions.
               </p>
               <div id="analytics-subject-breakdown"></div>
             </div>
 
-            <!-- Pane 4: System-wise Analysis -->
             <div id="pane-systems" class="analytics-pane" hidden>
               <h3 class="pane-heading">Physiological System Breakdown</h3>
               <p class="pane-subtext">
-                Click on any system card to view associated questions.
+                Click on any system card to filter questions.
               </p>
               <div id="analytics-system-breakdown"></div>
             </div>
 
-            <!-- Pane 5: Time & Pace Analysis -->
             <div id="pane-time" class="analytics-pane" hidden>
               <h3 class="pane-heading">
                 Time Allocation & Behavioral Analysis
               </h3>
               <p class="pane-subtext">
-                Click on any speed trap or behavioral metric to inspect
+                Click on any speed trap or switching metric to inspect
                 questions.
               </p>
               <div id="analytics-time-behavior"></div>
             </div>
 
-            <!-- Pane 6: Question Profiling -->
             <div id="pane-profiling" class="analytics-pane" hidden>
-              <h3 class="pane-heading">
-                Question Format & Difficulty Profiling
-              </h3>
+              <h3 class="pane-heading">Format & Difficulty Profiling</h3>
               <p class="pane-subtext">
-                Click on any format or difficulty tier to filter questions.
+                Click on any tier to filter corresponding questions.
               </p>
               <div id="analytics-question-profiling"></div>
             </div>
@@ -586,10 +614,11 @@
       </div>
     </section>
 
+    <!-- Global Footer -->
     <footer id="footer-version" class="nbems-global-footer">
       Updated : Loading...
     </footer>
 
-    <script src="app.js?v=15"></script>
+    <script src="app.js?v=20"></script>
   </body>
 </html>
