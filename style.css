@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Base & Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
 }
 
-/* Global Header & Footer */
+/* Layout: Global Header & Footer */
 .nbems-global-header {
   background: #134675;
   color: #ffffff;
@@ -51,20 +51,9 @@ body {
   flex-shrink: 0;
 }
 
-.header-titles h3 {
-  font-size: 0.95rem;
-  font-weight: normal;
-}
-
-.header-titles h4 {
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.header-titles p {
-  font-size: 0.7rem;
-  color: #cbd5e1;
-}
+.header-titles h3 { font-size: 0.95rem; font-weight: normal; }
+.header-titles h4 { font-size: 0.9rem; font-weight: bold; }
+.header-titles p { font-size: 0.7rem; color: #cbd5e1; }
 
 .header-actions {
   display: flex;
@@ -133,7 +122,7 @@ body {
 .avatar-large { width: 90px; height: 100px; margin: 0 auto; }
 .avatar-sm { width: 40px; height: 44px; }
 
-/* Login View */
+/* 1. Login View & Question Setup */
 .login-sub-bar {
   background: #5c5c5c;
   color: #ffffff;
@@ -168,12 +157,13 @@ body {
 
 .login-card {
   width: 100%;
-  max-width: 340px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background: #e9e9e9;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
+
+.login-card-wide { max-width: 480px; }
 
 .login-card-header {
   background: #e0e0e0;
@@ -187,7 +177,14 @@ body {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+}
+
+.login-field-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #475569;
+  text-transform: uppercase;
 }
 
 .input-row {
@@ -208,6 +205,120 @@ body {
   width: 100%;
 }
 
+.question-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.upload-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.upload-tab-btn {
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+}
+
+.upload-tab-btn.active {
+  color: #0077b6;
+  border-bottom: 2px solid #0077b6;
+  margin-bottom: -2px;
+  background: #e0f2fe;
+}
+
+.default-paper-box {
+  padding: 10px 6px;
+  font-size: 0.8rem;
+  color: #475569;
+  text-align: center;
+}
+
+.file-drop-zone {
+  border: 2px dashed #94a3b8;
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 14px 10px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.file-drop-zone input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-drop-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #475569;
+  pointer-events: none;
+}
+
+.file-icon { font-size: 1.4rem; }
+
+.json-textarea {
+  width: 100%;
+  height: 90px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  resize: vertical;
+  background: #ffffff;
+  outline: none;
+}
+
+.json-textarea:focus { border-color: #0284c7; }
+
+.paper-status-banner {
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.paper-status-banner.warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.paper-status-banner.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.paper-status-banner.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
 .btn-primary-blue {
   background: #29a0dc;
   color: #ffffff;
@@ -224,7 +335,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Instructions */
+/* 2 & 3. Instructions Layout */
 .instruction-header-bar {
   background: #ccecf7;
   padding: 8px 16px;
@@ -325,7 +436,7 @@ body {
   z-index: 90;
 }
 
-/* CBT Exam Shell */
+/* 4. CBT Exam Shell & Question Pane */
 .exam-sub-top-bar {
   background: #333333;
   color: #ffffff;
@@ -365,7 +476,7 @@ body {
   font-size: 0.8rem;
   font-weight: bold;
   position: relative;
-  cursor: pointer !important;
+  cursor: pointer;
   user-select: none;
   white-space: nowrap;
 }
@@ -412,7 +523,6 @@ body {
   cursor: pointer;
 }
 
-/* Hover Popup */
 .sec-hover-popup {
   display: none;
   position: absolute;
@@ -469,7 +579,6 @@ body {
 .popup-row strong { margin-left: auto; color: #0f172a; font-size: 0.8rem; }
 .p-mini-shape { width: 15px !important; height: 15px !important; font-size: 0.55rem !important; flex-shrink: 0; }
 
-/* CBT Question Pane */
 .cbt-workspace {
   display: flex;
   height: calc(100vh - 176px);
@@ -527,7 +636,7 @@ body {
 
 .cbt-option input { margin-top: 3px; transform: scale(1.1); }
 
-/* CBT Side Palette */
+/* Side Palette & Shapes */
 .palette-backdrop {
   display: none;
   position: fixed;
@@ -616,7 +725,6 @@ body {
 
 .pal-q-btn.active-q-btn { outline: 2px solid #000000; }
 
-/* Palette Shapes */
 .shape-not-visited {
   width: 28px;
   height: 28px;
@@ -695,7 +803,6 @@ body {
   border: 1px solid #ffffff;
 }
 
-/* CBT Bottom Bar */
 .cbt-bottom-bar {
   background: #ffffff;
   border-top: 1px solid #cccccc;
@@ -735,7 +842,7 @@ body {
   white-space: nowrap;
 }
 
-/* Exam Summary & Exit */
+/* 5. Exam Summary */
 .summary-top-header {
   background: #bfe5f1;
   text-align: center;
@@ -770,21 +877,7 @@ body {
 
 .summary-table td { border: 1px solid #000000; padding: 6px; }
 
-.exit-modal-card {
-  max-width: 500px;
-  margin: 60px auto;
-  background: #f9f9f9;
-  padding: 30px 20px;
-  text-align: center;
-  border: 1px solid #dddddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-}
-
-.exit-modal-card h3 { margin-bottom: 12px; font-size: 1.05rem; line-height: 1.4; }
-.exit-modal-card p { margin-bottom: 20px; font-size: 0.85rem; color: #555555; }
-
-/* Performance Dashboard */
+/* 6. Performance Dashboard */
 .analytics-container {
   max-width: 1100px;
   margin: 20px auto 80px auto;
@@ -903,7 +996,6 @@ body {
   font-weight: 600;
 }
 
-/* Filter Toolbar */
 .review-filter-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -990,7 +1082,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Question Review Card */
 .review-item {
   background: #ffffff;
   padding: 14px 16px;
@@ -1141,7 +1232,6 @@ body {
 
 .meta-tag-pill.neutral-pill:hover { background: #e2e8f0; }
 
-/* Tables & System Cards */
 .analytics-datatable {
   width: 100%;
   border-collapse: collapse;
@@ -1267,7 +1357,7 @@ body {
 
 .profiling-title { font-size: 0.85rem; margin-bottom: 8px; color: #334155; }
 
-/* Responsive Media Queries */
+/* Responsive Queries */
 @media (max-width: 992px) {
   .header-titles p { display: none; }
 }
@@ -1352,10 +1442,9 @@ body {
   .btn-cbt-default, .btn-cbt-blue { flex: 1; font-size: 0.74rem; padding: 6px 4px; text-align: center; }
   .score-summary-grid { grid-template-columns: repeat(2, 1fr); }
   .score-summary-grid .score-metric-card:last-child { grid-column: span 2; }
-  .exit-modal-card { margin: 30px 12px; }
 }
 
-/* Dark Mode Overrides */
+/* Dark Mode */
 body.dark-mode { background: #111827; color: #e2e8f0; }
 
 body.dark-mode .watermark-bg {
@@ -1399,6 +1488,15 @@ body.dark-mode .login-card { background: #374151; border-color: #4b5563; }
 body.dark-mode .login-card-header { background: #111827; border-color: #4b5563; }
 body.dark-mode .input-row { background: #111827; border-color: #4b5563; color: #ffffff; }
 body.dark-mode .input-row input { background: transparent; color: #ffffff; }
+
+body.dark-mode .question-upload-section { background: #111827; border-color: #374151; }
+body.dark-mode .login-field-label { color: #94a3b8; }
+body.dark-mode .upload-tab-btn { color: #94a3b8; }
+body.dark-mode .upload-tab-btn.active { color: #38bdf8; background: #0f2d4a; border-color: #38bdf8; }
+body.dark-mode .default-paper-box { color: #cbd5e1; }
+body.dark-mode .file-drop-zone { background: #1f2937; border-color: #4b5563; }
+body.dark-mode .file-drop-label { color: #cbd5e1; }
+body.dark-mode .json-textarea { background: #1f2937; border-color: #4b5563; color: #e2e8f0; }
 
 body.dark-mode .instruction-header-bar,
 body.dark-mode .summary-top-header {
@@ -1492,4 +1590,3 @@ body.dark-mode .review-card-footer { border-top-color: #374151; }
 body.dark-mode .meta-tag-pill { background: #075985; color: #e0f2fe; border-color: #0369a1; }
 body.dark-mode .meta-tag-pill.sys-pill { background: #581c87; color: #f3e8ff; border-color: #6b21a8; }
 body.dark-mode .meta-tag-pill.neutral-pill { background: #374151; color: #d1d5db; border-color: #4b5563; }
-body.dark-mode .exit-modal-card { background: #1f2937; border-color: #374151; color: #e2e8f0; }
