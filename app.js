@@ -1,4 +1,5 @@
-/* State & Configuration */
+/* Global State */
+let defaultExamData = null;
 let examData = null;
 let currentSectionIdx = 0;
 let currentQuestionIdx = 0;
@@ -7,6 +8,9 @@ let timerInterval = null;
 let isExamActive = false;
 let candidateName = 'John Smith';
 let analyticsCache = null;
+
+let customFileParsed = null;
+let activeUploadTab = 'default';
 
 const state = { responses: {} };
 
@@ -22,12 +26,14 @@ const reviewFilters = {
   switchType: 'ALL'
 };
 
-/* Lifecycle & Persistence */
+/* Lifecycle & Initialization */
 window.addEventListener('DOMContentLoaded', () => {
   setupTheme();
+  setupLoginPaperSetup();
   fetch('questions.json')
     .then((res) => res.json())
     .then((data) => {
+      defaultExamData = data;
       examData = data;
       initData();
     })
@@ -39,7 +45,9 @@ window.addEventListener('beforeunload', (e) => {
 });
 
 function initData() {
+  state.responses = {};
   let totalQ = 0;
+
   examData.sections.forEach((sec) => {
     sec.questions.forEach((q) => {
       totalQ++;
@@ -55,6 +63,9 @@ function initData() {
 
   const totalElem = document.getElementById('table-total-q');
   if (totalElem) totalElem.innerText = totalQ;
+
+  const totalSecElem = document.getElementById('table-total-sec');
+  if (totalSecElem) totalSecElem.innerText = examData.sections.length;
 
   setupScreenTransitions();
   loadLastUpdatedCommit();
@@ -80,6 +91,143 @@ function setupTheme() {
   if (globalBtn) globalBtn.onclick = toggle;
 }
 
+/* Question Setup & Validation */
+function setupLoginPaperSetup() {
+  const tabDefault = document.getElementById('tab-btn-default');
+  const tabFile = document.getElementById('tab-btn-file');
+  const tabText = document.getElementById('tab-btn-text');
+
+  const contentDefault = document.getElementById('tab-content-default');
+  const contentFile = document.getElementById('tab-content-file');
+  const contentText = document.getElementById('tab-content-text');
+
+  const fileInput = document.getElementById('input-question-file');
+  const fileNameDisplay = document.getElementById('file-chosen-name');
+  const jsonTextArea = document.getElementById('input-question-json');
+  const statusBanner = document.getElementById('login-paper-status');
+
+  function updateStatus(text, type) {
+    statusBanner.className = `paper-status-banner ${type}`;
+    statusBanner.innerText = text;
+  }
+
+  function selectTab(tab) {
+    activeUploadTab = tab;
+    [tabDefault, tabFile, tabText].forEach((b) => b && b.classList.remove('active'));
+    [contentDefault, contentFile, contentText].forEach((c) => c && (c.hidden = true));
+
+    if (tab === 'default') {
+      tabDefault.classList.add('active');
+      contentDefault.hidden = false;
+      customFileParsed = null;
+      updateStatus('No custom questions uploaded. Using default sample set (questions.json).', 'warning');
+    } else if (tab === 'file') {
+      tabFile.classList.add('active');
+      contentFile.hidden = false;
+      if (customFileParsed) {
+        updateStatus(`Custom file ready: ${customFileParsed.totalQ} questions across ${customFileParsed.data.sections.length} sections.`, 'success');
+      } else {
+        updateStatus('Select a valid .json file or default set will be used.', 'warning');
+      }
+    } else if (tab === 'text') {
+      tabText.classList.add('active');
+      contentText.hidden = false;
+      if (jsonTextArea.value.trim()) {
+        tryParsePastedText();
+      } else {
+        updateStatus('Paste JSON text or default set will be used.', 'warning');
+      }
+    }
+  }
+
+  if (tabDefault) tabDefault.onclick = () => selectTab('default');
+  if (tabFile) tabFile.onclick = () => selectTab('file');
+  if (tabText) tabText.onclick = () => selectTab('text');
+
+  if (fileInput) {
+    fileInput.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      fileNameDisplay.innerText = `Selected: ${file.name}`;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const validated = normalizeAndValidateExamData(JSON.parse(evt.target.result));
+          customFileParsed = validated;
+          updateStatus(`Custom file ready: ${validated.totalQ} questions across ${validated.data.sections.length} sections.`, 'success');
+        } catch (err) {
+          customFileParsed = null;
+          updateStatus(`Invalid JSON file: ${err.message}`, 'error');
+        }
+      };
+      reader.readAsText(file);
+    };
+  }
+
+  function tryParsePastedText() {
+    const val = jsonTextArea.value.trim();
+    if (!val) {
+      updateStatus('Paste JSON text or default set will be used.', 'warning');
+      return null;
+    }
+    try {
+      const validated = normalizeAndValidateExamData(JSON.parse(val));
+      updateStatus(`Custom JSON ready: ${validated.totalQ} questions across ${validated.data.sections.length} sections.`, 'success');
+      return validated;
+    } catch (err) {
+      updateStatus(`Invalid JSON: ${err.message}`, 'error');
+      return null;
+    }
+  }
+
+  if (jsonTextArea) jsonTextArea.oninput = tryParsePastedText;
+}
+
+function normalizeAndValidateExamData(parsed) {
+  if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.sections) || parsed.sections.length === 0) {
+    throw new Error('Must contain a "sections" array with at least 1 section.');
+  }
+
+  let totalQ = 0;
+  parsed.sections.forEach((sec, sIdx) => {
+    sec.id = sec.id || `sec_${sIdx + 1}`;
+    sec.name = sec.name || `Section ${String.fromCharCode(65 + sIdx)}`;
+    sec.durationMinutes = Number(sec.durationMinutes) || 15;
+
+    if (!Array.isArray(sec.questions) || sec.questions.length === 0) {
+      throw new Error(`Section "${sec.name}" must contain questions.`);
+    }
+
+    sec.questions.forEach((q, qIdx) => {
+      totalQ++;
+      q.id = q.id || `sec${sIdx + 1}_q${qIdx + 1}`;
+      if (!q.question) throw new Error(`Section ${sec.name} Q#${qIdx + 1} is missing a statement.`);
+      if (!Array.isArray(q.options) || q.options.length < 2) {
+        throw new Error(`Question #${totalQ} must have at least 2 options.`);
+      }
+      q.image = typeof q.image === 'string' ? q.image.trim() : '';
+      q.correctAnswer = typeof q.correctAnswer === 'number' ? q.correctAnswer : 0;
+      q.explanation = q.explanation || '';
+      q.subject = q.subject || ['General'];
+      q.system = q.system || ['General'];
+    });
+  });
+
+  return { data: parsed, totalQ };
+}
+
+/* UI Transitions & Session Management */
+function showScreen(screenId) {
+  document.querySelectorAll('.screen-view').forEach((el) => (el.style.display = 'none'));
+  const target = document.getElementById(screenId);
+  if (target) target.style.display = 'block';
+}
+
+function updateCandidateName(newName) {
+  candidateName = newName.trim() || 'John Smith';
+  document.querySelectorAll('.disp-cand-name').forEach((el) => (el.innerText = candidateName));
+}
+
 function saveSessionState() {
   if (!isExamActive) return;
   sessionStorage.setItem(
@@ -89,7 +237,8 @@ function saveSessionState() {
       currentSectionIdx,
       currentQuestionIdx,
       sectionSecondsLeft,
-      responses: state.responses
+      responses: state.responses,
+      examData
     })
   );
 }
@@ -101,6 +250,7 @@ function restoreSavedSession() {
   try {
     const saved = JSON.parse(rawData);
     if (saved && saved.responses) {
+      if (saved.examData) examData = saved.examData;
       if (saved.candidateName) {
         updateCandidateName(saved.candidateName);
         const loginInput = document.getElementById('login-username');
@@ -123,20 +273,29 @@ function restoreSavedSession() {
   }
 }
 
-/* UI Transitions & Navigation */
-function showScreen(screenId) {
-  document.querySelectorAll('.screen-view').forEach((el) => (el.style.display = 'none'));
-  document.getElementById(screenId).style.display = 'block';
-}
-
-function updateCandidateName(newName) {
-  candidateName = newName.trim() || 'John Smith';
-  document.querySelectorAll('.disp-cand-name').forEach((el) => (el.innerText = candidateName));
-}
-
 function setupScreenTransitions() {
   document.getElementById('btn-login').onclick = () => {
     updateCandidateName(document.getElementById('login-username').value);
+
+    if (activeUploadTab === 'file' && customFileParsed) {
+      examData = customFileParsed.data;
+    } else if (activeUploadTab === 'text') {
+      const jsonTextArea = document.getElementById('input-question-json');
+      const val = jsonTextArea ? jsonTextArea.value.trim() : '';
+      if (val) {
+        try {
+          examData = normalizeAndValidateExamData(JSON.parse(val)).data;
+        } catch {
+          examData = defaultExamData;
+        }
+      } else {
+        examData = defaultExamData;
+      }
+    } else {
+      examData = defaultExamData;
+    }
+
+    initData();
     saveSessionState();
     showScreen('view-instructions-1');
   };
@@ -167,8 +326,8 @@ function setupScreenTransitions() {
     }
   };
 
-  document.getElementById('btn-summary-next').onclick = () => showScreen('view-exit');
-  document.getElementById('btn-exit-exam').onclick = renderAnalytics;
+  const viewScoreBtn = document.getElementById('btn-view-score');
+  if (viewScoreBtn) viewScoreBtn.onclick = renderAnalytics;
 
   const togglePaletteBtn = document.getElementById('btn-toggle-palette');
   const closePaletteBtn = document.getElementById('btn-close-palette');
@@ -191,7 +350,7 @@ function setupScreenTransitions() {
   if (paletteBackdrop) paletteBackdrop.onclick = closePalette;
 }
 
-/* Exam Section & Timer */
+/* CBT Exam Engine */
 function startSection(idx) {
   currentSectionIdx = idx;
   currentQuestionIdx = 0;
@@ -292,7 +451,6 @@ function renderSectionHeaders() {
   document.getElementById('pal-sec-name').innerText = examData.sections[currentSectionIdx].name;
 }
 
-/* Question Workspace & Palette */
 function getCurrentQuestion() {
   return examData.sections[currentSectionIdx].questions[currentQuestionIdx];
 }
@@ -480,7 +638,7 @@ function showExamSummary() {
                 <th>Answered</th>
                 <th>Not Answered</th>
                 <th>Marked for Review</th>
-                <th>Answered & Marked for Review</th>
+                <th>Answered & Marked</th>
                 <th>Not Visited</th>
               </tr>
             </thead>
@@ -502,7 +660,7 @@ function showExamSummary() {
   });
 }
 
-/* Question Metadata Normalization */
+/* Question Tag Normalization */
 function normalizeTags(val) {
   if (Array.isArray(val)) return val.map((s) => String(s).trim()).filter(Boolean);
   if (typeof val === 'string' && val.trim().length > 0) return val.split(',').map((s) => s.trim()).filter(Boolean);
@@ -510,15 +668,16 @@ function normalizeTags(val) {
 }
 
 function getQuestionMeta(q) {
+  const hasImage = Boolean(q.image && String(q.image).trim().length > 0);
   return {
     subjects: normalizeTags(q.subject),
     systems: normalizeTags(q.system),
-    format: q.format || 'One-Liner / Recall',
+    format: hasImage ? 'Image-Based' : (q.format || 'One-Liner / Recall'),
     difficulty: q.difficulty || 'Medium'
   };
 }
 
-/* Analytics & Metric Processing */
+/* Analytics Engine */
 function renderAnalytics() {
   isExamActive = false;
   sessionStorage.removeItem('cbt_active_exam');
@@ -606,6 +765,7 @@ function renderAnalytics() {
         qIndex: qIdx + 1,
         qGlobalIndex: globalQCounter,
         question: q.question,
+        image: q.image,
         options: q.options,
         correctAnswer: q.correctAnswer,
         selectedOption: resp.selectedOption,
@@ -669,7 +829,7 @@ function renderAnalytics() {
   switchAnalyticsTab('pane-questions');
 }
 
-/* Sidebar & Navigation Actions */
+/* Analytics Filters & Navigation */
 window.switchAnalyticsTab = function(paneId) {
   document.querySelectorAll('.analytics-pane').forEach((p) => {
     p.hidden = true;
@@ -688,7 +848,7 @@ window.switchAnalyticsTab = function(paneId) {
 };
 
 function applySingleFilterAndNavigate(key, val) {
-  resetReviewFiltersState();
+  Object.keys(reviewFilters).forEach((k) => (reviewFilters[k] = 'ALL'));
   reviewFilters[key] = val;
   syncFilterControls();
   filterAndRenderQuestions();
@@ -703,7 +863,6 @@ window.filterByDifficulty = (diff) => applySingleFilterAndNavigate('difficulty',
 window.filterByTrap = (trap) => applySingleFilterAndNavigate('trap', trap);
 window.filterBySwitch = (sw) => applySingleFilterAndNavigate('switchType', sw);
 
-/* Filters & Question List */
 function populateFilterDropdowns(sectionMap, subjectMap, systemMap) {
   const secSelect = document.getElementById('filter-section');
   const subSelect = document.getElementById('filter-subject');
@@ -731,20 +890,8 @@ function populateFilterDropdowns(sectionMap, subjectMap, systemMap) {
   }
 }
 
-function resetReviewFiltersState() {
-  reviewFilters.section = 'ALL';
-  reviewFilters.status = 'ALL';
-  reviewFilters.marked = 'ALL';
-  reviewFilters.subject = 'ALL';
-  reviewFilters.system = 'ALL';
-  reviewFilters.format = 'ALL';
-  reviewFilters.difficulty = 'ALL';
-  reviewFilters.trap = 'ALL';
-  reviewFilters.switchType = 'ALL';
-}
-
 window.resetReviewFilters = function() {
-  resetReviewFiltersState();
+  Object.keys(reviewFilters).forEach((k) => (reviewFilters[k] = 'ALL'));
   syncFilterControls();
   filterAndRenderQuestions();
 };
@@ -766,17 +913,7 @@ function updateFilterVisuals() {
     if (grpEl) grpEl.classList.toggle('has-active-filter', val !== 'ALL');
   });
 
-  const isAnyFilterActive =
-    reviewFilters.section !== 'ALL' ||
-    reviewFilters.status !== 'ALL' ||
-    reviewFilters.marked !== 'ALL' ||
-    reviewFilters.subject !== 'ALL' ||
-    reviewFilters.system !== 'ALL' ||
-    reviewFilters.format !== 'ALL' ||
-    reviewFilters.difficulty !== 'ALL' ||
-    reviewFilters.trap !== 'ALL' ||
-    reviewFilters.switchType !== 'ALL';
-
+  const isAnyFilterActive = Object.values(reviewFilters).some((val) => val !== 'ALL');
   const resetBtn = document.getElementById('btn-reset-filters');
   if (resetBtn) {
     resetBtn.disabled = !isAnyFilterActive;
@@ -915,7 +1052,7 @@ function filterAndRenderQuestions() {
   host.innerHTML = html;
 }
 
-/* Breakdown Views */
+/* Breakdown Tables */
 function renderSectionBreakdown(sectionMap) {
   const secHost = document.getElementById('analytics-section-breakdown');
   if (!secHost) return;
@@ -1054,15 +1191,15 @@ function renderTimeAndBehaviorMetrics(data) {
         <h4 class="subcard-title">Option Switching Behavior</h4>
         <div class="metric-inline-row"><span>Questions with Modified Answers:</span><strong>${data.totalSwitchedQ}</strong></div>
         <div class="switch-outcome-list">
-          <div class="switch-row green-bg clickable-trap" onclick="filterBySwitch('WRONG_TO_RIGHT')" title="Click to view questions changed from wrong to correct">
+          <div class="switch-row green-bg clickable-trap" onclick="filterBySwitch('WRONG_TO_RIGHT')" title="Click to view switched to correct">
             <span>Switched Incorrect &rarr; <strong>Correct</strong></span>
             <strong>+${data.switchWrongToRight}</strong>
           </div>
-          <div class="switch-row red-bg clickable-trap" onclick="filterBySwitch('RIGHT_TO_WRONG')" title="Click to view questions changed from correct to wrong">
+          <div class="switch-row red-bg clickable-trap" onclick="filterBySwitch('RIGHT_TO_WRONG')" title="Click to view switched to incorrect">
             <span>Switched Correct &rarr; <strong>Incorrect</strong></span>
             <strong>-${data.switchRightToWrong}</strong>
           </div>
-          <div class="switch-row gray-bg clickable-trap" onclick="filterBySwitch('WRONG_TO_WRONG')" title="Click to view questions changed between incorrect choices">
+          <div class="switch-row gray-bg clickable-trap" onclick="filterBySwitch('WRONG_TO_WRONG')" title="Click to view switched between incorrect choices">
             <span>Switched Incorrect &rarr; <strong>Incorrect</strong></span>
             <strong>${data.switchWrongToWrong}</strong>
           </div>
@@ -1111,7 +1248,7 @@ function renderQuestionProfiling(formatMap, diffMap) {
   `;
 }
 
-/* Export Mistake Notebook */
+/* Mistake Notebook Export */
 window.downloadMistakeNotebook = function() {
   if (!analyticsCache || !analyticsCache.allQuestionsFlat) {
     alert('Please submit the exam to generate your mistake notebook.');
