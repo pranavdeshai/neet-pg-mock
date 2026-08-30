@@ -122,7 +122,7 @@
                 <textarea
                   id="input-question-json"
                   class="json-textarea"
-                  placeholder='Paste JSON here... e.g.&#10;{&#10;  "sections": [&#10;    { "name": "Section A", "durationMinutes": 15, "questions": [...] }&#10;  ]&#10;}'
+                  placeholder='Paste JSON here... e.g.&#10;{&#10;  "sections": [&#10;    { "name": "Section A", "durationMinutes": 4, "questions": [...] }&#10;  ]&#10;}'
                 ></textarea>
               </div>
 
@@ -133,134 +133,14 @@
             </div>
 
             <button id="btn-login" class="btn-primary-blue full-w">
-              Sign In & Proceed
+              Sign In & Start Examination
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. General Instructions -->
-    <section id="view-instructions-1" class="screen-view" hidden>
-      <div class="instruction-header-bar">Instructions</div>
-      <div class="instruction-main-layout">
-        <div class="instruction-body">
-          <h3 class="center-text underline">
-            Please Read the Instructions Carefully
-          </h3>
-          <p class="note-box">
-            <strong>Note:</strong> This test is for familiarisation with the
-            NEET-PG Computer-Based Examination interface.
-          </p>
-          <h4 class="section-heading">General Instructions:</h4>
-          <ol class="inst-list">
-            <li>
-              The total duration of the examination and sections are strictly
-              time-bound.
-            </li>
-            <li>
-              The countdown timer at the top-right corner displays remaining
-              section time.
-            </li>
-            <li>
-              Sections are strictly non-switchable until the active section
-              timer expires.
-            </li>
-            <li>
-              The Question Palette indicates question status:
-              <ul class="palette-legend-list">
-                <li>
-                  <span class="legend-shape shape-not-visited">1</span> Not
-                  visited yet.
-                </li>
-                <li>
-                  <span class="legend-shape shape-not-answered">2</span> Not
-                  answered.
-                </li>
-                <li>
-                  <span class="legend-shape shape-answered">3</span> Answered.
-                </li>
-                <li>
-                  <span class="legend-shape shape-review">4</span> Marked for
-                  review.
-                </li>
-                <li>
-                  <span class="legend-shape shape-review-ans">5</span> Answered
-                  & marked for review (evaluated).
-                </li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-        <aside class="right-profile-rail">
-          <div class="avatar-large"></div>
-          <span class="cand-name-rail disp-cand-name">John Smith</span>
-        </aside>
-      </div>
-      <div class="bottom-action-rail right-align">
-        <button id="btn-inst-next" class="btn-default">Next</button>
-      </div>
-    </section>
-
-    <!-- 3. Subject Specific Instructions & Declaration -->
-    <section id="view-instructions-2" class="screen-view" hidden>
-      <div class="instruction-header-bar">Other Important Instructions</div>
-      <div class="instruction-main-layout">
-        <div class="instruction-body">
-          <h3 class="center-text">Subject Specific Instructions</h3>
-          <div class="table-responsive-wrapper">
-            <table class="nbems-spec-table">
-              <tr>
-                <td>Name of Exam</td>
-                <td>NEET-PG Mock Examination</td>
-              </tr>
-              <tr>
-                <td>Total Questions</td>
-                <td id="table-total-q">20</td>
-              </tr>
-              <tr>
-                <td>Time-bound Sections</td>
-                <td id="table-total-sec">5</td>
-              </tr>
-              <tr>
-                <td>Correct Response</td>
-                <td>+4 Marks</td>
-              </tr>
-              <tr>
-                <td>Incorrect Response</td>
-                <td>-1 Mark</td>
-              </tr>
-              <tr>
-                <td>Unattempted</td>
-                <td>0 Marks</td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="declaration-block">
-            <label class="checkbox-label">
-              <input type="checkbox" id="decl-check" />
-              <span
-                >I have read and understood all instructions. I declare that I
-                am appearing in accordance with examination rules.</span
-              >
-            </label>
-          </div>
-        </div>
-        <aside class="right-profile-rail">
-          <div class="avatar-large"></div>
-          <span class="cand-name-rail disp-cand-name">John Smith</span>
-        </aside>
-      </div>
-      <div class="bottom-action-rail between-align">
-        <button id="btn-inst-prev" class="btn-default">Previous</button>
-        <button id="btn-ready-begin" class="btn-primary-blue" disabled>
-          I am ready to begin
-        </button>
-      </div>
-    </section>
-
-    <!-- 4. CBT Exam Interface -->
+    <!-- 2. CBT Exam Interface -->
     <section id="view-exam" class="screen-view" hidden>
       <div class="exam-sub-top-bar">
         <span>Static Mock Link for NEET-PG</span>
@@ -371,16 +251,13 @@
           </button>
         </div>
         <div class="bar-right">
-          <button id="btn-prev-q" class="btn-cbt-default" hidden>
-            Previous
-          </button>
           <button id="btn-save-next" class="btn-cbt-blue">Save & Next</button>
           <button id="btn-submit-exam" class="btn-cbt-blue">Submit</button>
         </div>
       </footer>
     </section>
 
-    <!-- 5. Exam Summary -->
+    <!-- 3. Exam Summary -->
     <section id="view-summary" class="screen-view" hidden>
       <div class="summary-top-header">Exam Summary</div>
       <div class="summary-content" id="summary-tables-host"></div>
@@ -391,7 +268,7 @@
       </div>
     </section>
 
-    <!-- 6. Analytics & Review Dashboard -->
+    <!-- 4. Analytics & Review Dashboard -->
     <section id="view-analytics" class="screen-view" hidden>
       <div class="analytics-container">
         <div class="analytics-top-actions">
@@ -475,96 +352,98 @@
 
           <main class="analytics-main-pane">
             <div id="pane-questions" class="analytics-pane active">
-              <div class="pane-header-strip">
-                <h3 class="pane-heading">Question Review</h3>
-                <span id="filtered-count-label" class="filter-count-badge"
-                  >Showing all questions</span
-                >
+              <div class="pane-sticky-header">
+                <div class="pane-header-strip">
+                  <h3 class="pane-heading">Question Review</h3>
+                  <span id="filtered-count-label" class="filter-count-badge"
+                    >Showing all questions</span
+                  >
+                </div>
+
+                <div class="review-filter-toolbar">
+                  <div class="filter-group" id="group-filter-section">
+                    <label for="filter-section">Section</label>
+                    <select
+                      id="filter-section"
+                      onchange="onFilterChange('section', this.value)"
+                    >
+                      <option value="ALL">All Sections</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group" id="group-filter-status">
+                    <label for="filter-status">Result Status</label>
+                    <select
+                      id="filter-status"
+                      onchange="onFilterChange('status', this.value)"
+                    >
+                      <option value="ALL">All Results</option>
+                      <option value="CORRECT">Correct</option>
+                      <option value="WRONG">Incorrect</option>
+                      <option value="UNATTEMPTED">Unattempted</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group" id="group-filter-marked">
+                    <label for="filter-marked">Review Flag</label>
+                    <select
+                      id="filter-marked"
+                      onchange="onFilterChange('marked', this.value)"
+                    >
+                      <option value="ALL">All Questions</option>
+                      <option value="MARKED">Marked for Review</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group" id="group-filter-subject">
+                    <label for="filter-subject">Subject</label>
+                    <select
+                      id="filter-subject"
+                      onchange="onFilterChange('subject', this.value)"
+                    >
+                      <option value="ALL">All Subjects</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group" id="group-filter-system">
+                    <label for="filter-system">System</label>
+                    <select
+                      id="filter-system"
+                      onchange="onFilterChange('system', this.value)"
+                    >
+                      <option value="ALL">All Systems</option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group" id="group-filter-format">
+                    <label for="filter-format">Format</label>
+                    <select
+                      id="filter-format"
+                      onchange="onFilterChange('format', this.value)"
+                    >
+                      <option value="ALL">All Formats</option>
+                      <option value="Clinical Vignette">Clinical Vignette</option>
+                      <option value="Image-Based">Image-Based</option>
+                      <option value="One-Liner / Recall">
+                        One-Liner / Recall
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="filter-group btn-group">
+                    <button
+                      id="btn-reset-filters"
+                      class="btn-reset-filters"
+                      onclick="resetReviewFilters()"
+                      disabled
+                    >
+                      Reset Filters
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="review-filter-toolbar">
-                <div class="filter-group" id="group-filter-section">
-                  <label for="filter-section">Section</label>
-                  <select
-                    id="filter-section"
-                    onchange="onFilterChange('section', this.value)"
-                  >
-                    <option value="ALL">All Sections</option>
-                  </select>
-                </div>
-
-                <div class="filter-group" id="group-filter-status">
-                  <label for="filter-status">Result Status</label>
-                  <select
-                    id="filter-status"
-                    onchange="onFilterChange('status', this.value)"
-                  >
-                    <option value="ALL">All Results</option>
-                    <option value="CORRECT">Correct</option>
-                    <option value="WRONG">Incorrect</option>
-                    <option value="UNATTEMPTED">Unattempted</option>
-                  </select>
-                </div>
-
-                <div class="filter-group" id="group-filter-marked">
-                  <label for="filter-marked">Review Flag</label>
-                  <select
-                    id="filter-marked"
-                    onchange="onFilterChange('marked', this.value)"
-                  >
-                    <option value="ALL">All Questions</option>
-                    <option value="MARKED">Marked for Review</option>
-                  </select>
-                </div>
-
-                <div class="filter-group" id="group-filter-subject">
-                  <label for="filter-subject">Subject</label>
-                  <select
-                    id="filter-subject"
-                    onchange="onFilterChange('subject', this.value)"
-                  >
-                    <option value="ALL">All Subjects</option>
-                  </select>
-                </div>
-
-                <div class="filter-group" id="group-filter-system">
-                  <label for="filter-system">System</label>
-                  <select
-                    id="filter-system"
-                    onchange="onFilterChange('system', this.value)"
-                  >
-                    <option value="ALL">All Systems</option>
-                  </select>
-                </div>
-
-                <div class="filter-group" id="group-filter-format">
-                  <label for="filter-format">Format</label>
-                  <select
-                    id="filter-format"
-                    onchange="onFilterChange('format', this.value)"
-                  >
-                    <option value="ALL">All Formats</option>
-                    <option value="Clinical Vignette">Clinical Vignette</option>
-                    <option value="Image-Based">Image-Based</option>
-                    <option value="One-Liner / Recall">
-                      One-Liner / Recall
-                    </option>
-                  </select>
-                </div>
-
-                <div class="filter-group btn-group">
-                  <button
-                    id="btn-reset-filters"
-                    class="btn-reset-filters"
-                    onclick="resetReviewFilters()"
-                    disabled
-                  >
-                    Reset Filters
-                  </button>
-                </div>
-              </div>
-
-              <div id="analytics-question-review"></div>
+              <div id="analytics-question-review" class="scrollable-questions-list"></div>
             </div>
 
             <div id="pane-sections" class="analytics-pane" hidden>
@@ -619,6 +498,6 @@
       Updated : Loading...
     </footer>
 
-    <script src="app.js?v=20"></script>
+    <script src="app.js?v=21"></script>
   </body>
 </html>
