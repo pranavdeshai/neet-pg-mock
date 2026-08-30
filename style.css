@@ -1590,3 +1590,65 @@ body.dark-mode .review-card-footer { border-top-color: #374151; }
 body.dark-mode .meta-tag-pill { background: #075985; color: #e0f2fe; border-color: #0369a1; }
 body.dark-mode .meta-tag-pill.sys-pill { background: #581c87; color: #f3e8ff; border-color: #6b21a8; }
 body.dark-mode .meta-tag-pill.neutral-pill { background: #374151; color: #d1d5db; border-color: #4b5563; }
+
+/* Sticky Scaffolding for Performance Review Dashboard */
+.analytics-container {
+  max-width: 1200px;
+  margin: 10px auto 40px auto;
+  padding: 10px 16px;
+}
+
+.analytics-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+
+.analytics-sidebar {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  position: sticky;
+  top: 10px;
+  align-self: flex-start;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.analytics-main-pane {
+  flex: 1;
+  min-width: 0;
+}
+
+.pane-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #ffffff;
+  padding-bottom: 4px;
+}
+
+.scrollable-questions-list {
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 6px;
+}
+
+/* Dark mode sticky background */
+body.dark-mode .pane-sticky-header {
+  background: #1f2937;
+}
+
+body.dark-mode .analytics-sidebar {
+  background: #1f2937;
+  border-color: #374151;
+}
