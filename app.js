@@ -46,11 +46,8 @@ window.addEventListener('beforeunload', (e) => {
 
 function initData() {
   state.responses = {};
-  let totalQ = 0;
-
   examData.sections.forEach((sec) => {
     sec.questions.forEach((q) => {
-      totalQ++;
       state.responses[q.id] = {
         selectedOption: null,
         status: 'NOT_VISITED',
@@ -60,12 +57,6 @@ function initData() {
       };
     });
   });
-
-  const totalElem = document.getElementById('table-total-q');
-  if (totalElem) totalElem.innerText = totalQ;
-
-  const totalSecElem = document.getElementById('table-total-sec');
-  if (totalSecElem) totalSecElem.innerText = examData.sections.length;
 
   setupScreenTransitions();
   loadLastUpdatedCommit();
@@ -192,7 +183,7 @@ function normalizeAndValidateExamData(parsed) {
   parsed.sections.forEach((sec, sIdx) => {
     sec.id = sec.id || `sec_${sIdx + 1}`;
     sec.name = sec.name || `Section ${String.fromCharCode(65 + sIdx)}`;
-    sec.durationMinutes = Number(sec.durationMinutes) || 15;
+    sec.durationMinutes = Number(sec.durationMinutes) || 4;
 
     if (!Array.isArray(sec.questions) || sec.questions.length === 0) {
       throw new Error(`Section "${sec.name}" must contain questions.`);
@@ -296,28 +287,15 @@ function setupScreenTransitions() {
     }
 
     initData();
-    saveSessionState();
-    showScreen('view-instructions-1');
-  };
-
-  document.getElementById('btn-inst-next').onclick = () => showScreen('view-instructions-2');
-  document.getElementById('btn-inst-prev').onclick = () => showScreen('view-instructions-1');
-
-  const declCheck = document.getElementById('decl-check');
-  declCheck.onchange = () => {
-    document.getElementById('btn-ready-begin').disabled = !declCheck.checked;
-  };
-
-  document.getElementById('btn-ready-begin').onclick = () => {
     isExamActive = true;
     showScreen('view-exam');
     startSection(0);
+    saveSessionState();
   };
 
   document.getElementById('btn-save-next').onclick = handleSaveAndNext;
   document.getElementById('btn-mark-review').onclick = handleMarkForReviewAndNext;
   document.getElementById('btn-clear-response').onclick = handleClearResponse;
-  document.getElementById('btn-prev-q').onclick = handlePreviousQuestion;
 
   document.getElementById('btn-submit-exam').onclick = () => {
     if (confirm('Are you sure you want to submit the examination? Answers cannot be modified later.')) {
@@ -466,9 +444,6 @@ function renderCurrentQuestion() {
   document.getElementById('q-number-title').innerText = `Question No. ${currentQuestionIdx + 1}`;
   document.getElementById('q-statement').innerText = q.question;
 
-  const prevBtn = document.getElementById('btn-prev-q');
-  if (prevBtn) prevBtn.style.display = currentQuestionIdx > 0 ? 'inline-block' : 'none';
-
   const imgBox = document.getElementById('q-image-container');
   imgBox.innerHTML = q.image ? `<img src="${q.image}" alt="Clinical vignette">` : '';
 
@@ -589,14 +564,6 @@ function handleClearResponse() {
   state.responses[q.id].status = 'NOT_ANSWERED';
   renderCurrentQuestion();
   saveSessionState();
-}
-
-function handlePreviousQuestion() {
-  if (currentQuestionIdx > 0) {
-    currentQuestionIdx--;
-    renderCurrentQuestion();
-    saveSessionState();
-  }
 }
 
 function advanceNextQuestion() {
